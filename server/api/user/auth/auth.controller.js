@@ -1,6 +1,6 @@
 const passport = require('passport');
 const bcrypt = require('bcrypt');
-const User = require('../../models/User');
+const User = require('../user.model');
 
 module.exports = {
   signupPost: (req, res, next) => {
@@ -21,7 +21,7 @@ module.exports = {
         password: hashPass
       });
 
-      return theUser.save().exec()
+      return theUser.save()
       .then(user => {
         req.login(user, (err) => {
           if(err)
