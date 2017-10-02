@@ -1,15 +1,9 @@
-const express = require('express');
-const router = express.Router();
-const fuzzyis = require('fuzzyis');
-const system = new fuzzyis.FIS('Tip system');
-const LinguisticVariable = fuzzyis.LinguisticVariable;
-const Term = fuzzyis.Term;
-const Rule = fuzzyis.Rule;
+var path = require('path');
 
+module.exports = function(app) {
+  app.use('/api/auth', require('../api/auth'));
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
-
-module.exports = router;
+  app.all('/*', function (req, res) {
+    res.sendfile(__dirname + '/public/index.html');
+  });
+};
