@@ -18,7 +18,8 @@ module.exports = {
   },
 
   editPost: (req, res, next) => {
-    const { commentId, rating, text } = req.body;
+    const { rating, text } = req.body;
+    const commentId = req.params.id;
     
     Comnt.findById( commentId ).exec()
     .then( comment => {

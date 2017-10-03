@@ -2,7 +2,8 @@ const User = require('./user.model');
 
 module.exports = {
   editPost: (req, res, next) => {
-    const { userId, name, phone, email } = req.body;
+    const { name, phone, email } = req.body;
+    const userId = req.params.id;
     
     User.find({ email })
     .then( users => {
