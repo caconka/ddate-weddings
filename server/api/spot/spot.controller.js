@@ -20,7 +20,7 @@ module.exports = {
     Spot.findOne({ spotName }).exec()
     .then( spot => {
       if(spot)
-      return res.status(400).json({ message: 'The spot already exists' });
+        return res.status(400).json({ message: 'The spot already exists' });
       
       // const theSpot = new Spot({
       //   userId, spotName, location, photos,

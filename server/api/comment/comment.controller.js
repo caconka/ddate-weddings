@@ -7,7 +7,7 @@ module.exports = {
     Comnt.findOne({ userId, spotId }, '_id').exec()
     .then( comment => {
       if(comment)
-      return res.status(400).json({ message: 'You have already make a comment' });
+        return res.status(400).json({ message: 'You have already make a comment' });
       
       const theComment = new Comnt({
         userId, spotId, rating, text
