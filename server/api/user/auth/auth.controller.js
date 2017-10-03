@@ -16,10 +16,7 @@ module.exports = {
 
       const salt = bcrypt.genSaltSync(10);
       const hashPass = bcrypt.hashSync(password, salt);
-      const theUser = new User({
-        email, name, role,
-        password: hashPass
-      });
+      const theUser = new User({ email, name, role, password: hashPass });
 
       return theUser.save()
       .then( user => {
@@ -31,9 +28,7 @@ module.exports = {
         });
       })
     })
-    .catch( e => {
-      res.status(400).json({ message: 'Something went wrong' })
-    });
+    .catch( e => res.status(400).json({ message: 'Something went wrong' }));
   },
 
   loginPost: (req, res, next) => {
@@ -61,6 +56,7 @@ module.exports = {
   loggedin: (req, res, next) => {
     if (req.isAuthenticated())
       return res.status(200).json(req.user);
+
     res.status(403).json({ message: 'Unauthorized' });
   }
 }

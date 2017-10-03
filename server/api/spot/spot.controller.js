@@ -31,10 +31,8 @@ module.exports = {
       });
 
       theSpot.save()
-      .then( spot => { res.status(200).json(spot) })
+      .then( spot => res.status(200).json(spot))
     })
-    .catch( e => {
-      res.status(400).json({ message: 'Something went wrong' })
-    });
+    .catch( e => res.status(400).json({ message: 'Something went wrong' }));
   }
 }
