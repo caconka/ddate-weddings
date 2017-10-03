@@ -9,18 +9,17 @@ module.exports = {
       let control = true;
 
       users.forEach( user => {
-        if(user._id.toString() !== userId)
+        if(user._id.toString() !== userId) {
           control = false;
+          return res.status(400).json({ message: 'The email already exists' }); 
+        }
       })
 
       if(control) {
         const updates = { name, phone, email }
   
         User.findByIdAndUpdate(userId, updates, { new: true }).exec()
-        .then( user => res.status(200).json(user));
-
-      } else {
-        return res.status(400).json({ message: 'The email already exists' }); 
+        .then( user => res.status(200).json(user))
       }
     })
     .catch( e => res.status(400).json({ message: 'Something went wrong' }));

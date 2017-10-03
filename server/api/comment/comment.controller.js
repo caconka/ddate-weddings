@@ -11,7 +11,7 @@ module.exports = {
       
       const theComment = new Comnt({ userId, spotId, rating, text });
 
-      theComment.save()
+      return theComment.save()
       .then( comment => { res.status(200).json(comment) })
     })
     .catch( e => res.status(400).json({ message: 'Something went wrong' }));
@@ -22,10 +22,10 @@ module.exports = {
     
     Comnt.findById( commentId ).exec()
     .then( comment => {
-      const updates = { name, phone, email }
+      const updates = { rating, text }
 
-      User.findByIdAndUpdate(userId, updates, { new: true }).exec()
-      .then( user => res.status(200).json(user));
+      Comnt.findByIdAndUpdate(commentId, updates, { new: true }).exec()
+      .then( comment => res.status(200).json(comment));
     })
     .catch( e => res.status(400).json({ message: 'Something went wrong' }));
   }
