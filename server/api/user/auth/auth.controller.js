@@ -10,7 +10,7 @@ module.exports = {
       return res.status(400).json({ message: 'Provide email and password' });
 
     User.findOne({ email }, '_id').exec()
-    .then(user => {
+    .then( user => {
       if(user)
         return res.status(400).json({ message: 'The email already exists' });
 
@@ -22,7 +22,7 @@ module.exports = {
       });
 
       return theUser.save()
-      .then(user => {
+      .then( user => {
         req.login(user, (err) => {
           if(err)
             return res.status(500).json({ message: 'Something went wrong' });
@@ -31,7 +31,7 @@ module.exports = {
         });
       })
     })
-    .catch(e => {
+    .catch( e => {
       res.status(400).json({ message: 'Something went wrong' })
     });
   },
