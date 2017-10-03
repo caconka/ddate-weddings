@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const spotSchema = new Schema ({
   userId: { type: Schema.Types.ObjectId, ref:'User', required: true },
   spotName: String,
-  location: Point,
+  location: { type: Number },
   photos: [{ 
     pic_path: String,
     pic_name: String

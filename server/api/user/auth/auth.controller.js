@@ -4,7 +4,7 @@ const User = require('../user.model');
 
 module.exports = {
   signupPost: (req, res, next) => {
-    const { email, password } = req.body;
+    const { email, password, name, role } = req.body;
 
     if (!email || !password)
       return res.status(400).json({ message: 'Provide email and password' });
@@ -14,10 +14,10 @@ module.exports = {
       if(user)
         return res.status(400).json({ message: 'The email already exists' });
 
-      const salt     = bcrypt.genSaltSync(10);
+      const salt = bcrypt.genSaltSync(10);
       const hashPass = bcrypt.hashSync(password, salt);
       const theUser = new User({
-        email,
+        email, name, role,
         password: hashPass
       });
 

@@ -2,13 +2,17 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema ({
+  name: { type: String, required: true },
   email: { type: String, required: true },
   password: { type: String, required: true },
-  name: String,
   phone: Number,
+  photo: {
+    pic_path: String,
+    pic_name: String
+  },
   role: {
     type: String,
-    enum: ['Admin', 'User', 'Spot']
+    enum: ['Admin', 'User', 'Client']
   }
 });
 userSchema.set('timestamps', true);
