@@ -16,8 +16,16 @@ const spotSchema = new Schema ({
       min: Number,
       max: Number
     },
-    menuPrice: Number
-  }
+    menuPrice: Number,
+    style: {
+      type: String,
+      enum: ['Mountain', 'City', 'Beach', 'Countryside']
+    }
+  },
+  menus: [{
+    pic_path: String,
+    pic_name: String
+  }]
 });
 spotSchema.set('timestamps', true);
 

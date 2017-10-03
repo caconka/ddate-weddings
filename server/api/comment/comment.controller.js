@@ -2,7 +2,8 @@ const Comnt = require('./comment.model');
 
 module.exports = {
   createPost: (req, res, next) => {
-    const { userId, spotId, rating, text } = req.body;
+    const { spotId, rating, text } = req.body;
+    const userId = req.params.id;
     
     Comnt.findOne({ userId, spotId }, '_id').exec()
     .then( comment => {
