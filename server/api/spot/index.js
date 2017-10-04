@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const Controller = require('./spot.controller')
+const { ensureLoggedIn } = require('connect-ensure-login');
+const checkRole = require('../../middleware/check-role');
+const Controller = require('./spot.controller');
 
-router.post('/signup', Controller.signupPost); 
+router.post('/signup', ensureLoggedIn(), checkRole.isAdmin, Controller.signupPost); 
 
 module.exports = router;

@@ -12,7 +12,8 @@ const userSchema = new Schema ({
   },
   role: {
     type: String,
-    enum: [ 'Admin', 'User', 'Provider' ]
+    enum: [ 'Admin', 'User', 'Provider' ],
+    default: 'User'
   }
 });
 userSchema.set('timestamps', true);
