@@ -49,5 +49,13 @@ module.exports = {
       .then( wedding => res.status(200).json(wedding))
     })
     .catch( e => res.status(400).json({ message: 'Something went wrong' }));
+  },
+
+  listFavoritesGet: (req, res, next) => {
+    const userId = req.params.id;
+
+    Wedding.findOne({ userId }).populate('favoritSpots').exec()
+    .then( wedding => res.status(200).json(wedding.favoritSpots))
+    .catch( e => res.status(400).json({ message: 'Something went wrong' }));
   }
 }
