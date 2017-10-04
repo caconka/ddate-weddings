@@ -34,5 +34,17 @@ module.exports = {
       .then( spot => res.status(200).json(spot))
     })
     .catch( e => res.status(400).json({ message: 'Something went wrong' }));
+  },
+
+  viewGet: (req, res, next) => {
+    const spotId = req.params.id;
+
+    Spot.findById(spotId).exec()
+    .then( spot => {
+      const visits = spot.visits + 1;
+      Spot.findByIdAndUpdate(spotId, { $set: { visits }}, { new: true }).exec()
+      .then( spot => res.status(200).json(spot))
+    })
+    .catch( e => res.status(400).json({ message: 'Something went wrong' }));
   }
 }

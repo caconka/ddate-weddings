@@ -25,7 +25,8 @@ const spotSchema = new Schema ({
   menus: [{
     pic_path: String,
     pic_name: String
-  }]
+  }],
+  visits: { type: Number, default: 0, required: true }
 });
 spotSchema.set('timestamps', true);
 

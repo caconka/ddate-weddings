@@ -45,7 +45,7 @@ module.exports = {
       const favorits = wedding.favoritSpots.filter( item => item != spotId );
 
       Wedding.findByIdAndUpdate(wedding._id, { $set: { favoritSpots: favorits }}, 
-        { new:true }).exec()
+        { new: true }).exec()
       .then( wedding => res.status(200).json(wedding))
     })
     .catch( e => res.status(400).json({ message: 'Something went wrong' }));
