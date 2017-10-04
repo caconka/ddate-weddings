@@ -5,5 +5,6 @@ const Controller = require('./comment.controller');
 
 router.post('/:id/create', checkIdParams, Controller.createPost); 
 router.post('/:id/edit', checkIdParams, Controller.editPost); 
+router.get('/:id/list', checkIdParams, Controller.listGet); 
 
 module.exports = router;

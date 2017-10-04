@@ -43,8 +43,9 @@ module.exports = {
     Wedding.findOne({ userId }).exec()
     .then( wedding => {
       const favorits = wedding.favoritSpots.filter( item => item != spotId );
-      console.log(favorits)
-      Wedding.findByIdAndUpdate(wedding._id, { $set: { favoritSpots: favorits }}, { new:true })
+
+      Wedding.findByIdAndUpdate(wedding._id, { $set: { favoritSpots: favorits }}, 
+        { new:true }).exec()
       .then( wedding => res.status(200).json(wedding))
     })
     .catch( e => res.status(400).json({ message: 'Something went wrong' }));

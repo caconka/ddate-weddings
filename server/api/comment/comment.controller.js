@@ -30,5 +30,13 @@ module.exports = {
       .then( comment => res.status(200).json(comment));
     })
     .catch( e => res.status(400).json({ message: 'Something went wrong' }));
+  },
+
+  listGet: (req, res, next) => {
+    const spotId = req.params.id;
+
+    Comnt.find({ spotId }).populate({ path: 'userId', select: 'name' }).exec()
+    .then( comments => res.status(200).json(comments))
+    .catch( e => res.status(400).json({ message: 'Something went wrong' }));
   }
 }
