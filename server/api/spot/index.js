@@ -7,5 +7,7 @@ const Controller = require('./spot.controller');
 
 router.post('/signup', ensureLoggedIn(), checkRole.isAdmin, Controller.signupPost); 
 router.get('/:id/view', checkIdParams, Controller.viewGet); 
+router.get('/list', Controller.listGet); 
+router.get('/list-visit', Controller.listVisitGet); 
 
 module.exports = router;
