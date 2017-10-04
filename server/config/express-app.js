@@ -4,8 +4,19 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const path = require('path');
 const rootPath = require('path').normalize(__dirname + '/../');
+const cors = require('cors');
+
+const whitelist = ['http://localhost:4200'];
+const corsOptions = {
+  origin: function(origin, callback) {
+      const originIsWhitelisted = whitelist.indexOf(origin) !== -1;
+      callback(null, originIsWhitelisted);
+  },
+  credentials: true
+};
 
 module.exports = app => {
+  app.use(cors(corsOptions));
   app.set('views', rootPath + 'views');
   app.set('view engine', 'jade');
 
