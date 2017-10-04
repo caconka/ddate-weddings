@@ -11,12 +11,13 @@ module.exports = {
         Wedding.findByIdAndUpdate( wedding._id, 
           { $push: { favoritSpots: spotId }}, { new:true }).exec()
         .then( wedding => res.status(200).json(wedding))
-      }
-      
-      const theWedding = new Wedding({ userId, favoritSpots: [ spotId ] });
 
-      return theWedding.save()
-      .then( wedding => { res.status(200).json(wedding) })
+      } else {
+        const theWedding = new Wedding({ userId, favoritSpots: [ spotId ] });
+  
+        return theWedding.save()
+        .then( wedding => { res.status(200).json(wedding) })
+      }
     })
     .catch( e => res.status(400).json({ message: 'Something went wrong' }));
   },
@@ -36,11 +37,15 @@ module.exports = {
   },
 
   deleteFavoritPost: (req, res, next) => {
+    const { spotId } = req.body;
     const userId = req.params.id;
 
-    Wedding.findOne({ userId }, '_id').exec()
+    Wedding.findOne({ userId }).exec()
     .then( wedding => {
-
+      const favorits = wedding.favoritSpots.filter( item => item != spotId );
+      console.log(favorits)
+      Wedding.findByIdAndUpdate(wedding._id, { $set: { favoritSpots: favorits }}, { new:true })
+      .then( wedding => res.status(200).json(wedding))
     })
     .catch( e => res.status(400).json({ message: 'Something went wrong' }));
   }
