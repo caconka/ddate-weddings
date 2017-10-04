@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from '../services/auth.service';
+import { AuthService } from '../services/auth.service';
 
 interface LoginForm{
-  email: string;
-  password: string;
+  email: string,
+  password: string
 }
 
 @Component({
@@ -12,9 +12,9 @@ interface LoginForm{
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  formInfo:LoginForm = {
-    email: "",
-    password: ""
+  formInfo: LoginForm = {
+    email: '',
+    password: ''
   };
 
   constructor( public auth: AuthService ) { }
@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  login(){
+  login() {
     const { email, password } = this.formInfo;
     if(email != "" && password != ""){
       console.log(`Login with ${email} ${password}`)

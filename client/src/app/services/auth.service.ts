@@ -35,14 +35,14 @@ export class AuthService {
       return Observable.throw(e.json().message);
     }
 
-    signup(email,password) {
-      return this.http.post(`${BASEURL}/signup`, { email, password }, this.options)
+    signup(email, password, name, role) {
+      return this.http.post(`${BASEURL}/signup`, { email, password, name, role }, this.options)
         .map(res => res.json())
         .map(user => this.emitUserLoginEvent(user))
         .catch(this.handleError);
     }
 
-    login(email,password) {
+    login(email, password) {
       return this.http.post(`${BASEURL}/login`, { email, password }, this.options)
         .map(res => res.json())
         .map(user => this.emitUserLoginEvent(user))

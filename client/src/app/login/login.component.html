@@ -1,10 +1,20 @@
-<form >
+<form>
   <h2> Login </h2>
   <label> Email </label>
-  <input type="text" [(ngModel)]="formInfo.email" name="email"/>
+  <input type="email" [(ngModel)]="formInfo.email" name="email"
+     #myEmail="ngModel" required/>
+  <p *ngIf="myEmail.errors && (myEmail.dirty || myEmail.touched)" class="error"
+     [hidden]="!myEmail.errors.required"> Email is required </p>
   <br>
-  <label> Password </label>
-  <input type="password" [(ngModel)]="formInfo.password" name="password"/>
 
-  <button (click)="login()"> login </button>
+  <label> Password </label>
+  <input type="password" [(ngModel)]="formInfo.password" name="password"
+     #myPass="ngModel" required/>
+  <p *ngIf="myPass.errors && (myPass.dirty || myPass.touched)" class="error"
+     [hidden]="!myPass.errors.required"> Password is required </p>
+  <br>
+
+  <button (click)="login()" [disabled]="myEmail.errors || myPass.errors"> login </button>
 </form>
+
+<p *ngIf="errorControl" class="error"> Something went wrong </p>

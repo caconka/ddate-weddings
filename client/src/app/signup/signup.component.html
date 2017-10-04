@@ -1,3 +1,29 @@
-<p>
-  signup works!
-</p>
+<form>
+  <h2> Signup </h2>
+  <label> Email </label>
+  <input type="email" [(ngModel)]="formInfo.email" name="email" 
+     #myEmail="ngModel" required/>
+  <p *ngIf="myEmail.errors && (myEmail.dirty || myEmail.touched)" class="error"
+     [hidden]="!myEmail.errors.required"> Email is required </p>
+  <br>
+
+  <label> Password </label>
+  <input type="password" [(ngModel)]="formInfo.password" name="password" 
+     #myPass="ngModel" required/>
+  <p *ngIf="myPass.errors && (myPass.dirty || myPass.touched)" class="error"
+     [hidden]="!myPass.errors.required"> Password is required </p>
+  <br>
+
+  <label> Name </label>
+  <input type="text" [(ngModel)]="formInfo.name" name="name" #myName="ngModel"
+      required/>
+  <p *ngIf="myName.errors && (myName.dirty || myName.touched)" class="error"
+     [hidden]="!myName.errors.required"> Name is required </p>
+  <br>
+
+  <button (click)="signup()" [disabled]="myEmail.errors || myPass.errors || myName.errors">
+    Signup
+  </button>
+</form>
+
+<p *ngIf="errorControl" class="error"> Something went wrong </p>
