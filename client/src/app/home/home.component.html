@@ -2,6 +2,8 @@
 <div *ngFor="let spot of mostVisited">
   {{spot.spotName}}
   <a [routerLink]="[spot._id, 'comments']">Comments</a>
+  <a *ngIf="user" (click)="addToFavorites(user._id, spot._id)">
+    Add to favorites</a>
 </div>
 
 <h4>Todos</h4>

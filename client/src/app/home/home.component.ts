@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { SpotService } from '../services/spot.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -12,8 +13,8 @@ export class HomeComponent implements OnInit {
   spots: Array<object>;
   mostVisited: Array<object>;
 
-  constructor( private auth: AuthService, 
-               private spot: SpotService ) {
+  constructor( private auth: AuthService, private userService: UserService, 
+               private spotService: SpotService ) {
 
     this.user = this.auth.getUser();
     this.auth.getLoginEventEmitter()
@@ -21,11 +22,15 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.spot.list()
+    this.spotService.list()
     .subscribe( list => this.spots = list );
 
-    this.spot.listMostVisited()
+    this.spotService.listMostVisited()
     .subscribe( list => this.mostVisited = list );
   }
 
+  addToFavorites(userId, spotId) {
+    this.userService.addFavorit(userId, spotId)
+    .subscribe( favorit => console.log(favorit) );
+  }
 }

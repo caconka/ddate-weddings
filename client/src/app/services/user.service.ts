@@ -22,4 +22,10 @@ export class UserService {
       .map( res => res.json() )
       .catch( this.handleError );
   }
+
+  addFavorit(userId, spotId) {
+    return this.http.post(`${BASEURL}/wedding/${userId}/add`, { spotId }, this.options)
+      .map( res => res.json() )
+      .catch( this.handleError );
+  }
 }

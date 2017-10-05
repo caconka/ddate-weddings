@@ -1,5 +1,4 @@
 const Wedding = require('./wedding.model');
-const Spot = require('../spot/spot.model');
 
 module.exports = {
   addFavoritPost: (req, res, next) => {
