@@ -11,6 +11,9 @@ import { SignupComponent } from './signup/signup.component';
 import { routes } from './routes';
 import { IsLoggedInService } from './services/isLoggedIn.service';
 import { AuthService } from './services/auth.service';
+import { SearchComponent } from './search/search.component';
+import { FavoritesComponent } from './favorites/favorites.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { AuthService } from './services/auth.service';
     HomeComponent,
     NavComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    SearchComponent,
+    FavoritesComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
