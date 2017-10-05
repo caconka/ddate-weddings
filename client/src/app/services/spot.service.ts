@@ -34,4 +34,10 @@ export class SpotService {
       .map( res => res.json() )
       .catch( this.handleError );
   }
+
+  listProvider(id) {
+    return this.http.get(`${BASEURL}/spot/${id}/provider`, this.options)
+      .map( res => res.json() )
+      .catch( this.handleError );
+  }
 }

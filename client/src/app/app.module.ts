@@ -19,6 +19,9 @@ import { IsLoggedInService } from './services/isLoggedIn.service';
 import { AuthService } from './services/auth.service';
 import { SpotService } from './services/spot.service';
 import { UserService } from './services/user.service';
+import { ProviderSpotComponent } from './provider-spot/provider-spot.component';
+import { EditSpotComponent } from './provider-spot/edit-spot/edit-spot.component';
+import { ProviderSignupComponent } from './provider-signup/provider-signup.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { UserService } from './services/user.service';
     ProfileComponent,
     SpotComponent,
     MessagesComponent,
-    CommentsComponent
+    CommentsComponent,
+    ProviderSpotComponent,
+    EditSpotComponent,
+    ProviderSignupComponent
   ],
   imports: [
     BrowserModule,

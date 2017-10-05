@@ -1,17 +1,29 @@
-<h4>Los más vistos</h4>
-<div *ngFor="let spot of mostVisited">
-  {{spot.spotName}}
-  <a [routerLink]="[spot._id, 'comments']">Comments</a>
-  <div *ngIf="favorites">
-    <a *ngIf="checkFavorit(spot._id)" 
-       (click)="deleteFromFavorites(user._id, spot._id)"> Delete </a>
-    <a *ngIf="!checkFavorit(spot._id) || favorites == []" 
-       (click)="addToFavorites(user._id, spot._id)"> Add to favorites </a>
+<div *ngIf="user">
+  <div *ngIf="user.role === 'Admin'">
+    <app-provider-signup></app-provider-signup>
   </div>
-</div>
+  <div *ngIf="user.role === 'Provider'">
+    <app-provider-spot></app-provider-spot>
+  </div>
 
-<h4>Todos</h4>
-<div *ngFor="let spot of spots">
-  {{spot.spotName}}
-  <a [routerLink]="[spot._id, 'comments']">Comments</a>
+  <div *ngIf="user.role === 'User'">
+    <h4>Los más vistos</h4>
+    <div *ngFor="let spot of mostVisited">
+      {{spot.spotName}}
+      <a [routerLink]="[spot._id, 'comments']">Comments</a>
+
+      <div *ngIf="favorites">
+        <a *ngIf="checkFavorit(spot._id)" 
+           (click)="deleteFromFavorites(user._id, spot._id)"> Delete </a>
+        <a *ngIf="!checkFavorit(spot._id)" 
+           (click)="addToFavorites(user._id, spot._id)"> Add to favorites </a>
+      </div>
+    </div>
+    
+    <h4>Todos</h4>
+    <div *ngFor="let spot of spots">
+      {{spot.spotName}}
+      <a [routerLink]="[spot._id, 'comments']">Comments</a>
+    </div>
+  </div>
 </div>

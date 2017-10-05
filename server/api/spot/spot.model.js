@@ -20,7 +20,12 @@ const spotSchema = new Schema ({
     menuPrice: Number,
     style: {
       type: String,
-      enum: ['Mountain', 'City', 'Beach', 'Countryside']
+      enum: ['Montaña', 'Ciudad', 'Playa', 'Campo']
+    },
+    place: {
+      type: String,
+      enum: ['Finca', 'Hotel', 'Restaurante', 'Convento', 'Castillo', 
+            'Casa Rural', 'Bodega', 'Palacio', 'Otros']
     }
   },
   menus: [{
