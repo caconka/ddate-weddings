@@ -1,5 +1,11 @@
 <h4>Los más vistos</h4>
-<div>{{mostVisited | json}}</div>
+<div *ngFor="let spot of mostVisited">
+  {{spot.spotName}}
+  <a [routerLink]="[spot._id, 'comments']">Comments</a>
+</div>
 
 <h4>Todos</h4>
-<div>{{spots | json}}</div>
+<div *ngFor="let spot of spots">
+  {{spot.spotName}}
+  <a [routerLink]="[spot._id, 'comments']">Comments</a>
+</div>

@@ -11,7 +11,6 @@ router.post('/:id/create', checkIdParams, ensureLoggedIn(), checkRole.isUser,
 router.post('/:id/edit', checkIdParams, ensureLoggedIn(), checkRole.isUser,
             Controller.editPost); 
             
-router.get('/:id/list', checkIdParams, ensureLoggedIn(), checkRole.isUser,
-            Controller.listGet); 
+router.get('/:id/list', checkIdParams, Controller.listGet); 
 
 module.exports = router;

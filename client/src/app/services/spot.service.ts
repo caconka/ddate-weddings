@@ -4,7 +4,7 @@ import { Http } from '@angular/http';
 import 'rxjs';
 import { environment } from '../../environments/environment';
 
-const BASEURL = environment.BASEURL + "/spot";
+const BASEURL = environment.BASEURL;
 
 @Injectable()
 export class SpotService {
@@ -20,13 +20,19 @@ export class SpotService {
   }
 
   list() {
-    return this.http.get(`${BASEURL}/list`, this.options)
+    return this.http.get(`${BASEURL}/spot/list`, this.options)
       .map( res => res.json() )
       .catch( this.handleError );
   }
 
   listMostVisited() {
-    return this.http.get(`${BASEURL}/list-visit`, this.options)
+    return this.http.get(`${BASEURL}/spot/list-visit`, this.options)
+      .map( res => res.json() )
+      .catch( this.handleError );
+  }
+
+  getComments(id) {
+    return this.http.get(`${BASEURL}/comment/${id}/list`, this.options)
       .map( res => res.json() )
       .catch( this.handleError );
   }
