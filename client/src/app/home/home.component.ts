@@ -23,15 +23,22 @@ export class HomeComponent implements OnInit {
     this.auth.getLoginEventEmitter()
     .subscribe( user => {  
       this.user = user 
-      this.userService.getFavorites(this.user._id)
-      .subscribe( favorites => { this.favorites = favorites });
+      this.asignFavorites(user._id)
     });
+
+    if(this.user !== undefined) 
+      this.asignFavorites(this.user._id)
     
     this.spotService.list()
     .subscribe( list => this.spots = list );
     
     this.spotService.listMostVisited()
     .subscribe( list => this.mostVisited = list );
+  }
+
+  private asignFavorites(userId) {
+    this.userService.getFavorites(userId)
+    .subscribe( favorites => { this.favorites = favorites });
   }
 
   addToFavorites(userId, spotId) {
