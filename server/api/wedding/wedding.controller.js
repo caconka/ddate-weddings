@@ -9,8 +9,8 @@ module.exports = {
     .then( wedding => {
       if(wedding) {
         Wedding.findByIdAndUpdate( wedding._id, 
-          { $push: { favoritSpots: spotId }}, { new:true }).exec()
-        .then( wedding => res.status(200).json(wedding))
+          { $push: { favoritSpots: spotId }}, { new:true }).populate('favoritSpots').exec()
+        .then( wedding => res.status(200).json(wedding.favoritSpots))
 
       } else {
         const theWedding = new Wedding({ userId, favoritSpots: [ spotId ] });
@@ -45,8 +45,8 @@ module.exports = {
       const favorits = wedding.favoritSpots.filter( item => item != spotId );
 
       Wedding.findByIdAndUpdate(wedding._id, { $set: { favoritSpots: favorits }}, 
-        { new: true }).exec()
-      .then( wedding => res.status(200).json(wedding))
+        { new: true }).populate('favoritSpots').exec()
+      .then( wedding => res.status(200).json(wedding.favoritSpots))
     })
     .catch( e => res.status(400).json({ message: 'Something went wrong' }));
   },

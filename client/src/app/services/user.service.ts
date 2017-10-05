@@ -28,4 +28,20 @@ export class UserService {
       .map( res => res.json() )
       .catch( this.handleError );
   }
+
+  deleteFromFavorites(userId, spotId) {
+    return this.http.post(`${BASEURL}/wedding/${userId}/delete`, { spotId }, this.options)
+      .map( res => res.json() )
+      .catch( this.handleError );
+  }
+
+  checkFavorit(favorites, spotId) {
+    let control = false;
+    favorites.forEach( favorit => {
+      if(favorit._id == spotId)
+        control = true;
+    })
+    return control;
+  }
+
 }

@@ -8,8 +8,10 @@ module.exports = app => {
     secret: 'probando unas cosas',
     resave: false,
     saveUninitialized: true,
-    cookie: { httpOnly: true, maxAge: 24 * 60 * 60 },
-    store: new MongoStore({ mongooseConnection: mongoose.connection })
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection,
+      ttl: 24 * 60 * 60 // 1 day
+    })
   }));
 
   require('./passport/serializers');

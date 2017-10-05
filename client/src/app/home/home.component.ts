@@ -9,28 +9,42 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  user: object;
+  user: any;
   spots: Array<object>;
   mostVisited: Array<object>;
+  favorites: Array<object>;
 
   constructor( private auth: AuthService, private userService: UserService, 
-               private spotService: SpotService ) {
-
-    this.user = this.auth.getUser();
-    this.auth.getLoginEventEmitter()
-      .subscribe( user => this.user = user );
-  }
-
+               private spotService: SpotService ) { }
+              
   ngOnInit() {
+    this.user = this.auth.getUser();
+
+    this.auth.getLoginEventEmitter()
+    .subscribe( user => {  
+      this.user = user 
+      this.userService.getFavorites(this.user._id)
+      .subscribe( favorites => { this.favorites = favorites });
+    });
+    
     this.spotService.list()
     .subscribe( list => this.spots = list );
-
+    
     this.spotService.listMostVisited()
     .subscribe( list => this.mostVisited = list );
   }
 
   addToFavorites(userId, spotId) {
     this.userService.addFavorit(userId, spotId)
-    .subscribe( favorit => console.log(favorit) );
+    .subscribe( favorites => { this.favorites = favorites });
+  }
+
+  deleteFromFavorites(userId, spotId) {
+    this.userService.deleteFromFavorites(userId, spotId)
+    .subscribe( favorites => { this.favorites = favorites });
+  }
+
+  checkFavorit(spotId) {
+    return this.userService.checkFavorit(this.favorites, spotId);
   }
 }

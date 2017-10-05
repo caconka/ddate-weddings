@@ -7,8 +7,10 @@
 </div>
 <ul>
   <li><a [routerLink]="['/']">Inicio</a></li>
-  <li><a [routerLink]="['/signup']">Signup</a></li>
-  <li><a [routerLink]="['/login']">Login</a></li>
+  <div *ngIf="!user">
+    <li><a [routerLink]="['/signup']">Signup</a></li>
+    <li><a [routerLink]="['/login']">Login</a></li>
+  </div>
   <li><a [routerLink]="['/search']">Buscar</a></li>
   <li><a [routerLink]="['/spot']">Lugar</a></li>
   <div *ngIf="user">
