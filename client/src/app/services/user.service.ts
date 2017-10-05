@@ -7,7 +7,7 @@ import { environment } from '../../environments/environment';
 const BASEURL = environment.BASEURL;
 
 @Injectable()
-export class SpotService {
+export class UserService {
 
   private options = { withCredentials: true };
 
@@ -17,20 +17,8 @@ export class SpotService {
     return Observable.throw(e.json().message);
   }
 
-  list() {
-    return this.http.get(`${BASEURL}/spot/list`, this.options)
-      .map( res => res.json() )
-      .catch( this.handleError );
-  }
-
-  listMostVisited() {
-    return this.http.get(`${BASEURL}/spot/list-visit`, this.options)
-      .map( res => res.json() )
-      .catch( this.handleError );
-  }
-
-  getComments(id) {
-    return this.http.get(`${BASEURL}/comment/${id}/list`, this.options)
+  getFavorites(id) {
+    return this.http.get(`${BASEURL}/wedding/${id}/list`, this.options)
       .map( res => res.json() )
       .catch( this.handleError );
   }

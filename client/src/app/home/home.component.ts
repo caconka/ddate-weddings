@@ -12,8 +12,8 @@ export class HomeComponent implements OnInit {
   spots: Array<object>;
   mostVisited: Array<object>;
 
-  constructor( public auth: AuthService, 
-               public spot: SpotService ) {
+  constructor( private auth: AuthService, 
+               private spot: SpotService ) {
 
     this.user = this.auth.getUser();
     this.auth.getLoginEventEmitter()

@@ -21,7 +21,7 @@ export const routes: Routes = [
     { path: ':id/comments', component: CommentsComponent },
     { path: 'profile', component: ProfileComponent,
         canActivate: [IsLoggedInService] },
-    { path: 'favorites', component: FavoritesComponent,
+    { path: ':id/favorites', component: FavoritesComponent,
         canActivate: [IsLoggedInService] },
     { path: 'messages', component: MessagesComponent,
         canActivate: [IsLoggedInService] },

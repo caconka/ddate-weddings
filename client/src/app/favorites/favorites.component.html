@@ -1,3 +1,5 @@
-<p>
-  favorites works!
-</p>
+<div *ngIf="favorites">
+  <div *ngFor="let favorit of favorites">
+    {{ favorit.spotName }}
+  </div>
+</div>

@@ -35,7 +35,7 @@ module.exports = {
   listGet: (req, res, next) => {
     const spotId = req.params.id;
 
-    Comnt.find({ spotId }).populate({ path: 'userId', select: 'name' }).exec()
+    Comnt.find({ spotId }).populate({ path: 'userId' }).exec()
     .then( comments => res.status(200).json(comments))
     .catch( e => res.status(400).json({ message: 'Something went wrong' }));
   }

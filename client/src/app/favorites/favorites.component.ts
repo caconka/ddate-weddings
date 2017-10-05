@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-favorites',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FavoritesComponent implements OnInit {
 
-  constructor() { }
+  favorites: Array<object>;
+
+  constructor( private router: Router, private route: ActivatedRoute,
+               private userService: UserService ) { }
 
   ngOnInit() {
+    this.route.params
+    .subscribe( params => {
+      this.userService.getFavorites(params['id'])
+      .subscribe( favorites => { this.favorites = favorites });
+    })
   }
 
 }

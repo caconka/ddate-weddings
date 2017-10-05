@@ -18,6 +18,7 @@ import { routes } from './routes';
 import { IsLoggedInService } from './services/isLoggedIn.service';
 import { AuthService } from './services/auth.service';
 import { SpotService } from './services/spot.service';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { SpotService } from './services/spot.service';
     FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [AuthService, IsLoggedInService, SpotService],
+  providers: [AuthService, IsLoggedInService, SpotService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

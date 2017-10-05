@@ -21,7 +21,7 @@ export class SignupComponent implements OnInit {
     role: 'User'
   }
 
-  constructor( public auth: AuthService ) { }
+  constructor( private auth: AuthService ) { }
 
   ngOnInit() {
   }

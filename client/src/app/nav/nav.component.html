@@ -11,7 +11,9 @@
   <li><a [routerLink]="['/login']">Login</a></li>
   <li><a [routerLink]="['/search']">Buscar</a></li>
   <li><a [routerLink]="['/spot']">Lugar</a></li>
-  <li><a [routerLink]="['/favorites']">Favoritos</a></li>
-  <li><a [routerLink]="['/messages']">Mensajes</a></li>
-  <li><a [routerLink]="['/profile']">Perfil</a></li>
+  <div *ngIf="user">
+    <li><a [routerLink]="[user._id, 'favorites']">Favoritos</a></li>
+    <li><a [routerLink]="['/messages']">Mensajes</a></li>
+    <li><a [routerLink]="['/profile']">Perfil</a></li>
+  </div>
 </ul>

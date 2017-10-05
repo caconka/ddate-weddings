@@ -6,7 +6,7 @@ const userSchema = new Schema ({
   email: { type: String, required: true },
   password: { type: String, required: true },
   phone: Number,
-  photo: {
+  avatar: {
     pic_path: String,
     pic_name: String
   },
