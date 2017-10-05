@@ -1,12 +1,8 @@
 <div *ngIf="!user">
   <h3>NO USER LOGGED IN</h3>
-
 </div>
 <div *ngIf="user">
-  <h2> You are now logged in as {{ user.name }}!! </h2>
-  <p> Here's the user object </p>
-  <pre> {{ user | json }} </pre>
-
+  <h3> You are now logged in as {{ user.name }}!! </h3>
   <button (click)="auth.logout().subscribe()"> logout </button>
 </div>
 <ul>
@@ -14,6 +10,7 @@
   <li><a [routerLink]="['/signup']">Signup</a></li>
   <li><a [routerLink]="['/login']">Login</a></li>
   <li><a [routerLink]="['/search']">Buscar</a></li>
+  <li><a [routerLink]="['/spot']">Lugar</a></li>
   <li><a [routerLink]="['/favorites']">Favoritos</a></li>
   <li><a [routerLink]="['/messages']">Mensajes</a></li>
   <li><a [routerLink]="['/profile']">Perfil</a></li>

@@ -8,12 +8,16 @@ import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
-import { routes } from './routes';
-import { IsLoggedInService } from './services/isLoggedIn.service';
-import { AuthService } from './services/auth.service';
 import { SearchComponent } from './search/search.component';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SpotComponent } from './spot/spot.component';
+import { MessagesComponent } from './messages/messages.component';
+import { CommentsComponent } from './spot/comments/comments.component';
+import { routes } from './routes';
+import { IsLoggedInService } from './services/isLoggedIn.service';
+import { AuthService } from './services/auth.service';
+import { SpotService } from './services/spot.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,10 @@ import { ProfileComponent } from './profile/profile.component';
     SignupComponent,
     SearchComponent,
     FavoritesComponent,
-    ProfileComponent
+    ProfileComponent,
+    SpotComponent,
+    MessagesComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +39,7 @@ import { ProfileComponent } from './profile/profile.component';
     FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [AuthService, IsLoggedInService],
+  providers: [AuthService, IsLoggedInService, SpotService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
