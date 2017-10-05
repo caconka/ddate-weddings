@@ -24,15 +24,8 @@ export class LoginComponent implements OnInit {
 
   login() {
     const { email, password } = this.formInfo;
-    if(email != "" && password != ""){
-      console.log(`Login with ${email} ${password}`)
-      this.auth.login(email, password)
-      .map(user => console.log(user))
-      .subscribe();
-      
-    } else{
-      console.log("You must set a username and a password");
-    }
+    this.auth.login(email, password)
+    .subscribe();
   }
 
 }

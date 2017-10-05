@@ -1,10 +1,10 @@
 <form>
   <h2> Signup </h2>
   <label> Email </label>
-  <input type="email" [(ngModel)]="formInfo.email" name="email" 
-     #myEmail="ngModel" required/>
+  <input type="email" [(ngModel)]="formInfo.email" name="email"
+     #myEmail="ngModel" email="true" required/>
   <p *ngIf="myEmail.errors && (myEmail.dirty || myEmail.touched)" class="error"
-     [hidden]="!myEmail.errors.required"> Email is required </p>
+     [hidden]="myEmail.valid.errors"> Enter a valid email </p>
   <br>
 
   <label> Password </label>
@@ -25,5 +25,3 @@
     Signup
   </button>
 </form>
-
-<p *ngIf="errorControl" class="error"> Something went wrong </p>

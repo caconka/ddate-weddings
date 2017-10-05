@@ -21,8 +21,6 @@ export class SignupComponent implements OnInit {
     role: 'User'
   }
 
-  errorControl: boolean = false;
-
   constructor( public auth: AuthService ) { }
 
   ngOnInit() {
@@ -30,14 +28,8 @@ export class SignupComponent implements OnInit {
 
   signup() {
     const { email, password, name, role } = this.formInfo;
-    if(email != '' && password != '' && name != ''){
-      this.errorControl = false;
-      this.auth.signup(email, password, name, role)
-      .subscribe();
-      
-    } else{
-      this.errorControl = true;
-    }
+    this.auth.signup(email, password, name, role)
+    .subscribe();
   }
 
 }
