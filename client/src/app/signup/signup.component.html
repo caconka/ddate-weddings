@@ -4,24 +4,32 @@
   <input type="email" [(ngModel)]="formInfo.email" name="email"
      #myEmail="ngModel" email="true" required/>
   <p *ngIf="myEmail.errors && (myEmail.dirty || myEmail.touched)" class="error"
-     [hidden]="myEmail.valid.errors"> Enter a valid email </p>
+     [hidden]="myEmail.valid.errors"> Ingresa un email correcto </p>
   <br>
 
   <label> Password </label>
   <input type="password" [(ngModel)]="formInfo.password" name="password" 
      #myPass="ngModel" required/>
   <p *ngIf="myPass.errors && (myPass.dirty || myPass.touched)" class="error"
-     [hidden]="!myPass.errors.required"> Password is required </p>
+     [hidden]="!myPass.errors.required"> Password requerido </p>
   <br>
 
-  <label> Name </label>
+  <label> Nombre </label>
   <input type="text" [(ngModel)]="formInfo.name" name="name" #myName="ngModel"
       required/>
   <p *ngIf="myName.errors && (myName.dirty || myName.touched)" class="error"
-     [hidden]="!myName.errors.required"> Name is required </p>
+     [hidden]="!myName.errors.required"> Nombre requerido </p>
   <br>
 
-  <button (click)="signup()" [disabled]="myEmail.errors || myPass.errors || myName.errors">
-    Signup
-  </button>
+  <div *ngIf="!user">
+    <button (click)="signup()" [disabled]="myEmail.errors || myPass.errors || myName.errors">
+      Signup
+    </button>
+  </div>
+
+  <div *ngIf="user && user.role === 'Admin'">
+    <button (click)="signupProvider()" [disabled]="myEmail.errors || myPass.errors || myName.errors">
+      Signup
+    </button>
+  </div>
 </form>

@@ -32,13 +32,19 @@ export class AuthService {
     }
 
     private handleError(e) {
-      return Observable.throw(e.json().message);
+      return Observable.throw(e.message);
     }
 
     signup(email, password, name, role) {
       return this.http.post(`${BASEURL}/signup`, { email, password, name, role }, this.options)
         .map(res => res.json())
         .map(user => this.emitUserLoginEvent(user))
+        .catch(this.handleError);
+    }
+
+    signupProvider(email, password, name, role) {
+      return this.http.post(`${BASEURL}/provider-signup`, { email, password, name, role }, this.options)
+        .map(res => res.json())
         .catch(this.handleError);
     }
 

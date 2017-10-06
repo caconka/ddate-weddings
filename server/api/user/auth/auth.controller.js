@@ -20,12 +20,17 @@ module.exports = {
 
       return theUser.save()
       .then( user => {
-        req.login(user, (err) => {
-          if(err)
-            return res.status(500).json({ message: 'Something went wrong' });
+        if(user.role === 'User') {
+          req.login(user, (err) => {
+            if(err)
+              return res.status(500).json({ message: 'Something went wrong' });
+  
+            res.status(200).json(req.user);
+          });
 
-          res.status(200).json(req.user);
-        });
+        } else {
+          res.status(200).json(user);
+        }
       })
     })
     .catch( e => res.status(400).json({ message: 'Something went wrong' }));

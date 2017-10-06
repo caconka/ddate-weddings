@@ -6,6 +6,6 @@ const checkIdParams = require('../../middleware/check-id');
 const Controller = require('./user.controller');
 
 router.post('/:id/edit', checkIdParams, ensureLoggedIn(), checkRole.isUser, 
-            Controller.editPost); 
+            Controller.editPost);
 
 module.exports = router;

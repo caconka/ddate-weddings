@@ -14,30 +14,30 @@ export class SpotService {
   constructor( private http: Http ) { }
 
   private handleError(e) {
-    return Observable.throw(e.json().message);
+    return Observable.throw(e.message);
   }
 
   list() {
     return this.http.get(`${BASEURL}/spot/list`, this.options)
       .map( res => res.json() )
-      .catch( this.handleError );
+      .catch(this.handleError);
   }
 
   listMostVisited() {
     return this.http.get(`${BASEURL}/spot/list-visit`, this.options)
-      .map( res => res.json() )
-      .catch( this.handleError );
+      .map(res => res.json())
+      .catch(this.handleError);
   }
 
   getComments(id) {
     return this.http.get(`${BASEURL}/comment/${id}/list`, this.options)
-      .map( res => res.json() )
-      .catch( this.handleError );
+      .map(res => res.json())
+      .catch(this.handleError);
   }
 
   listProvider(id) {
     return this.http.get(`${BASEURL}/spot/${id}/provider`, this.options)
-      .map( res => res.json() )
-      .catch( this.handleError );
+      .map(res => res.json())
+      .catch(this.handleError);
   }
 }

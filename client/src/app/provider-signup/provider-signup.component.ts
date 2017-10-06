@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProviderSignupComponent implements OnInit {
 
+  hide: boolean = true;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  showSignup() {
+    this.hide = !this.hide;
   }
 
 }

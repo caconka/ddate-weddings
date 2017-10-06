@@ -21,34 +21,35 @@ export class HomeComponent implements OnInit {
     this.user = this.auth.getUser();
 
     this.auth.getLoginEventEmitter()
-    .subscribe( user => {  
+    .subscribe(user => {  
       this.user = user 
-      this.asignFavorites(user._id)
+      if(user.role === 'User')
+        this.asignFavorites(user._id)
     });
 
     if(this.user !== undefined) 
       this.asignFavorites(this.user._id)
     
     this.spotService.list()
-    .subscribe( list => this.spots = list );
+    .subscribe(list => this.spots = list );
     
     this.spotService.listMostVisited()
-    .subscribe( list => this.mostVisited = list );
+    .subscribe(list => this.mostVisited = list );
   }
 
   private asignFavorites(userId) {
     this.userService.getFavorites(userId)
-    .subscribe( favorites => { this.favorites = favorites });
+    .subscribe(favorites => { this.favorites = favorites });
   }
 
   addToFavorites(userId, spotId) {
     this.userService.addFavorit(userId, spotId)
-    .subscribe( favorites => { this.favorites = favorites });
+    .subscribe(favorites => { this.favorites = favorites });
   }
 
   deleteFromFavorites(userId, spotId) {
     this.userService.deleteFromFavorites(userId, spotId)
-    .subscribe( favorites => { this.favorites = favorites });
+    .subscribe(favorites => { this.favorites = favorites });
   }
 
   checkFavorit(spotId) {

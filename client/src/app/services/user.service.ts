@@ -14,25 +14,25 @@ export class UserService {
   constructor( private http: Http ) { }
 
   private handleError(e) {
-    return Observable.throw(e.json().message);
+    return Observable.throw(e.message);
   }
 
   getFavorites(id) {
     return this.http.get(`${BASEURL}/wedding/${id}/list`, this.options)
-      .map( res => res.json() )
-      .catch( this.handleError );
+      .map(res => res.json())
+      .catch(this.handleError);
   }
 
   addFavorit(userId, spotId) {
     return this.http.post(`${BASEURL}/wedding/${userId}/add`, { spotId }, this.options)
-      .map( res => res.json() )
-      .catch( this.handleError );
+      .map(res => res.json())
+      .catch(this.handleError);
   }
 
   deleteFromFavorites(userId, spotId) {
     return this.http.post(`${BASEURL}/wedding/${userId}/delete`, { spotId }, this.options)
-      .map( res => res.json() )
-      .catch( this.handleError );
+      .map(res => res.json())
+      .catch(this.handleError);
   }
 
   checkFavorit(favorites, spotId) {

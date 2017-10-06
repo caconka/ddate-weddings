@@ -18,18 +18,29 @@ export class SignupComponent implements OnInit {
     email: '',
     password: '',
     name: '',
-    role: 'User'
+    role: ''
   }
+  user: object;
 
   constructor( private auth: AuthService ) { }
 
   ngOnInit() {
+    this.user = this.auth.getUser();
+
+    this.auth.getLoginEventEmitter()
+    .subscribe(user => { this.user = user });
   }
 
   signup() {
-    const { email, password, name, role } = this.formInfo;
-    this.auth.signup(email, password, name, role)
+    const { email, password, name } = this.formInfo;
+    this.auth.signup(email, password, name, 'User')
     .subscribe();
+  }
+
+  signupProvider() {
+    const { email, password, name } = this.formInfo;
+    this.auth.signupProvider(email, password, name, 'Provider')
+    .subscribe(user => console.log(user));
   }
 
 }
