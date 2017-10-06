@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 interface SignupForm{
@@ -22,7 +23,7 @@ export class SignupComponent implements OnInit {
   }
   user: object;
 
-  constructor( private auth: AuthService ) { }
+  constructor( private auth: AuthService, private router: Router ) { }
 
   ngOnInit() {
     this.user = this.auth.getUser();
@@ -34,13 +35,13 @@ export class SignupComponent implements OnInit {
   signup() {
     const { email, password, name } = this.formInfo;
     this.auth.signup(email, password, name, 'User')
-    .subscribe();
+    .subscribe(() => this.router.navigate(['']));
   }
 
   signupProvider() {
     const { email, password, name } = this.formInfo;
     this.auth.signupProvider(email, password, name, 'Provider')
-    .subscribe(user => console.log(user));
+    .subscribe(() => this.router.navigate(['']));
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 interface LoginForm{
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
     password: ''
   };
 
-  constructor( private auth: AuthService ) { }
+  constructor( private auth: AuthService, private router: Router ) { }
 
   ngOnInit() {
   }
@@ -25,7 +26,7 @@ export class LoginComponent implements OnInit {
   login() {
     const { email, password } = this.formInfo;
     this.auth.login(email, password)
-    .subscribe();
+    .subscribe(() => this.router.navigate(['']));
   }
 
 }
