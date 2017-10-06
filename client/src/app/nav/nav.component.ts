@@ -13,7 +13,7 @@ export class NavComponent implements OnInit {
   constructor( private auth: AuthService ) {
     this.user = this.auth.getUser();
     this.auth.getLoginEventEmitter()
-      .subscribe( user => this.user = user );
+    .subscribe( user => this.user = user );
   }
 
   ngOnInit() {

@@ -11,12 +11,6 @@ module.exports = {
         Wedding.findByIdAndUpdate( wedding._id, 
           { $push: { favoritSpots: spotId }}, { new:true }).populate('favoritSpots').exec()
         .then( wedding => res.status(200).json(wedding.favoritSpots))
-
-      } else {
-        const theWedding = new Wedding({ userId, favoritSpots: [ spotId ] });
-  
-        return theWedding.save()
-        .then( wedding => { res.status(200).json(wedding) })
       }
     })
     .catch( e => res.status(400).json({ message: 'Something went wrong' }));

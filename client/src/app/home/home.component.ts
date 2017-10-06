@@ -23,11 +23,11 @@ export class HomeComponent implements OnInit {
     this.auth.getLoginEventEmitter()
     .subscribe(user => {  
       this.user = user 
-      if(user.role === 'User')
+      if(user && user.role === 'User')
         this.asignFavorites(user._id)
     });
 
-    if(this.user !== undefined) 
+    if(this.user && this.user.role === 'User') 
       this.asignFavorites(this.user._id)
     
     this.spotService.list()

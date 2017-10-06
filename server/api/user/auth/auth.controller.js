@@ -1,6 +1,7 @@
 const passport = require('passport');
 const bcrypt = require('bcrypt');
 const User = require('../user.model');
+const Wedding = require('../../wedding/wedding.model');
 
 module.exports = {
   signupPost: (req, res, next) => {
@@ -21,19 +22,22 @@ module.exports = {
       return theUser.save()
       .then( user => {
         if(user.role === 'User') {
-          req.login(user, (err) => {
-            if(err)
-              return res.status(500).json({ message: 'Something went wrong' });
-  
-            res.status(200).json(req.user);
-          });
+          const theWedding = new Wedding({ userId: user._id });
+          theWedding.save()
+          .then(() => { 
+            req.login(user, (err) => {
+              if(err)
+                return res.status(500).json({ message: 'Something went wrong' });
+              res.status(200).json(req.user);
+            });
+          })
 
         } else {
           res.status(200).json(user);
         }
       })
     })
-    .catch( e => res.status(400).json({ message: 'Something went wrong' }));
+    .catch(e => res.status(400).json({ message: 'Something went wrong' }));
   },
 
   loginPost: (req, res, next) => {
@@ -61,7 +65,5 @@ module.exports = {
   loggedin: (req, res, next) => {
     if (req.isAuthenticated())
       return res.status(200).json(req.user);
-
-    res.status(403).json({ message: 'Unauthorized' });
   }
 }

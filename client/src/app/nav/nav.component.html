@@ -3,7 +3,6 @@
 </div>
 <div *ngIf="user">
   <h3> You are now logged in as {{ user.name }}!! </h3>
-  <button (click)="auth.logout().subscribe()"> logout </button>
 </div>
 <ul>
   <li><a [routerLink]="['/']">Inicio</a></li>
