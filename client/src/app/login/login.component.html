@@ -1,7 +1,7 @@
 <form>
   <h2> Login </h2>
-  <label> Email </label>
-  <input type="email" [(ngModel)]="formInfo.email" name="email"
+  <label for="email"> Email </label>
+  <input type="email" [(ngModel)]="formInfo.email" name="email" id="email"
      #myEmail="ngModel" email="true" required/>
   <p *ngIf="myEmail.errors && (myEmail.dirty || myEmail.touched)" class="error"
      [hidden]="myEmail.valid.errors"> Enter a valid email </p>

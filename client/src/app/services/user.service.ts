@@ -44,4 +44,10 @@ export class UserService {
     return control;
   }
 
+  getProviders() {
+    return this.http.get(`${BASEURL}/user/providers`, this.options)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
+
 }

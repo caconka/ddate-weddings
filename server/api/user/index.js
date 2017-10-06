@@ -7,5 +7,6 @@ const Controller = require('./user.controller');
 
 router.post('/:id/edit', checkIdParams, ensureLoggedIn(), checkRole.isUser, 
             Controller.editPost);
+router.get('/providers', checkRole.isAdmin, Controller.providersGet);
 
 module.exports = router;

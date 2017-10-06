@@ -20,9 +20,15 @@ module.exports = {
         const updates = { name, phone, email }
   
         User.findByIdAndUpdate(userId, updates, { new: true }).exec()
-        .then( user => res.status(200).json(user))
+        .then(user => res.status(200).json(user))
       }
     })
-    .catch( e => res.status(400).json({ message: 'Something went wrong' }));
+    .catch(e => res.status(400).json({ message: 'Something went wrong' }));
+  },
+
+  providersGet: (req, res, next) => {
+    User.find({ role: 'Provider' }).exec()
+    .then(providers => res.status(200).json(providers))
+    .catch(e => res.status(400).json({ message: 'Somethingwent wrong' }));
   }
 }

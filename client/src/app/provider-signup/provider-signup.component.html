@@ -1,2 +1,17 @@
-<button (click)="auth.showHide()" [hidden]="!auth.hide"> Registrar Proveedor </button>
 <app-signup [hidden]="auth.hide"></app-signup>
+<button [hidden]="auth.hide" (click)="auth.showHide()"> Volver </button>
+
+<form [hidden]="!auth.hide">
+  <h3>Nuevo Emplazamiento</h3>
+  <label> Proveedor </label>
+  <select name="proveedor" id="">
+    <option *ngFor="let provider of providers" value="provider._id">
+      {{ provider.name }}
+    </option>
+  </select>
+  <button (click)="auth.showHide()" [hidden]="!auth.hide"> Nuevo Proveedor </button>
+  <br>
+
+
+</form>
+
