@@ -4,7 +4,8 @@ import { AdminService } from '../services/admin.service';
 
 interface ProviderForm{
   userId: string,
-  spotName: string
+  spotName: string,
+  dates: Array<Date>
 }
 
 @Component({
@@ -16,7 +17,8 @@ export class ProviderSignupComponent implements OnInit {
   providers: Array<object>;
   formInfo: ProviderForm = {
     userId: '',
-    spotName: ''
+    spotName: '',
+    dates: []
   }
 
   constructor(private auth: AuthService, private adminService: AdminService) { }
@@ -30,5 +32,10 @@ export class ProviderSignupComponent implements OnInit {
     const { userId, spotName } = this.formInfo;
     this.adminService.createSpot(userId, spotName)
     .subscribe();
+  }
+
+  addDate(elem) {
+    this.formInfo.dates.push(elem);
+    this.formInfo.dates.sort();
   }
 }

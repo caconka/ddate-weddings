@@ -15,6 +15,14 @@
   <label for="spotName"> Nombre del emplazamiento </label>
   <input type="text" [(ngModel)]="formInfo.spotName" name="spotName" id="spotName">
   <br>
+
+  <label for="dates"> Disponibilidad </label>
+  <input type="date" [(ngModel)]="date" name="dates" id="dates">
+  <button (click)="addDate(date)"> Añadir fecha </button>
+  <div *ngFor="let date of formInfo.dates">
+    {{date}}
+  </div>
+
   <button (click)="createSpot()"> Crear Emplazamiento </button>
 </form>
 
