@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-provider-signup',
@@ -7,15 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProviderSignupComponent implements OnInit {
 
-  hide: boolean = true;
-
-  constructor() { }
+  constructor(private auth: AuthService) { }
 
   ngOnInit() {
-  }
-
-  showSignup() {
-    this.hide = !this.hide;
   }
 
 }

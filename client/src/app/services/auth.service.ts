@@ -9,6 +9,7 @@ const BASEURL = environment.BASEURL + "/auth";
 @Injectable()
 export class AuthService {
 
+  private hide: boolean = true;
   private user: object;
   private userLoginEvent: EventEmitter<any> = new EventEmitter<any>();
   private options = { withCredentials: true };
@@ -67,5 +68,10 @@ export class AuthService {
         .map(res => res.json())
         .map(user => this.emitUserLoginEvent(user))
         .catch(this.handleError);
+    }
+
+    showHide() {
+      this.hide = !this.hide;
+      return this.hide;
     }
 }

@@ -39,6 +39,7 @@ export class SignupComponent implements OnInit {
   }
 
   signupProvider() {
+    this.auth.showHide();
     const { email, password, name } = this.formInfo;
     this.auth.signupProvider(email, password, name, 'Provider')
     .subscribe(() => this.router.navigate(['']));
