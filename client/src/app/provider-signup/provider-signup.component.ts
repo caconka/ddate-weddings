@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
-import { UserService } from '../services/user.service';
+import { AdminService } from '../services/admin.service';
+
+interface ProviderForm{
+  userId: string,
+  spotName: string
+}
 
 @Component({
   selector: 'app-provider-signup',
@@ -9,12 +14,21 @@ import { UserService } from '../services/user.service';
 })
 export class ProviderSignupComponent implements OnInit {
   providers: Array<object>;
+  formInfo: ProviderForm = {
+    userId: '',
+    spotName: ''
+  }
 
-  constructor(private auth: AuthService, private userService: UserService) { }
+  constructor(private auth: AuthService, private adminService: AdminService) { }
 
   ngOnInit() {
-    this.userService.getProviders()
+    this.adminService.getProviders()
     .subscribe(providers => { this.providers = providers });
   }
 
+  createSpot() {
+    const { userId, spotName } = this.formInfo;
+    this.adminService.createSpot(userId, spotName)
+    .subscribe();
+  }
 }

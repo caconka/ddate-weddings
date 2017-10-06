@@ -3,15 +3,18 @@
 
 <form [hidden]="!auth.hide">
   <h3>Nuevo Emplazamiento</h3>
-  <label> Proveedor </label>
-  <select name="proveedor" id="">
-    <option *ngFor="let provider of providers" value="provider._id">
-      {{ provider.name }}
-    </option>
+  <label for="userId"> Proveedor </label>
+  <select [(ngModel)]="formInfo.userId"  name="userId" id="userId">
+      <option *ngFor="let provider of providers" value="{{provider._id}}">
+        {{ provider.name }}
+      </option>
   </select>
   <button (click)="auth.showHide()" [hidden]="!auth.hide"> Nuevo Proveedor </button>
   <br>
 
-
+  <label for="spotName"> Nombre del emplazamiento </label>
+  <input type="text" [(ngModel)]="formInfo.spotName" name="spotName" id="spotName">
+  <br>
+  <button (click)="createSpot()"> Crear Emplazamiento </button>
 </form>
 

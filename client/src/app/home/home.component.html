@@ -1,4 +1,4 @@
-<div *ngIf="user">
+<div *ngIf="user !== undefined">
   <div *ngIf="user.role === 'Admin'">
     <app-provider-signup></app-provider-signup>
   </div>
