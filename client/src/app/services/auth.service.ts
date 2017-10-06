@@ -58,8 +58,10 @@ export class AuthService {
 
     logout() {
       return this.http.get(`${BASEURL}/logout`, this.options)
-        .map(res => res.json())
-        .map(user => this.emitUserLoginEvent(null))
+        .map(res => {
+          this.emitUserLoginEvent(null);
+          return res.json();
+        })
         .catch(this.handleError);
     }
 
