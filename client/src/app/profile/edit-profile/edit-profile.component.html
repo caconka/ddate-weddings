@@ -1,9 +1,13 @@
 <form>
-  <input type="text" hidden [(ngModel)]="formInfo.name" name="name" required />
-  <input type="email" hidden [(ngModel)]="formInfo.email" name="email" required />
-  <input type="number" hidden [(ngModel)]="formInfo.phone" name="phone" required />
+  <label for="name"> Nombre </label>
+  <input type="text" [(ngModel)]="formInfo.name" name="name" required />
+  <label for="email"> Email </label>
+  <input type="email" [(ngModel)]="formInfo.email" name="email" required />
+  <label for="phone"> Teléfono </label>
+  <input type="number" [(ngModel)]="formInfo.phone" name="phone" required />
 
   <input type="file" name="file" ng2FileSelect [uploader]="uploader"/>
-  <button (click)="editAvatar()"> Editar foto </button>
+  <button (click)="editProfile()"> Editar foto </button>
 </form>
+
   

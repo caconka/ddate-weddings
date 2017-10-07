@@ -10,10 +10,7 @@ const spotSchema = new Schema ({
     month: Number,
     day: Number
   }],
-  photos: [{ 
-    pic_path: String,
-    pic_name: String
-  }],
+  photos: [ String ],
   features: {
     places: [ String ],
     services:[ String ],

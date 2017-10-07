@@ -48,30 +48,12 @@ export class EditProfileComponent implements OnInit {
     };
   }
 
-  if(user) {
-    this.formInfo = {
-      name: this.user.name,
-      email: this.user.email,
-      phone: this.user.phone,
-      avatar: this.user.avatar
-    }
-  }
-
-  editAvatar() {
+  editProfile() {
     this.uploader.onBuildItemForm = (item, form) => {
       form.append('name', this.formInfo.name);
       form.append('email', this.formInfo.email);
       form.append('phone', this.formInfo.phone);
-      form.append('file', this.formInfo.avatar);
     };
     this.uploader.uploadAll();
-    this.router.navigate(['profile']);
   }
-
-  editProfile() {
-    const { name, email, phone } = this.formInfo;
-    this.userService.editProfile(this.user._id, name, email, phone)
-    .subscribe(() => this.router.navigate(['profile']));
-  }
-
 }
