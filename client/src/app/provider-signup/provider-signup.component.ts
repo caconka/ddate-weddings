@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { FileUploader } from "ng2-file-upload";
 import { AuthService } from '../services/auth.service';
 import { AdminService } from '../services/admin.service';
 import { NgbDateStruct, NgbCalendar, NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
+import { environment } from '../../environments/environment';
+
+const BASEURL = environment.BASEURL + "/spot";
 
 const equals = (one: NgbDateStruct, two: NgbDateStruct) =>
 one && two && two.year === one.year && two.month === one.month && two.day === one.day;
@@ -19,7 +23,8 @@ const toDay = new Date();
 interface ProviderForm{
   userId: string,
   spotName: string,
-  dates: Array<object>
+  dates: Array<object>,
+  photos: Array<string>
 }
 
 @Component({
@@ -34,8 +39,12 @@ export class ProviderSignupComponent implements OnInit {
   formInfo: ProviderForm = {
     userId: '',
     spotName: '',
-    dates: []
+    dates: [],
+    photos: []
   }
+
+  uploader: FileUploader ;
+  feedback: string;
 
   hoveredDate: NgbDateStruct;
   fromDate: NgbDateStruct;
@@ -54,6 +63,16 @@ export class ProviderSignupComponent implements OnInit {
   ngOnInit() {
     this.adminService.getProviders()
     .subscribe(providers => { this.providers = providers });
+
+    this.uploader = new FileUploader({ url: `${BASEURL}/signup` });
+
+    this.uploader.onSuccessItem = (item, response) => {
+      this.feedback = JSON.parse(response).message;
+    };
+
+    this.uploader.onErrorItem = (item, response, status, headers) => {
+      this.feedback = JSON.parse(response).message;
+    };
   }
 
   createSpot() {
@@ -89,5 +108,15 @@ export class ProviderSignupComponent implements OnInit {
 
   isDisabled(date: NgbDateStruct, current: {month: number}) {
     return date.month !== current.month;
+  }
+
+
+  addSpot() {
+    this.uploader.onBuildItemForm = (item, form) => {
+      form.append('userId', this.formInfo.userId);
+      form.append('spotName', this.formInfo.spotName);
+      form.append('dates', this.formInfo.dates);
+    };
+    this.uploader.uploadAll();
   }
 }
