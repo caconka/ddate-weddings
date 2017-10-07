@@ -43,10 +43,4 @@ export class UserService {
     })
     return control;
   }
-
-  editProfile(userId, name, email, phone) {
-    return this.http.post(`${BASEURL}/user/${userId}/edit`, { name, email, phone }, this.options)
-      .map(res => res.json())
-      .catch(this.handleError);
-  }
 }
