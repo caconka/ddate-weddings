@@ -1,7 +1,7 @@
 const User = require('./user.model');
 
 module.exports = {
-  editPost: (req, res, next) => {
+  editPut: (req, res, next) => {
     const { name, phone, email } = req.body;
     const userId = req.params.id;
     
@@ -17,7 +17,9 @@ module.exports = {
       })
 
       if(control) {
-        const updates = { name, phone, email }
+        const updates = { name, phone, email,
+          avatar: `/uploads/${req.file.filename}` || user.avatar
+        }
   
         User.findByIdAndUpdate(userId, updates, { new: true }).exec()
         .then(user => res.status(200).json(user))

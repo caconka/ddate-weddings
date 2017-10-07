@@ -15,9 +15,13 @@
 
     <div *ngIf="favorites">
       <a *ngIf="checkFavorit(spot._id)" 
-          (click)="deleteFromFavorites(user._id, spot._id)"> Delete </a>
+          (click)="deleteFromFavorites(user._id, spot._id)">
+        <i class="fa fa-heart" aria-hidden="true" style="color: #ffc2ce;"></i>
+      </a>
       <a *ngIf="!checkFavorit(spot._id)" 
-          (click)="addToFavorites(user._id, spot._id)"> Add to favorites </a>
+          (click)="addToFavorites(user._id, spot._id)">
+        <i class="fa fa-heart-o" aria-hidden="true" style="color: #ffc2ce;"></i>
+      </a>
     </div>
   </div>
   

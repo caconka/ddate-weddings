@@ -1,4 +1,6 @@
 <h3>Perfil</h3>
+<img [src]="'http://localhost:3000/' + user.avatar" height="100">
 <h4>{{ user.name }}</h4>
 {{ user.email }}
+<a [routerLink]="['edit']"> Edit Profile </a>
 <button (click)="logout()"> logout </button>

@@ -6,10 +6,7 @@ const userSchema = new Schema ({
   email: { type: String, required: true },
   password: { type: String, required: true },
   phone: Number,
-  avatar: {
-    pic_path: String,
-    pic_name: String
-  },
+  avatar: String,
   role: {
     type: String,
     enum: [ 'Admin', 'User', 'Provider' ],

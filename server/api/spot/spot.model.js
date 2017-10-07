@@ -5,7 +5,11 @@ const spotSchema = new Schema ({
   userId: { type: Schema.Types.ObjectId, ref:'User', required: true },
   spotName: String,
   location: { type: Number },
-  dates: [{ type: Date, required: true }],
+  dates: [{
+    year: Number,
+    month: Number,
+    day: Number
+  }],
   photos: [{ 
     pic_path: String,
     pic_name: String

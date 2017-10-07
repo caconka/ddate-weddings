@@ -16,13 +16,30 @@
   <input type="text" [(ngModel)]="formInfo.spotName" name="spotName" id="spotName">
   <br>
 
-  <label for="dates"> Disponibilidad </label>
-  <input type="date" [(ngModel)]="date" name="dates" id="dates">
-  <button (click)="addDate(date)"> Añadir fecha </button>
-  <div *ngFor="let date of formInfo.dates">
-    {{date}}
-  </div>
-
+  
   <button (click)="createSpot()"> Crear Emplazamiento </button>
 </form>
+
+
+<ngb-datepicker #dp ngModel (ngModelChange)="onDateChange($event)" [dayTemplate]="t"
+                [navigation]="arrows">
+</ngb-datepicker>
+
+<ng-template #t let-date="date" let-focused="focused">
+  <span class="custom-day"
+        [class.focused]="focused"
+        [class.range]="isFrom(date) || isTo(date) || isInside(date) || isHovered(date)"
+        [class.faded]="isHovered(date) || isInside(date)"
+        (mouseenter)="hoveredDate = date"
+        (mouseleave)="hoveredDate = null">
+    {{ date.day }}
+  </span>
+</ng-template>
+
+<button (click)="addDate(fromDate, toDate)"> Añadir fecha </button>
+  <div *ngFor="let date of formInfo.dates">
+    {{date | json}}
+  </div>
+
+
 

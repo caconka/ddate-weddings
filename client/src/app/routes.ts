@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { ProfileComponent } from './profile/profile.component';
+import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
 import { SearchComponent } from './search/search.component';
 import { MessagesComponent } from './messages/messages.component';
 import { SpotComponent } from './spot/spot.component';
@@ -20,6 +21,8 @@ export const routes: Routes = [
     { path: 'spot', component: SpotComponent },
     { path: ':id/comments', component: CommentsComponent },
     { path: 'profile', component: ProfileComponent,
+        canActivate: [IsLoggedInService] },
+    { path: 'profile/edit', component: EditProfileComponent,
         canActivate: [IsLoggedInService] },
     { path: ':id/favorites', component: FavoritesComponent,
         canActivate: [IsLoggedInService] },

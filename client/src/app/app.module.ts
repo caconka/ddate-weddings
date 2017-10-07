@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
@@ -14,38 +15,32 @@ import { ProfileComponent } from './profile/profile.component';
 import { SpotComponent } from './spot/spot.component';
 import { MessagesComponent } from './messages/messages.component';
 import { CommentsComponent } from './spot/comments/comments.component';
+import { ProviderSpotComponent } from './provider-spot/provider-spot.component';
+import { EditSpotComponent } from './provider-spot/edit-spot/edit-spot.component';
+import { ProviderSignupComponent } from './provider-signup/provider-signup.component';
+
 import { routes } from './routes';
+
 import { IsLoggedInService } from './services/isLoggedIn.service';
 import { AuthService } from './services/auth.service';
 import { SpotService } from './services/spot.service';
 import { UserService } from './services/user.service';
 import { AdminService } from './services/admin.service';
-import { ProviderSpotComponent } from './provider-spot/provider-spot.component';
-import { EditSpotComponent } from './provider-spot/edit-spot/edit-spot.component';
-import { ProviderSignupComponent } from './provider-signup/provider-signup.component';
+
+import { FileSelectDirective } from "ng2-file-upload";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent,
-    NavComponent,
-    LoginComponent,
-    SignupComponent,
-    SearchComponent,
-    FavoritesComponent,
-    ProfileComponent,
-    SpotComponent,
-    MessagesComponent,
-    CommentsComponent,
-    ProviderSpotComponent,
-    EditSpotComponent,
-    ProviderSignupComponent
+    AppComponent, HomeComponent, NavComponent, LoginComponent, SignupComponent,
+    SearchComponent, FavoritesComponent, ProfileComponent, SpotComponent,
+    MessagesComponent, CommentsComponent, ProviderSpotComponent, EditSpotComponent,
+    ProviderSignupComponent, FileSelectDirective, EditProfileComponent
   ],
   imports: [
-    BrowserModule,
-    HttpModule,
-    FormsModule,
-    RouterModule.forRoot(routes)
+    BrowserModule, HttpModule, FormsModule, RouterModule.forRoot(routes),
+    NgbModule.forRoot()
   ],
   providers: [AuthService, IsLoggedInService, SpotService, UserService,
               AdminService],
