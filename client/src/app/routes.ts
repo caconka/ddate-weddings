@@ -21,12 +21,12 @@ export const routes: Routes = [
     { path: 'spot', component: SpotComponent },
     { path: ':id/comments', component: CommentsComponent },
     { path: 'profile', component: ProfileComponent,
-        canActivate: [IsLoggedInService] },
+    canActivate: [IsLoggedInService] },
     { path: 'profile/edit', component: EditProfileComponent,
-        canActivate: [IsLoggedInService] },
+    canActivate: [IsLoggedInService] },
     { path: ':id/favorites', component: FavoritesComponent,
-        canActivate: [IsLoggedInService] },
+    canActivate: [IsLoggedInService] },
     { path: 'messages', component: MessagesComponent,
-        canActivate: [IsLoggedInService] },
+    canActivate: [IsLoggedInService] },
     { path: '**', redirectTo: '' }
 ];

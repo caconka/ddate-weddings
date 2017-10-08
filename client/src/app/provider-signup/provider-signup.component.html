@@ -15,31 +15,45 @@
   <label for="spotName"> Nombre del emplazamiento </label>
   <input type="text" [(ngModel)]="formInfo.spotName" name="spotName" id="spotName">
   <br>
-
   
-  <button (click)="createSpot()"> Crear Emplazamiento </button>
+  <label for="photo"> Photos </label>
+  <input type="text" #photo name="photo" id="photo">
+  <button (click)="addPhoto(photo.value); photo.value = ''"> add </button>
+  <br>
+
+  <ul>
+    <li *ngFor="let photo of formInfo.photos"> {{ photo }} </li>
+  </ul>
+  <small *ngIf="!formInfo.photos.length"> No tiene fotos </small>
+
+  <button (click)="addSpot()"> Crear Emplazamiento </button>
 </form>
 
 
-<ngb-datepicker #dp ngModel (ngModelChange)="onDateChange($event)" [dayTemplate]="t"
-                [navigation]="arrows">
-</ngb-datepicker>
+<div [hidden]="!auth.hide">
+  <ngb-datepicker #dp ngModel (ngModelChange)="onDateChange($event)" [dayTemplate]="t"
+                  [navigation]="arrows">
+  </ngb-datepicker>
+  
+  <ng-template #t let-date="date" let-focused="focused">
+    <span class="custom-day"
+          [class.focused]="focused"
+          [class.range]="isFrom(date) || isTo(date) || isInside(date) || isHovered(date)"
+          [class.faded]="isHovered(date) || isInside(date)"
+          (mouseenter)="hoveredDate = date"
+          (mouseleave)="hoveredDate = null">
+      {{ date.day }}
+    </span>
+  </ng-template>
 
-<ng-template #t let-date="date" let-focused="focused">
-  <span class="custom-day"
-        [class.focused]="focused"
-        [class.range]="isFrom(date) || isTo(date) || isInside(date) || isHovered(date)"
-        [class.faded]="isHovered(date) || isInside(date)"
-        (mouseenter)="hoveredDate = date"
-        (mouseleave)="hoveredDate = null">
-    {{ date.day }}
-  </span>
-</ng-template>
-
-<button (click)="addDate(fromDate, toDate)"> Añadir fecha </button>
-  <div *ngFor="let date of formInfo.dates">
-    {{date | json}}
-  </div>
+  <ul>
+    <li *ngFor="let day of formInfo.dates"> 
+      {{ day.year }}-{{ day.month }}-{{ day.day }} </li>
+  </ul>
+  <small *ngIf="!formInfo.dates.length"> no tiene días disponibles </small>
+  
+  <button (click)="addDate(fromDate, toDate)"> Añadir fecha </button>
+</div>
 
 
 

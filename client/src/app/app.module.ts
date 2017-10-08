@@ -18,6 +18,7 @@ import { CommentsComponent } from './spot/comments/comments.component';
 import { ProviderSpotComponent } from './provider-spot/provider-spot.component';
 import { EditSpotComponent } from './provider-spot/edit-spot/edit-spot.component';
 import { ProviderSignupComponent } from './provider-signup/provider-signup.component';
+import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
 
 import { routes } from './routes';
 
@@ -29,7 +30,6 @@ import { AdminService } from './services/admin.service';
 
 import { FileSelectDirective } from "ng2-file-upload";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [

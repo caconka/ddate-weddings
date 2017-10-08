@@ -23,9 +23,10 @@ export class AdminService {
       .catch(this.handleError);
   }
 
-  createSpot(userId, spotName) {
-    return this.http.post(`${BASEURL}/spot/signup`, { userId, spotName }, this.options)
+  createSpot(userId, spotName, dates, photos) {
+    return this.http.post(`${BASEURL}/spot/signup`, { userId, spotName, dates, photos }, this.options)
       .map(res => res.json())
       .catch(this.handleError);
   }
+
 }
