@@ -29,7 +29,8 @@ export class EditProfileComponent implements OnInit {
     .subscribe(user => { this.user = user });
 
     this.uploader = new FileUploader({
-      url: `${BASEURL}/${this.user._id}/edit`
+      url: `${BASEURL}/${this.user._id}/edit`,
+      method: 'PUT'
     });
 
     this.formInfo = {

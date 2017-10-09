@@ -13,16 +13,55 @@
   <li><a [routerLink]="['/search']">Buscar</a></li>
   <li><a [routerLink]="['/spot']">Lugar</a></li>
   <div *ngIf="user">
-    <li><a [routerLink]="[user._id, 'favorites']">Favoritos</a></li>
+   <li><a [routerLink]="[user._id, 'favorites']">Favoritos</a></li>
     <li><a [routerLink]="['/messages']">Mensajes</a></li>
     <li><a [routerLink]="['/profile']">Perfil</a></li>
   </div>
 </ul>
 
 <footer class="footer">
-  <div class="container">
-    <span class="text-muted">
-      Made with <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>️ by beeman
-    </span>
+  <div *ngIf="user">
+    <a href="">
+      <i class="fa fa-search links" aria-hidden="true"></i>
+      <span class="icon-text links">Buscar</span>
+    </a>
+    <a href="">
+        <i class="fa fa-heart-o links" aria-hidden="true"></i>
+      <span class="icon-text links">Favoritos</span>
+    </a>
+    <a [routerLink]="[user._id, 'favorites']">
+        <i class="fa fa-book links" aria-hidden="true"></i>
+      <span class="icon-text links">Agenda</span>
+    </a>
+    <a href="">
+      <i class="fa fa-envelope-o links" aria-hidden="true"></i>
+      <span class="icon-text links">Mensajes</span>
+    </a>
+    <a href="">
+      <i class="fa fa-user-circle-o links" aria-hidden="true"></i>
+      <span class="icon-text links">Perfil</span>
+    </a>
+  </div>
+  <div *ngIf="!user">
+    <a href="">
+      <i class="fa fa-search links" aria-hidden="true"></i>
+      <span class="icon-text links">Buscar</span>
+    </a>
+    <a href="">
+        <i class="fa fa-heart-o links" aria-hidden="true"></i>
+      <span class="icon-text links">Favoritos</span>
+    </a>
+    <a href="">
+        <i class="fa fa-book links" aria-hidden="true"></i>
+      <span class="icon-text links">Agenda</span>
+    </a>
+    <a href="">
+      <i class="fa fa-envelope-o links" aria-hidden="true"></i>
+      <span class="icon-text links">Mensajes</span>
+    </a>
+    <a href="">
+      <i class="fa fa-user-circle-o links" aria-hidden="true"></i>
+      <span class="icon-text links">Perfil</span>
+    </a>
   </div>
 </footer>

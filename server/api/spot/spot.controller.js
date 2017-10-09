@@ -8,10 +8,6 @@ module.exports = {
     //         menuPrice } = req.body;
     
     const { userId, spotName, dates, photos } = req.body;
-    // const date = dates.split(',')
-    // const parseDates = JSON.parse(date)
-    // console.log(parseDates)
-    
     
     Spot.findOne({ spotName }).exec()
     .then( spot => {
@@ -29,20 +25,6 @@ module.exports = {
       .then( spot => res.status(200).json(spot))
     })
     .catch( e => res.status(400).json({ message: 'Something went wrong' }));
-  },
-
-  editPut: (req, res, next) => {
-    const spotId = req.params.id;
-    console.log(req.files)
-
-    Spot.findById(spotId).exec()
-    .then( spot => {
-      const photo = `/uploads/${req.files[0].filename}`;
-      Spot.findByIdAndUpdate(spotId, { $push: { photos: photo }}, { new: true }).exec()
-      .then( spot => console.log(spot))
-    })
-    .catch( e => res.status(400).json({ message: 'Something went wrong' }));
-
   },
 
   viewGet: (req, res, next) => {

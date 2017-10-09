@@ -18,7 +18,7 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'signup', component: SignupComponent },
     { path: 'search', component: SearchComponent },
-    { path: 'spot', component: SpotComponent },
+    { path: ':id/view', component: SpotComponent },
     { path: ':id/comments', component: CommentsComponent },
     { path: 'profile', component: ProfileComponent,
     canActivate: [IsLoggedInService] },

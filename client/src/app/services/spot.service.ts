@@ -17,9 +17,15 @@ export class SpotService {
     return Observable.throw(e.message);
   }
 
+  spot(spotId) {
+    return this.http.get(`${BASEURL}/spot/${spotId}/view`, this.options)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
+
   list() {
     return this.http.get(`${BASEURL}/spot/list`, this.options)
-      .map( res => res.json() )
+      .map(res => res.json() )
       .catch(this.handleError);
   }
 

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
 import { SpotService } from '../../services/spot.service';
 
 @Component({
@@ -13,13 +12,13 @@ export class CommentsComponent implements OnInit {
   comments: Array<object>;
 
   constructor( private router: Router, private route: ActivatedRoute,
-               private spot: SpotService ) { }
+               private spotService: SpotService ) { }
 
   ngOnInit() {
     this.route.params
     .subscribe( params => {
-      this.spot.getComments(params['id'])
-      .subscribe( comments => this.comments = comments );
+      this.spotService.getComments(params['id'])
+      .subscribe(comments => this.comments = comments);
     })
   }
 

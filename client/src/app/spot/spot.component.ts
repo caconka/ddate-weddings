@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { SpotService } from '../services/spot.service';
 
 @Component({
   selector: 'app-spot',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SpotComponent implements OnInit {
 
-  constructor() { }
+  spot: object;
+
+  constructor( private router: Router, private route: ActivatedRoute,
+               private spotService: SpotService ) { }
 
   ngOnInit() {
+    this.route.params
+    .subscribe( params => {
+      this.spotService.spot(params['id'])
+      .subscribe(spot => this.spot = spot);
+    })
   }
 
 }
