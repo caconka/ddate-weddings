@@ -1,35 +1,38 @@
-<form>
-  <h2> Signup </h2>
-  <label> Email </label>
-  <input type="email" [(ngModel)]="formInfo.email" name="email"
-     #myEmail="ngModel" email="true" required/>
-  <p *ngIf="myEmail.errors && (myEmail.dirty || myEmail.touched)" class="error"
-     [hidden]="myEmail.valid.errors"> Ingresa un email correcto </p>
-  <br>
-
-  <label> Password </label>
-  <input type="password" [(ngModel)]="formInfo.password" name="password" 
-     #myPass="ngModel" required/>
-  <p *ngIf="myPass.errors && (myPass.dirty || myPass.touched)" class="error"
-     [hidden]="!myPass.errors.required"> Password requerido </p>
-  <br>
-
-  <label> Nombre </label>
-  <input type="text" [(ngModel)]="formInfo.name" name="name" #myName="ngModel"
-      required/>
-  <p *ngIf="myName.errors && (myName.dirty || myName.touched)" class="error"
-     [hidden]="!myName.errors.required"> Nombre requerido </p>
-  <br>
-
-  <div *ngIf="!user">
-    <button (click)="signup()" [disabled]="myEmail.errors || myPass.errors || myName.errors">
-      Signup
-    </button>
-  </div>
-
-  <div *ngIf="user && user.role === 'Admin'">
-    <button (click)="signupProvider()" [disabled]="myEmail.errors || myPass.errors || myName.errors">
-      Signup
-    </button>
-  </div>
-</form>
+<div class="login">
+  <form>
+    <label> Email </label>
+    <input type="email" [(ngModel)]="formInfo.email" name="email"
+        #myEmail="ngModel" email="true" required/>
+    <p *ngIf="myEmail.errors && (myEmail.dirty || myEmail.touched)" class="error"
+        [hidden]="myEmail.valid.errors"> Ingresa un email correcto </p>
+    <br>
+  
+    <label> Password </label>
+    <input type="password" [(ngModel)]="formInfo.password" name="password" 
+        #myPass="ngModel" required/>
+    <p *ngIf="myPass.errors && (myPass.dirty || myPass.touched)" class="error"
+        [hidden]="!myPass.errors.required"> Password requerido </p>
+    <br>
+  
+    <label> Nombre </label>
+    <input type="text" [(ngModel)]="formInfo.name" name="name" #myName="ngModel"
+        required/>
+    <p *ngIf="myName.errors && (myName.dirty || myName.touched)" class="error"
+        [hidden]="!myName.errors.required"> Nombre requerido </p>
+    <br>
+  
+    <div *ngIf="!user">
+      <div class="button-login">
+        <button (click)="signup()" [disabled]="myEmail.errors || myPass.errors || myName.errors">
+          Signup
+        </button>
+      </div>
+    </div>
+  
+    <div *ngIf="user && user.role === 'Admin'">
+      <button (click)="signupProvider()" [disabled]="myEmail.errors || myPass.errors || myName.errors">
+        Signup
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,5 +1,6 @@
 <div class="container">
-  <div class="login">
+  <app-signup [hidden]="auth.hide"></app-signup>
+    <div class="login" [hidden]="!auth.hide">
     <form>
       <label for="email"> Email </label>
       <input type="email" [(ngModel)]="formInfo.email" name="email" id="email"

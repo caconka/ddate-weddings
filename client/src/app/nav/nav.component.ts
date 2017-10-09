@@ -28,4 +28,9 @@ export class NavComponent implements OnInit {
     a.parentNode.className = 'pink';
   }
 
+  specialAnchor(a) {
+    this.auth.setHide();
+    this.anchor(a);
+  }
+
 }

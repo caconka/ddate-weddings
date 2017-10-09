@@ -76,4 +76,8 @@ export class AuthService {
       this.hide = !this.hide;
       return this.hide;
     }
+
+    setHide() {
+      this.hide = true;
+    }
 }
