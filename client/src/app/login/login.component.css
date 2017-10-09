@@ -1,0 +1,54 @@
+button {
+  background: #ffc2ce;
+  border: 1px solid white;
+  border-radius: 3px;
+  color: white;
+  font-size: .9em;
+  padding: 8px 25px;
+  margin-top: 3px;
+}
+
+.button-signup {
+  padding: 8px 21px;
+  background: white;
+  color: #ffc2ce;
+  border: 1px solid #ffc2ce;
+}
+
+div.container {
+  text-align: center;
+}
+
+div.login {
+  width: 65%;
+  margin: 40% auto;
+  text-align: left;
+}
+
+div.login input {
+  display: block;
+  width: 100%;
+  height: 2.2em;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+div.login input::placeholder {
+  color: lightgray;
+}
+
+div.button-login {
+  text-align: right;
+  margin-bottom: 50px;
+}
+
+div.button-signup {
+  text-align: center;
+}
+
+p.small {
+  margin-bottom: 0;
+}
+

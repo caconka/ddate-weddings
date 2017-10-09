@@ -1,0 +1,11 @@
+.not-user {
+  color: black;
+}
+
+a.light-gray {
+  color: lightgray;
+}
+
+a.light-gray:hover {
+  color: lightgray;
+}

@@ -1,67 +1,46 @@
-<div *ngIf="!user">
-  <h3>NO USER LOGGED IN</h3>
-</div>
-<div *ngIf="user">
-  <h3> You are now logged in as {{ user.name }}!! </h3>
-</div>
-<ul>
-  <li><a [routerLink]="['/']">Inicio</a></li>
-  <div *ngIf="!user">
-    <li><a [routerLink]="['/signup']">Signup</a></li>
-    <li><a [routerLink]="['/login']">Login</a></li>
-  </div>
-  <li><a [routerLink]="['/search']">Buscar</a></li>
-  <li><a [routerLink]="['/spot']">Lugar</a></li>
-  <div *ngIf="user">
-   <li><a [routerLink]="[user._id, 'favorites']">Favoritos</a></li>
-    <li><a [routerLink]="['/messages']">Mensajes</a></li>
-    <li><a [routerLink]="['/profile']">Perfil</a></li>
-  </div>
-</ul>
-
 <footer class="footer">
   <div *ngIf="user">
     <a (click)="anchor($event.target)" [routerLink]="['']" class="pink">
       <i class="fa fa-search links" aria-hidden="true"></i>
       <span class="icon-text links">Buscar</span>
     </a>
-    <a (click)="anchor($event.target)" [routerLink]="">
+    <a (click)="anchor($event.target)" [routerLink]="[user._id, 'favorites']" class="gray">
         <i class="fa fa-heart-o links" aria-hidden="true"></i>
       <span class="icon-text links">Favoritos</span>
     </a>
-    <a [routerLink]="[user._id, 'favorites']">
+    <a [routerLink]="" class="gray">
         <i class="fa fa-book links" aria-hidden="true"></i>
       <span class="icon-text links">Agenda</span>
     </a>
-    <a href="">
+    <a (click)="anchor($event.target)" [routerLink]="" class="gray">
       <i class="fa fa-envelope-o links" aria-hidden="true"></i>
       <span class="icon-text links">Mensajes</span>
     </a>
-    <a href="">
+    <a (click)="anchor($event.target)" [routerLink]="['/profile']" class="gray">
       <i class="fa fa-user-circle-o links" aria-hidden="true"></i>
       <span class="icon-text links">Perfil</span>
     </a>
   </div>
   <div *ngIf="!user">
-    <a href="">
+    <a (click)="anchor($event.target)" [routerLink]="['']" class="pink">
       <i class="fa fa-search links" aria-hidden="true"></i>
       <span class="icon-text links">Buscar</span>
     </a>
-    <a href="">
+    <a class="light-gray">
         <i class="fa fa-heart-o links" aria-hidden="true"></i>
       <span class="icon-text links">Favoritos</span>
     </a>
-    <a href="">
+    <a class="light-gray">
         <i class="fa fa-book links" aria-hidden="true"></i>
       <span class="icon-text links">Agenda</span>
     </a>
-    <a href="">
+    <a class="light-gray">
       <i class="fa fa-envelope-o links" aria-hidden="true"></i>
       <span class="icon-text links">Mensajes</span>
     </a>
-    <a [routerLink]="['/profile']">
-      <i class="fa fa-user-circle-o links" aria-hidden="true"></i>
-      <span class="icon-text links">Perfil</span>
+    <a (click)="anchor($event.target)" [routerLink]="['/login']" class="not-user">
+      <i class="fa fa-sign-in links" aria-hidden="true"></i>
+      <span class="icon-text links"> Login </span>
     </a>
   </div>
 </footer>

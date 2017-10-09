@@ -1,18 +1,26 @@
-<form>
-  <h2> Login </h2>
-  <label for="email"> Email </label>
-  <input type="email" [(ngModel)]="formInfo.email" name="email" id="email"
-     #myEmail="ngModel" email="true" required/>
-  <p *ngIf="myEmail.errors && (myEmail.dirty || myEmail.touched)" class="error"
-     [hidden]="myEmail.valid.errors"> Enter a valid email </p>
-  <br>
-
-  <label> Password </label>
-  <input type="password" [(ngModel)]="formInfo.password" name="password"
-     #myPass="ngModel" required/>
-  <p *ngIf="myPass.errors && (myPass.dirty || myPass.touched)" class="error"
-     [hidden]="!myPass.errors.required"> Password is required </p>
-  <br>
-
-  <button (click)="login()" [disabled]="myEmail.errors || myPass.errors"> Login </button>
-</form>
+<div class="container">
+  <div class="login">
+    <form>
+      <label for="email"> Email </label>
+      <input type="email" [(ngModel)]="formInfo.email" name="email" id="email"
+         #myEmail="ngModel" email="true" required/>
+      <p *ngIf="myEmail.errors && (myEmail.dirty || myEmail.touched)" class="error"
+         [hidden]="myEmail.valid.errors"> Enter a valid email </p>
+    
+      <label> Password </label>
+      <input type="password" [(ngModel)]="formInfo.password" name="password"
+         #myPass="ngModel" required/>
+      <p *ngIf="myPass.errors && (myPass.dirty || myPass.touched)" class="error"
+         [hidden]="!myPass.errors.required"> Password is required </p>
+    
+      <div class="button-login">
+        <button (click)="login()" [disabled]="myEmail.errors || myPass.errors"> Login </button>
+      </div>
+    </form>
+  
+    <div class="button-login">
+      <p class="small">¿Todavía no tienes cuenta?</p>
+      <button (click)="auth.showHide()" [hidden]="!auth.hide" class="button-signup"> Signup </button>
+    </div>
+  </div>
+</div>

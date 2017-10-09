@@ -23,9 +23,9 @@ export class NavComponent implements OnInit {
   anchor(a) {
     const childrens = a.parentNode.parentNode.children;
     for(let i=0; i<childrens.length; i++) {
-      childrens[i].classList.remove('pink')
+      childrens[i].classList.remove('pink');
     }
-    a.className = 'pink'   
+    a.parentNode.className = 'pink';
   }
 
 }
