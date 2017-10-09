@@ -1,6 +1,44 @@
-<h3>Perfil</h3>
-<img [src]="'http://localhost:3000/' + user.avatar" height="100">
-<h4>{{ user.name }}</h4>
-{{ user.email }}
-<a [routerLink]="['edit']"> Edit Profile </a>
-<button (click)="logout()"> logout </button>
+<div class="container">
+  <div class="content">
+    <h3>Perfil</h3>
+    <div class="img-perfil">
+      <img [src]="'http://localhost:3000/' + user.avatar" height="100">
+    </div>
+    <div class="name-perfil">
+      <h5>{{ user.name }}</h5>
+      {{ user.email }}
+    </div>
+    <div class="section-profile">
+      <h5>Información personal</h5>
+      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+      <hr>
+    </div>
+    <div class="section-profile">
+      <h5>Datos de la Boda</h5>
+      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+      <hr>
+    </div>
+    <div class="section-profile">
+      <h5>Configuración</h5>
+      <i class="fa fa-toggle-on" aria-hidden="true"></i>
+      <hr>
+    </div>
+    <div class="section-profile">
+      <h5>Invita a tus amigos</h5>
+      <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+      <hr>
+    </div>
+    <div class="section-profile">
+      <h5>Política de privacidad</h5>
+      <i class="fa fa-file-text-o" aria-hidden="true"></i>
+      <hr>
+    </div>
+    <div class="section-profile">
+      <h5>Ayuda</h5>
+      <i class="fa fa-info" aria-hidden="true"></i>
+      <hr>
+    </div>
+    <a [routerLink]="['edit']"> Edit Profile </a>
+    <button (click)="logout()"> logout </button>
+  </div>
+</div>

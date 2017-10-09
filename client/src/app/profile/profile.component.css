@@ -1,0 +1,42 @@
+h3 {
+  margin-bottom: 15px;
+}
+
+div.content {
+  margin-top: 100px;
+  text-align: left;
+}
+
+div.img-perfil {
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+div.img-perfil img {
+  border-radius: 50%;
+}
+
+div.name-perfil {
+  display: inline-block;
+  margin-left: 15px;
+}
+
+div.section-profile {
+  position: relative;
+  height: 2.4em;
+  margin-top: 15px;
+}
+
+div.section-profile h5 {
+  display: inline-block;
+}
+
+div.section-profile i {
+  position: absolute;
+  right: 0;
+  font-size: 22px;
+}
+
+hr {
+  margin: 2px;
+}
