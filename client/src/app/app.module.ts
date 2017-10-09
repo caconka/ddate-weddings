@@ -30,6 +30,7 @@ import { AdminService } from './services/admin.service';
 
 import { FileSelectDirective } from "ng2-file-upload";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   imports: [
     BrowserModule, HttpModule, FormsModule, RouterModule.forRoot(routes),
-    NgbModule.forRoot()
+    NgbModule.forRoot(), 
+    AgmCoreModule.forRoot({ apiKey: 'AIzaSyDnT-UNmO3HtkLjtJllS1XgwF44XniS8qA' })
   ],
   providers: [AuthService, IsLoggedInService, SpotService, UserService,
               AdminService],

@@ -7,39 +7,67 @@
   </div>
 </div>
 
-<div *ngIf="!user || user.role === 'User'">
-  <h4>Los más vistos</h4>
-  <div *ngFor="let spot of mostVisited">
-    <a [routerLink]="[spot._id, 'view']"> {{spot.spotName}} </a>
-    <a [routerLink]="[spot._id, 'comments']">Comments</a>
+<div *ngIf="!user || user.role === 'User'" class="container">
 
-    <div *ngIf="favorites">
-      <a *ngIf="checkFavorit(spot._id)" 
-          (click)="deleteFromFavorites(user._id, spot._id)">
-        <i class="fa fa-heart" aria-hidden="true" style="color: #ffc2ce;"></i>
-      </a>
-      <a *ngIf="!checkFavorit(spot._id)" 
-          (click)="addToFavorites(user._id, spot._id)">
-        <i class="fa fa-heart-o" aria-hidden="true" style="color: #ffc2ce;"></i>
-      </a>
+  <form class="search">
+    <i class="fa fa-search" aria-hidden="true"></i>
+    <input type="text" id="search" placeholder="Prueba 'Madrid' ">
+    <button id="search-location"><i class="fa fa-map-o" aria-hidden="true"></i></button>
+    <div class="buttons">
+      <button class="search-button"> Fecha </button>
+      <button class="search-button"> Nº invitados </button>
     </div>
-  </div>
+  </form>
+
+  <h4>Los más vistos</h4>
+  <ngb-carousel>
+    <ng-template ngbSlide *ngFor="let spot of mostVisited">
+      <div *ngIf="favorites" class="hearth">
+        <a *ngIf="checkFavorit(spot._id)" 
+            (click)="deleteFromFavorites(user._id, spot._id)">
+          <i class="fa fa-heart" aria-hidden="true" style="color: #ffc2ce;"></i>
+        </a>
+        <a *ngIf="!checkFavorit(spot._id)" 
+            (click)="addToFavorites(user._id, spot._id)">
+          <i class="fa fa-heart-o" aria-hidden="true" style="color: white;"></i>
+        </a>
+      </div>
+      <img src="{{spot.photos[0]}}" alt="Random first slide">
+      <div class="carousel-caption">
+        <a [routerLink]="[spot._id, 'view']"><h5> {{ spot.spotName }} </h5></a>
+        <p>Menú desde € / px</p>
+        <i class="fa fa-star" aria-hidden="true"></i>
+      </div>
+    </ng-template>
+  </ngb-carousel>
   
   <h4>Todos</h4>
-  <div *ngFor="let spot of spots">
-    <a [routerLink]="[spot._id, 'view']"> {{spot.spotName}} </a>
-    <a [routerLink]="[spot._id, 'comments']">Comments</a>
-
-    <div *ngIf="favorites">
-      <a *ngIf="checkFavorit(spot._id)" 
-          (click)="deleteFromFavorites(user._id, spot._id)">
-        <i class="fa fa-heart" aria-hidden="true" style="color: #ffc2ce;"></i>
-      </a>
-      <a *ngIf="!checkFavorit(spot._id)" 
-          (click)="addToFavorites(user._id, spot._id)">
-        <i class="fa fa-heart-o" aria-hidden="true" style="color: #ffc2ce;"></i>
-      </a>
-    </div>
-  </div>
+  <ngb-carousel>
+    <ng-template ngbSlide *ngFor="let spot of spots">
+      <div *ngIf="favorites" class="hearth">
+        <a *ngIf="checkFavorit(spot._id)" 
+            (click)="deleteFromFavorites(user._id, spot._id)">
+          <i class="fa fa-heart" aria-hidden="true" style="color: #ffc2ce;"></i>
+        </a>
+        <a *ngIf="!checkFavorit(spot._id)" 
+            (click)="addToFavorites(user._id, spot._id)">
+          <i class="fa fa-heart-o" aria-hidden="true" style="color: white;"></i>
+        </a>
+      </div>
+      <img src="{{spot.photos[0]}}" alt="Random first slide">
+      <div class="carousel-caption">
+        <a [routerLink]="[spot._id, 'view']"><h5> {{ spot.spotName }} </h5></a>
+        <p>Menú desde € / px</p>
+        <i class="fa fa-star" aria-hidden="true"></i>
+      </div>
+    </ng-template>
+  </ngb-carousel>
 </div>
+
+
+  
+
+
+
+  
   

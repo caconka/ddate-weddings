@@ -10,6 +10,8 @@ import { SpotService } from '../services/spot.service';
 export class SpotComponent implements OnInit {
 
   spot: object;
+  lat: number = 51.678418;
+  lng: number = 7.809007;
 
   constructor( private router: Router, private route: ActivatedRoute,
                private spotService: SpotService ) { }
