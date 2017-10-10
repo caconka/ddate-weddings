@@ -1,5 +1,24 @@
 h3 {
   margin-bottom: 15px;
+  margin-left: 10px;
+  display: block;
+}
+
+h5 {
+  margin-bottom: 10px;
+}
+
+i {
+  color: #3a3a3a;
+}
+
+i.gray {
+  color: gray;
+}
+
+p {
+  display: inline-block;
+  margin-bottom: 0;
 }
 
 div.content {
@@ -7,9 +26,14 @@ div.content {
   text-align: left;
 }
 
-div.img-perfil {
-  display: inline-block;
+div.section-header {
   margin-bottom: 30px;
+}
+
+div.img-perfil {
+  margin: 0 15px;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 div.img-perfil img {
@@ -18,13 +42,18 @@ div.img-perfil img {
 
 div.name-perfil {
   display: inline-block;
-  margin-left: 15px;
+  vertical-align: middle;
+  font-size: 14px;
+}
+
+.name-perfil p {
+  color: gray;
 }
 
 div.section-profile {
   position: relative;
   height: 2.4em;
-  margin-top: 15px;
+  margin: 7px 10px;
 }
 
 div.section-profile h5 {
@@ -39,4 +68,10 @@ div.section-profile i {
 
 hr {
   margin: 2px;
+}
+
+button {
+  position: absolute;
+  right: 0;
+  margin-right: 25px;
 }

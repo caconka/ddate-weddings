@@ -1,5 +1,16 @@
-<div *ngIf="favorites">
-  <div *ngFor="let favorit of favorites">
-    {{ favorit.spotName }}
+<div *ngIf="favorites" class="container">
+  <div class="content">
+    <h3>Favoritos</h3>
+    <div *ngFor="let favorit of favorites" class="card">
+      <img class="card-img-top" src="{{favorit.photos[0]}}" alt="Card image cap">
+      <a (click)="deleteFromFavorites(favorit._id)">
+        <i class="fa fa-heart hearth" aria-hidden="true" style="color: #ffc2ce;"></i>
+      </a>
+      <div class="card-body">
+        <h5 class="card-title">{{favorit.spotName}}</h5>
+        <p class="card-text">Menú desde {{favorit.features.menuPrice}}€ / px</p>
+        <i class="fa fa-star" aria-hidden="true"></i>
+      </div>
+    </div>
   </div>
 </div>

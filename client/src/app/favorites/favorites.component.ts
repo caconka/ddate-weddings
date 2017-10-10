@@ -10,6 +10,7 @@ import { UserService } from '../services/user.service';
 export class FavoritesComponent implements OnInit {
 
   favorites: Array<object>;
+  userId;
 
   constructor( private router: Router, private route: ActivatedRoute,
                private userService: UserService ) { }
@@ -17,9 +18,15 @@ export class FavoritesComponent implements OnInit {
   ngOnInit() {
     this.route.params
     .subscribe( params => {
+      this.userId = params['id'];
       this.userService.getFavorites(params['id'])
-      .subscribe( favorites => { this.favorites = favorites });
+      .subscribe(favorites => { this.favorites = favorites });
     })
+  }
+
+  deleteFromFavorites(spotId) {
+    this.userService.deleteFromFavorites(this.userId, spotId)
+    .subscribe(favorites => { this.favorites = favorites });
   }
 
 }
