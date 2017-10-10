@@ -26,7 +26,16 @@
   </ul>
   <small *ngIf="!formInfo.photos.length"> No tiene fotos </small>
 
-  <button (click)="addSpot()"> Crear Emplazamiento </button>
+  <label for="city"> Calle </label>
+  <input type="text" #street>
+  
+  <label for="city"> Población </label>
+  <input type="text" #country>
+
+  <label for="city"> Ciudad </label>
+  <input type="text" #city>
+
+  <button (click)="addSpot(street.value, country.value, city.value)"> Crear Emplazamiento </button>
 </form>
 
 

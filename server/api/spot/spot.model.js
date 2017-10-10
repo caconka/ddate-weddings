@@ -4,7 +4,10 @@ const Schema = mongoose.Schema;
 const spotSchema = new Schema ({
   userId: { type: Schema.Types.ObjectId, ref:'User', required: true },
   spotName: String,
-  location: { type: Number },
+  location: {
+    lat: String,
+    lng: String
+  },
   dates: [{
     year: Number,
     month: Number,

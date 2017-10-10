@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { AdminService } from '../services/admin.service';
+import { SpotService } from '../services/spot.service';
 import { NgbDateStruct, NgbCalendar, NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
 
 const equals = (one: NgbDateStruct, two: NgbDateStruct) =>
@@ -21,7 +22,9 @@ interface ProviderForm{
   userId: string,
   spotName: string,
   dates: Array<object>,
-  photos: Array<string>
+  photos: Array<string>,
+  lat: string,
+  lng: string
 }
 
 @Component({
@@ -37,7 +40,9 @@ export class ProviderSignupComponent implements OnInit {
     userId: '',
     spotName: '',
     dates: [],
-    photos: []
+    photos: [],
+    lat: '',
+    lng: ''
   }
 
   hoveredDate: NgbDateStruct;
@@ -46,7 +51,7 @@ export class ProviderSignupComponent implements OnInit {
 
   constructor(private auth: AuthService, private adminService: AdminService,
               private calendar: NgbCalendar, private config: NgbDatepickerConfig,
-              private router: Router) { 
+              private router: Router, private spotService: SpotService) { 
     this.fromDate = calendar.getToday();
     this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
     config.minDate = {year: toDay.getFullYear(), month: toDay.getMonth(), 
@@ -93,12 +98,23 @@ export class ProviderSignupComponent implements OnInit {
     this.formInfo.photos.push(photo);
   }
 
-  addSpot() {
-    const { userId, spotName, dates, photos } = this.formInfo;
-    this.adminService.createSpot(userId, spotName, dates, photos)
+  addSpot(street, country, city) {
+    const address = `${street},${country},${city}`;
+
+    this.spotService.getGeoData(address)
     .subscribe(res => {
-      this.formInfo = { userId: '', spotName: '', dates: [], photos: [] }
-    });
+      if(res.status === 'OK') {
+        this.formInfo.lat = res.results[0].geometry.location.lat; 
+        this.formInfo.lng = res.results[0].geometry.location.lng; 
+        const { userId, spotName, dates, photos, lat, lng } = this.formInfo;
+        
+        this.adminService.createSpot(userId, spotName, dates, photos, lat, lng)
+        .subscribe(res => {
+          console.log(res)
+          this.formInfo = { userId: '', spotName: '', dates: [], photos: [], lat: '', lng: '' }
+        });
+      }
+    })
   }
 
 }

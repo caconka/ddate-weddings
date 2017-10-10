@@ -16,6 +16,9 @@ export class HomeComponent implements OnInit {
   mostVisited: Array<object>;
   favorites: Array<object>;
   model;
+  guest: number;
+  hide: boolean = false;
+  city: string;
 
   constructor( private auth: AuthService, private userService: UserService, 
                private spotService: SpotService, config: NgbCarouselConfig) { 
@@ -63,7 +66,17 @@ export class HomeComponent implements OnInit {
     return this.userService.checkFavorit(this.favorites, spotId);
   }
 
-  console() {
-    console.log('hola')
+  searchSpots(city) {
+    this.spotService.getGeoData(city)
+    .subscribe(res => {
+      console.log(res.results[0].geometry.location.lat)
+      console.log(res.results[0].geometry.location.lng)
+    })
   }
+
+  inputToggle(value) {
+    console.log(value)
+    this.hide = !this.hide;
+  }
+
 }

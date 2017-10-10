@@ -104,6 +104,7 @@ input#search {
   border-radius: 3px;
   text-align: right;
   margin-right: 6px;
+  padding-right: 4px;
 }
 
 input#search::placeholder {
