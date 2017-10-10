@@ -66,7 +66,8 @@ export class HomeComponent implements OnInit {
     return this.userService.checkFavorit(this.favorites, spotId);
   }
 
-  searchSpots(city, day, guest) {
+  searchSpots(city, guest) {
+    const day = `${this.model.year}-${this.model.month}-${this.model.day}`
     this.spotService.getGeoData(city)
     .subscribe(res => {
       if(res.status === 'OK') {

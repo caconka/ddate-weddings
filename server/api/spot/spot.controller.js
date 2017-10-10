@@ -69,9 +69,17 @@ module.exports = {
         lng: -3.994707,
         elv: 0
       }
-      const dist = calculate.azimuth(searchLocation, currentSpot)
-      if(dist.distance <= 40000)
-        spotsList.push(spots[0])
+      // const dist = calculate.azimuth(searchLocation, currentSpot)
+      // if(dist.distance <= 40000 && day == '2017-10-18')
+      //   spotsList.push(spots[0])
+      
+      spots.forEach(spot => {
+        spot.dates.forEach(d => {
+          const thisDay = `${d.year}-${d.month}-${d.day}`;
+          if(thisDay === day)
+            spotsList.push(spot);
+        })
+      })
       
       console.log(spotsList)
     //   spots.forEach(spot => {
