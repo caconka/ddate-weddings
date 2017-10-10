@@ -17,7 +17,12 @@ button.pink {
 }
 
 #guest {
-  position: absolute;
-  margin-top: 40px;
+  background: white;
   border: 1px solid lightgray;
+  border-radius: 3px;
+  text-align: right;
+  height: 2.1em;
+  padding-right: 10px;
+  margin-top: 3px;
+  width: 40%;
 }

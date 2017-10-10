@@ -16,9 +16,7 @@
       <input type="text" id="search" #city placeholder="Prueba 'Madrid' ">
     </div>
     <div class="buttons form-group">
-      <input *ngIf="hide" #guest (keyup.enter)="inputToggle(guest.value)" type="text" id="guest">
-      <button *ngIf="!guest" class="search-button" (click)="inputToggle()">
-        Nº invitados </button>
+      <input type="text" #gst id="guest" placeholder="Nº Invitados ">
       <button *ngIf="guest" class="search-button"> {{guest}} </button>
       <input class="form-control" placeholder="yyyy-mm-dd" hidden
               name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">

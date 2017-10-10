@@ -16,8 +16,7 @@ export class HomeComponent implements OnInit {
   mostVisited: Array<object>;
   favorites: Array<object>;
   model;
-  guest: number;
-  hide: boolean = false;
+  guest: string;
   city: string;
 
   constructor( private auth: AuthService, private userService: UserService, 
@@ -67,7 +66,9 @@ export class HomeComponent implements OnInit {
   }
 
   searchSpots(city, guest) {
-    const day = `${this.model.year}-${this.model.month}-${this.model.day}`
+    if(this.model !== undefined)
+      var day = `${this.model.year}-${this.model.month}-${this.model.day}`;
+    
     this.spotService.getGeoData(city)
     .subscribe(res => {
       if(res.status === 'OK') {
@@ -77,11 +78,6 @@ export class HomeComponent implements OnInit {
         .subscribe(res => console.log(res))
       }
     })
-  }
-
-  inputToggle(value) {
-    console.log(value)
-    this.hide = !this.hide;
   }
 
 }
