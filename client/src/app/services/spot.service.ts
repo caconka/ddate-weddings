@@ -47,8 +47,14 @@ export class SpotService {
       .catch(this.handleError);
   }
 
-  getGeoData(city){
+  getGeoData(city) {
     return this.http.get('http://maps.google.com/maps/api/geocode/json?address=' + city)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
+
+  getSpotsByLocation(lat, lng, day, guest) {
+    return this.http.post(`${BASEURL}/spot/search`, { lat, lng, day, guest }, this.options)
       .map(res => res.json())
       .catch(this.handleError);
   }

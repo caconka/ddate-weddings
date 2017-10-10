@@ -1,6 +1,7 @@
 const _ = require('lodash');
 const Spot = require('./spot.model');
 const multer = require('multer');
+const calculate = require('azimuth');
 
 module.exports = {
   signupPost: (req, res, next) => {
@@ -54,6 +55,37 @@ module.exports = {
       return res.status(200).json(spotsSorted);
     })
     .catch(e => res.status(400).json({ message: 'Something went wrong' }));
+  },
+
+  getListByLocationPost: (req, res, next) => {
+    const { lat, lng, day, guest } = req.body;
+    const searchLocation = { lat, lng, elv: 0 };
+    const spotsList = [];
+
+    Spot.find().exec()
+    .then(spots => {
+      const currentSpot = {
+        lat: 40.439755,
+        lng: -3.994707,
+        elv: 0
+      }
+      const dist = calculate.azimuth(searchLocation, currentSpot)
+      if(dist.distance <= 40000)
+        spotsList.push(spots[0])
+      
+      console.log(spotsList)
+    //   spots.forEach(spot => {
+    //     console.log('entro FE')
+    //     .then(() => {
+    //       console.log('entro')
+    //       if(dist.distance <= 50000)
+    //         spotsList.push(spot)
+    //     })
+    //   })
+    // })
+    // .then(() => {
+    //   console.log(spotsList)
+    })
   }
 
 }

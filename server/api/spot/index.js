@@ -9,5 +9,6 @@ router.post('/signup', ensureLoggedIn(), checkRole.isAdmin, Controller.signupPos
 router.get('/:id/view', checkIdParams, Controller.viewGet); 
 router.get('/list', Controller.listGet); 
 router.get('/list-visit', Controller.listVisitGet); 
+router.post('/search', Controller.getListByLocationPost); 
 
 module.exports = router;

@@ -66,11 +66,15 @@ export class HomeComponent implements OnInit {
     return this.userService.checkFavorit(this.favorites, spotId);
   }
 
-  searchSpots(city) {
+  searchSpots(city, day, guest) {
     this.spotService.getGeoData(city)
     .subscribe(res => {
-      console.log(res.results[0].geometry.location.lat)
-      console.log(res.results[0].geometry.location.lng)
+      if(res.status === 'OK') {
+        const lat = res.results[0].geometry.location.lat;
+        const lng = res.results[0].geometry.location.lng;
+        this.spotService.getSpotsByLocation(lat, lng, day, guest)
+        .subscribe(res => console.log(res))
+      }
     })
   }
 
