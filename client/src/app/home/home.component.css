@@ -1,3 +1,7 @@
 h4 {
   text-align: left;
 }
+
+.carousel-caption a h5:hover {
+  color: #ffc2ce;
+}

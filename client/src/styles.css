@@ -21,6 +21,7 @@ a {
 
 a:hover {
   color: #ffc2ce;
+  text-decoration: none;
 }
 
 a.pink {

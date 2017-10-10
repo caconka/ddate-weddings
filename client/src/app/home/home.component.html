@@ -35,7 +35,7 @@
       <img src="{{spot.photos[0]}}" alt="Random first slide">
       <div class="carousel-caption">
         <a [routerLink]="[spot._id, 'view']"><h5> {{ spot.spotName }} </h5></a>
-        <p>Menú desde € / px</p>
+        <p>Menú desde {{spot.features.menuPrice}}€ / px</p>
         <i class="fa fa-star" aria-hidden="true"></i>
       </div>
     </ng-template>
@@ -57,7 +57,7 @@
       <img src="{{spot.photos[0]}}" alt="Random first slide">
       <div class="carousel-caption">
         <a [routerLink]="[spot._id, 'view']"><h5> {{ spot.spotName }} </h5></a>
-        <p>Menú desde € / px</p>
+        <p>Menú desde {{spot.features.menuPrice}}€ / px</p>
         <i class="fa fa-star" aria-hidden="true"></i>
       </div>
     </ng-template>

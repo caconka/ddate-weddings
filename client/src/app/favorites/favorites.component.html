@@ -7,7 +7,9 @@
         <i class="fa fa-heart hearth" aria-hidden="true" style="color: #ffc2ce;"></i>
       </a>
       <div class="card-body">
-        <h5 class="card-title">{{favorit.spotName}}</h5>
+        <a [routerLink]="['/', favorit._id, 'view']">
+          <h5 class="card-title">{{favorit.spotName}}</h5>
+        </a>
         <p class="card-text">Menú desde {{favorit.features.menuPrice}}€ / px</p>
         <i class="fa fa-star" aria-hidden="true"></i>
       </div>
