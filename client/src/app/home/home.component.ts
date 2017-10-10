@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   spots: Array<object>;
   mostVisited: Array<object>;
   favorites: Array<object>;
+  model;
 
   constructor( private auth: AuthService, private userService: UserService, 
                private spotService: SpotService, config: NgbCarouselConfig) { 
@@ -60,5 +61,9 @@ export class HomeComponent implements OnInit {
 
   checkFavorit(spotId) {
     return this.userService.checkFavorit(this.favorites, spotId);
+  }
+
+  console() {
+    console.log('hola')
   }
 }

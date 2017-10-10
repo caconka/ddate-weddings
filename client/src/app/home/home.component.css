@@ -5,3 +5,13 @@ h4 {
 .carousel-caption a h5:hover {
   color: #ffc2ce;
 }
+
+button.pink {
+  background: white;
+  border: 1px solid #ffc2ce;
+  border-radius: 3px;
+  color: #ffc2ce;
+  font-size: .9em;
+  padding: 5px 10px;
+  margin-top: 3px;
+}
