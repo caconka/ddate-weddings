@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   model;
   city: string;
   filtersHide: boolean = true;
-  distance: string = '40';
+  distance: number = 40;
 
   constructor( private auth: AuthService, private userService: UserService, 
                private spotService: SpotService, config: NgbCarouselConfig) { 
@@ -68,6 +68,7 @@ export class HomeComponent implements OnInit {
 
   searchSpots(city, guest, dist) {
     this.spotService.hideHome();
+    console.log(dist)
 
     if(this.model !== undefined)
       var day = `${this.model.year}-${this.model.month}-${this.model.day}`;
@@ -89,6 +90,10 @@ export class HomeComponent implements OnInit {
 
   filters() {
     this.filtersHide = !this.filtersHide;
+  }
+
+  onKey(value) {
+    this.distance = value;
   }
 
 }

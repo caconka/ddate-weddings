@@ -11,7 +11,7 @@
       
   <form class="search form-inline">
     <div class="search">
-      <i class="fa fa-search" (click)="searchSpots(city.value, gst.value, dist.value)"
+      <i class="fa fa-search" (click)="searchSpots(city.value, gst.value, distnc.value)"
          aria-hidden="true"></i>
       <input type="text" id="search" #city placeholder="Prueba 'Madrid' ">
     </div>
@@ -26,9 +26,11 @@
         {{model.day}}.{{model.month}}.{{model.year}}
       </button>
       <button id="search-sett" (click)="filters()"><i class="fa fa-sliders" aria-hidden="true"></i></button>
+
+      <input type="text" #distnc value="{{distance}}" hidden>
       <div *ngIf="!filtersHide" class="filters">
-        <input type="text" (click)="setColor($event.target)" #dist id="dist" value="{{distance}}">
-        <label for="">km</label>
+        <input type="text" #myInput (keyup)="onKey(myInput.value)" >
+        <label for="dist">km</label>
       </div>
     </div>
   </form>

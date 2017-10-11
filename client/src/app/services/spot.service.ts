@@ -56,8 +56,11 @@ export class SpotService {
   }
 
   getSpotsByLocation(lat, lng, day, guest, dist) {
-    return this.http.post(`${BASEURL}/spot/search`, { lat, lng, day, guest, dist }, this.options)
-      .map(res => this.searchData = res.json())
+    return this.http.post(`${BASEURL}/spot/search`, { lat, lng, dist }, this.options)
+      .map(res => {
+        console.log(res)
+        this.searchData = res.json()
+      })
       .catch(this.handleError);
   }
 

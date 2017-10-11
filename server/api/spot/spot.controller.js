@@ -52,47 +52,36 @@ module.exports = {
   },
 
   getListByLocationPost: (req, res, next) => {
-    const { lat, lng, day, guest, dist } = req.body;
+    const { lat, lng, dist } = req.body;
     const searchLocation = { lat, lng, elv: 0 };
-    const spotsList = [];
+    const listByLocation = [];
 
     Spot.find().exec()
     .then(spots => {
-      const currentSpot = {
-        lat: 40.439755,
-        lng: -3.994707,
-        elv: 0
-      }
-      // const dist = calculate.azimuth(searchLocation, currentSpot)
-      // if(dist.distance <= 40000 && day == '2017-10-18')
-      //   spotsList.push(spots[0])
-      
-      // spots.forEach(spot => {
-      //   spot.dates.forEach(d => {
-      //     const thisDay = `${d.year}-${d.month}-${d.day}`;
-      //     if(thisDay === day)
-      //       spotsList.push(spot);
+      spots.forEach(spot => {
+        const spotLocation = {
+          lat: spot.location.lat,
+          lng: spot.location.lng,
+          elv: 0
+        }
+
+        const dist = calculate.azimuth(searchLocation, spotLocation)
+        if(parseInt(dist.distance) <= dist*1000)
+          listByLocation.push(spot);
+      })
+      console.log(listByLocation)
+
+      // if(day !== undefined) {
+      //   listByLocation.forEach(spot => {
+      //     spot.dates.forEach(d => {
+      //       const thisDay = `${d.year}-${d.month}-${d.day}`;
+      //       if(thisDay === day)
+      //         spotsList.push(spot);
+      //     })
       //   })
-      // })
-
-      const n = 300;
-      if(guest <= n)
-        console.log('holi')
-
-      
-      // console.log(spotsList)
-    //   spots.forEach(spot => {
-    //     console.log('entro FE')
-    //     .then(() => {
-    //       console.log('entro')
-    //       if(dist.distance <= 50000)
-    //         spotsList.push(spot)
-    //     })
-    //   })
-    // })
-    // .then(() => {
-    //   console.log(spotsList)
+      // }
     })
+    .then(res => console.log(res))
   }
 
 }
