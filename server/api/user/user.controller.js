@@ -9,7 +9,7 @@ module.exports = {
     .then( users => {
       let control = true;
 
-      users.forEach( user => {
+      users.forEach(user => {
         if(user._id.toString() !== userId) {
           control = false;
           return res.status(400).json({ message: 'The email already exists' }); 

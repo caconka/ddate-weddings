@@ -24,7 +24,7 @@ export class SearchComponent implements OnInit {
     this.auth.getLoginEventEmitter()
     .subscribe(user => {  
       this.user = user;
-      if(user && user.role === 'User')
+      if(user !== undefined && user.role === 'User')
         this.asignFavorites(user._id)
     });
 
