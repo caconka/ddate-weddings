@@ -58,7 +58,7 @@ module.exports = {
   },
 
   getListByLocationPost: (req, res, next) => {
-    const { lat, lng, day, guest } = req.body;
+    const { lat, lng, day, guest, dist } = req.body;
     const searchLocation = { lat, lng, elv: 0 };
     const spotsList = [];
 
@@ -73,15 +73,20 @@ module.exports = {
       // if(dist.distance <= 40000 && day == '2017-10-18')
       //   spotsList.push(spots[0])
       
-      spots.forEach(spot => {
-        spot.dates.forEach(d => {
-          const thisDay = `${d.year}-${d.month}-${d.day}`;
-          if(thisDay === day)
-            spotsList.push(spot);
-        })
-      })
+      // spots.forEach(spot => {
+      //   spot.dates.forEach(d => {
+      //     const thisDay = `${d.year}-${d.month}-${d.day}`;
+      //     if(thisDay === day)
+      //       spotsList.push(spot);
+      //   })
+      // })
+
+      const n = 300;
+      if(guest <= n)
+        console.log('holi')
+
       
-      console.log(spotsList)
+      // console.log(spotsList)
     //   spots.forEach(spot => {
     //     console.log('entro FE')
     //     .then(() => {

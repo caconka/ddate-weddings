@@ -16,8 +16,9 @@ export class HomeComponent implements OnInit {
   mostVisited: Array<object>;
   favorites: Array<object>;
   model;
-  guest: string;
   city: string;
+  filtersHide: boolean = true;
+  distance: string = '40';
 
   constructor( private auth: AuthService, private userService: UserService, 
                private spotService: SpotService, config: NgbCarouselConfig) { 
@@ -65,7 +66,9 @@ export class HomeComponent implements OnInit {
     return this.userService.checkFavorit(this.favorites, spotId);
   }
 
-  searchSpots(city, guest) {
+  searchSpots(city, guest, dist) {
+    this.spotService.hideHome();
+
     if(this.model !== undefined)
       var day = `${this.model.year}-${this.model.month}-${this.model.day}`;
     
@@ -74,10 +77,18 @@ export class HomeComponent implements OnInit {
       if(res.status === 'OK') {
         const lat = res.results[0].geometry.location.lat;
         const lng = res.results[0].geometry.location.lng;
-        this.spotService.getSpotsByLocation(lat, lng, day, guest)
-        .subscribe(res => console.log(res))
+        this.spotService.getSpotsByLocation(lat, lng, day, guest, dist)
+        .subscribe()
       }
     })
+  }
+
+  setColor(e) {
+    e.setAttribute('class', 'color');
+  }
+
+  filters() {
+    this.filtersHide = !this.filtersHide;
   }
 
 }

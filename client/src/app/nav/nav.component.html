@@ -1,18 +1,18 @@
 <footer class="footer">
   <div *ngIf="user">
-    <a (click)="anchor($event.target)" [routerLink]="['']" class="pink">
+    <a (click)="anchor($event.target, true)" [routerLink]="['']" class="pink">
       <i class="fa fa-search links" aria-hidden="true"></i>
       <span class="icon-text links">Buscar</span>
     </a>
-    <a (click)="anchor($event.target)" [routerLink]="[user._id, 'favorites']" class="gray">
+    <a (click)="anchor($event.target)" [routerLink]="['/', user._id, 'favorites']" class="gray">
         <i class="fa fa-heart-o links" aria-hidden="true"></i>
       <span class="icon-text links">Favoritos</span>
     </a>
-    <a [routerLink]="" class="gray">
+    <a [routerLink]="" [routerLink]="" class="gray">
         <i class="fa fa-book links" aria-hidden="true"></i>
       <span class="icon-text links">Agenda</span>
     </a>
-    <a (click)="anchor($event.target)" [routerLink]="" class="gray">
+    <a (click)="anchor($event.target)" [routerLink]="['/messages']" class="gray">
       <i class="fa fa-envelope-o links" aria-hidden="true"></i>
       <span class="icon-text links">Mensajes</span>
     </a>

@@ -10,6 +10,8 @@ const BASEURL = environment.BASEURL;
 export class SpotService {
 
   private options = { withCredentials: true };
+  private hide: boolean = false;
+  private searchData: Array<object>;
 
   constructor( private http: Http ) { }
 
@@ -53,9 +55,17 @@ export class SpotService {
       .catch(this.handleError);
   }
 
-  getSpotsByLocation(lat, lng, day, guest) {
-    return this.http.post(`${BASEURL}/spot/search`, { lat, lng, day, guest }, this.options)
-      .map(res => res.json())
+  getSpotsByLocation(lat, lng, day, guest, dist) {
+    return this.http.post(`${BASEURL}/spot/search`, { lat, lng, day, guest, dist }, this.options)
+      .map(res => this.searchData = res.json())
       .catch(this.handleError);
+  }
+
+  showHome() {
+    this.hide = false;
+  }
+
+  hideHome() {
+    this.hide = true;
   }
 }

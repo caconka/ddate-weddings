@@ -79,65 +79,6 @@ ngb-carousel > a {
   font-size: 10px;
 }
 
-form.search {
-  position: relative;
-  margin: 20px auto;
-  text-align: center;
-}
-
-div.search > i {
-  position: absolute;
-  color: gray;
-  font-size: 1.4em;
-  margin: 5px 8px;
-}
-
-div.search {
-  margin: 0 auto;
-  width: 75%;
-}
-
-input#search {
-  width: 100%;
-  height: 2.2em;
-  border: 1px solid lightgrey;
-  border-radius: 3px;
-  text-align: right;
-  margin-right: 6px;
-  padding-right: 4px;
-}
-
-input#search::placeholder {
-  color: lightgray;
-}
-
-button#search-sett {
-  background: white;
-  border: 1px solid lightgrey;
-  border-radius: 3px;
-  color: gray;
-  font-size: 1.3em;
-  vertical-align: middle;
-  padding: 1px 8px;
-  margin: 0;
-}
-
-div.buttons {
-  text-align: right;
-  width: 75%;
-  margin: 0 auto;
-}
-
-button.search-button {
-  background: white;
-  border: 1px solid lightgray;
-  border-radius: 3px;
-  color: lightgray;
-  font-size: .9em;
-  padding: 5px 10px;
-  margin-top: 3px;
-}
-
 button {
   background: #ffc2ce;
   border: 1px solid white;
