@@ -42,3 +42,7 @@ i.hearth {
   right: 0;
   margin: 5px 8px;
 }
+
+.error h5 {
+  margin-top: 20px;
+}
