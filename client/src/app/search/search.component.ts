@@ -23,7 +23,7 @@ export class SearchComponent implements OnInit {
 
     this.auth.getLoginEventEmitter()
     .subscribe(user => {  
-      this.user = user 
+      this.user = user;
       if(user && user.role === 'User')
         this.asignFavorites(user._id)
     });
@@ -36,7 +36,7 @@ export class SearchComponent implements OnInit {
 
   private asignFavorites(userId) {
     this.userService.getFavorites(userId)
-    .subscribe(favorites => { this.favorites = favorites });
+    .subscribe(favorites => { console.log(favorites);this.favorites = favorites });
   }
 
   addToFavorites(userId, spotId) {

@@ -1,5 +1,39 @@
-<p>
-  search works!
-</p>
-
-{{searchData | json}}
+<div *ngIf="searchData !== undefined" class="container">
+  <div class="content">
+    <h3> Búsqueda </h3>
+    <div *ngIf="user">
+      <div *ngFor="let spot of searchData" class="card">
+        <img class="card-img-top" src="{{spot.photos[0]}}" alt="Card image cap">
+        <div *ngIf="favorites">
+          <a *ngIf="checkFavorit(spot._id)" 
+              (click)="deleteFromFavorites(user._id, spot._id)">
+            <i class="fa fa-heart hearth" aria-hidden="true" style="color: #ffc2ce;"></i>
+          </a>
+          <a *ngIf="!checkFavorit(spot._id)" 
+              (click)="addToFavorites(user._id, spot._id)">
+            <i class="fa fa-heart-o hearth" aria-hidden="true" style="color: white;"></i>
+          </a>
+        </div>
+        <div class="card-body">
+          <a [routerLink]="['/', spot._id, 'view']">
+            <h5 class="card-title">{{spot.spotName}}</h5>
+          </a>
+          <p class="card-text">Menú desde {{spot.features.menuPrice}}€ / px</p>
+          <i class="fa fa-star" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!user">
+      <div *ngFor="let spot of searchData" class="card">
+        <img class="card-img-top" src="{{spot.photos[0]}}" alt="Card image cap">
+        <div class="card-body">
+          <a [routerLink]="['/', spot._id, 'view']">
+            <h5 class="card-title">{{spot.spotName}}</h5>
+          </a>
+          <p class="card-text">Menú desde {{spot.features.menuPrice}}€ / px</p>
+          <i class="fa fa-star" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
