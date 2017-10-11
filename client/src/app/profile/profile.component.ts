@@ -15,7 +15,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.user = this.auth.getUser();
     this.auth.getLoginEventEmitter()
-      .subscribe( user => this.user = user );
+      .subscribe(user => this.user = user);
   }
 
   logout() {

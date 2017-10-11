@@ -5,23 +5,17 @@ const calculate = require('azimuth');
 
 module.exports = {
   signupPost: (req, res, next) => {
-    // const { userId, spotName, location, places, services, guest,
-    //         menuPrice } = req.body;
-    
-    const { userId, spotName, dates, photos, lat, lng } = req.body;
+    const { userId, spotName, dates, photos, lat, lng, guest, menuPrice, style, 
+            place, places, services, description } = req.body;
     
     Spot.findOne({ spotName }).exec()
     .then(spot => {
       if(spot)
-      return res.status(400).json({ message: 'The spot already exists' });
+        return res.status(400).json({ message: 'The spot already exists' });
       
-      // const photos = spot.photos.push(`/uploads/${req.files[0].filename}`)
-      // const theSpot = new Spot({
-      //   userId, spotName, location, photos,
-      //   features: { places, services, guest }       
-      // });
-      const theSpot = new Spot({ userId, spotName, dates, photos,
-        location: { lat, lng }
+      const theSpot = new Spot({ userId, spotName, dates, photos, description,
+        location: { lat, lng },
+        features: { places, services, guest, menuPrice, style, place }
       });
 
       theSpot.save()

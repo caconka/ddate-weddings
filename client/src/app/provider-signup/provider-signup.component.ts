@@ -24,7 +24,14 @@ interface ProviderForm{
   dates: Array<object>,
   photos: Array<string>,
   lat: string,
-  lng: string
+  lng: string,
+  guest: string,
+  menuPrice: string,
+  style: string,
+  place: string,
+  places: Array<string>,
+  services: Array<string>,
+  description: string
 }
 
 @Component({
@@ -42,7 +49,14 @@ export class ProviderSignupComponent implements OnInit {
     dates: [],
     photos: [],
     lat: '',
-    lng: ''
+    lng: '',
+    guest: '',
+    menuPrice: '',
+    style: '',
+    place: '',
+    places: [],
+    services: [],
+    description: ''
   }
 
   hoveredDate: NgbDateStruct;
@@ -94,6 +108,14 @@ export class ProviderSignupComponent implements OnInit {
     return date.month !== current.month;
   }
 
+  addPlaces(place) {
+    this.formInfo.places.push(place);
+  }
+
+  addServices(service) {
+    this.formInfo.services.push(service);
+  }
+
   addPhoto(photo) {
     this.formInfo.photos.push(photo);
   }
@@ -106,12 +128,15 @@ export class ProviderSignupComponent implements OnInit {
       if(res.status === 'OK') {
         this.formInfo.lat = res.results[0].geometry.location.lat; 
         this.formInfo.lng = res.results[0].geometry.location.lng; 
-        const { userId, spotName, dates, photos, lat, lng } = this.formInfo;
+        const { userId, spotName, dates, photos, lat, lng, guest, menuPrice, style,
+                place, places, services, description } = this.formInfo;
         
-        this.adminService.createSpot(userId, spotName, dates, photos, lat, lng)
+        this.adminService.createSpot(userId, spotName, dates, photos, lat, lng, guest, menuPrice,
+                                     style, place, places, services, description)
         .subscribe(res => {
           console.log(res);
-          this.formInfo = { userId: '', spotName: '', dates: [], photos: [], lat: '', lng: '' };
+          this.formInfo = { userId: '', spotName: '', dates: [], photos: [], lat: '', lng: '',
+            guest: '', menuPrice: '', style: '', place: '', places: [], services: [], description: '' };
         });
       }
     })

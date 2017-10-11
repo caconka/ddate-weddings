@@ -17,10 +17,7 @@ const spotSchema = new Schema ({
   features: {
     places: [ String ],
     services:[ String ],
-    guest: {
-      min: Number,
-      max: Number
-    },
+    guest: Number,
     menuPrice: Number,
     style: {
       type: String,
@@ -36,6 +33,7 @@ const spotSchema = new Schema ({
     pic_path: String,
     pic_name: String
   }],
+  description: String,
   visits: { type: Number, default: 0, required: true }
 });
 spotSchema.set('timestamps', true);
