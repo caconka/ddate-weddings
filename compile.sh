@@ -6,5 +6,5 @@ cd ..
 rm -rf ./server/public
 mkdir ./server/public
 mkdir ./server/public/uploads
-cp -r ./client/dist/ ./server/public/
+cp -r ./client/dist/ ./server/public
 echo "Done!!"
