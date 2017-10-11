@@ -77,7 +77,6 @@ export class HomeComponent implements OnInit {
       if(res.status === 'OK') {
         const lat = res.results[0].geometry.location.lat;
         const lng = res.results[0].geometry.location.lng;
-        console.log(lat, lng)
         this.spotService.spotsByLocation(lat, lng, day, guest, dist)
         .subscribe(() => this.router.navigate(['search']))
       }

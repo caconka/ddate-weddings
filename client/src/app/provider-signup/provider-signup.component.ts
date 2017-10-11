@@ -134,7 +134,6 @@ export class ProviderSignupComponent implements OnInit {
         this.adminService.createSpot(userId, spotName, dates, photos, lat, lng, guest, menuPrice,
                                      style, place, places, services, description)
         .subscribe(res => {
-          console.log(res);
           this.formInfo = { userId: '', spotName: '', dates: [], photos: [], lat: '', lng: '',
             guest: '', menuPrice: '', style: '', place: '', places: [], services: [], description: '' };
         });

@@ -36,7 +36,7 @@ export class SearchComponent implements OnInit {
 
   private asignFavorites(userId) {
     this.userService.getFavorites(userId)
-    .subscribe(favorites => { console.log(favorites);this.favorites = favorites });
+    .subscribe(favorites => { this.favorites = favorites });
   }
 
   addToFavorites(userId, spotId) {
