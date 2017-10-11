@@ -321,7 +321,7 @@ var HomeComponent = (function () {
         this.auth.getLoginEventEmitter()
             .subscribe(function (user) {
             _this.user = user;
-            if (user && user.role === 'User')
+            if (user !== undefined && user.role === 'User')
                 _this.asignFavorites(user._id);
         });
         if (this.user && this.user.role === 'User')
@@ -1207,7 +1207,7 @@ var SearchComponent = (function () {
         this.auth.getLoginEventEmitter()
             .subscribe(function (user) {
             _this.user = user;
-            if (user && user.role === 'User')
+            if (user !== undefined && user.role === 'User')
                 _this.asignFavorites(user._id);
         });
         if (this.user && this.user.role === 'User')
