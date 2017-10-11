@@ -8,6 +8,6 @@ module.exports = function(app) {
   app.use('/api/comment', require('../api/comment'));
 
   app.all('/*', function (req, res) {
-    res.sendfile(__dirname + '/public/index.html');
+    res.sendfile(__dirname + '../public/index.html');
   });
 };

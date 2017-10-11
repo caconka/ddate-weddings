@@ -7,7 +7,6 @@ module.exports = {
     
     User.find({ email })
     .then( users => {
-
       let control = true;
 
       users.forEach(user => {
