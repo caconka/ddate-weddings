@@ -8,4 +8,8 @@ rm -rf ./server/public
 mkdir ./server/public
 mkdir ./server/public/uploads
 cp -r ./client/dist/* ./server/public
+echo "Git..."
+git add .
+git commit -m "compiling"
+git subtree push --prefix=server heroku master
 echo "Done!!"
