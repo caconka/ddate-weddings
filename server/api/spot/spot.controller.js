@@ -65,23 +65,14 @@ module.exports = {
           elv: 0
         }
 
-        const dist = calculate.azimuth(searchLocation, spotLocation)
-        if(parseInt(dist.distance) <= dist*1000)
+        const distance = calculate.azimuth(searchLocation, spotLocation)
+        if(parseInt(distance.distance) <= dist) 
           listByLocation.push(spot);
       })
-      console.log(listByLocation)
 
-      // if(day !== undefined) {
-      //   listByLocation.forEach(spot => {
-      //     spot.dates.forEach(d => {
-      //       const thisDay = `${d.year}-${d.month}-${d.day}`;
-      //       if(thisDay === day)
-      //         spotsList.push(spot);
-      //     })
-      //   })
-      // }
+      return res.status(200).json(listByLocation);
     })
-    .then(res => console.log(res))
+    .catch(e => res.status(400).json({ message: 'Something went wrong' }));
   }
 
 }

@@ -37,9 +37,7 @@
 
   <hr>
 
-  <app-search *ngIf="spotService.hide"></app-search>
-
-  <div *ngIf="!spotService.hide">
+  <div>
     <h4>Los más vistos</h4>
     <ngb-carousel>
       <ng-template ngbSlide *ngFor="let spot of mostVisited">

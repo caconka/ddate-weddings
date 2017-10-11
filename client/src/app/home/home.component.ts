@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { SpotService } from '../services/spot.service';
 import { UserService } from '../services/user.service';
@@ -21,7 +22,8 @@ export class HomeComponent implements OnInit {
   distance: number = 40;
 
   constructor( private auth: AuthService, private userService: UserService, 
-               private spotService: SpotService, config: NgbCarouselConfig) { 
+               private spotService: SpotService, config: NgbCarouselConfig,
+               private router: Router) { 
     config.interval = 2000;
     config.wrap = false;
     config.keyboard = false;
@@ -66,10 +68,7 @@ export class HomeComponent implements OnInit {
     return this.userService.checkFavorit(this.favorites, spotId);
   }
 
-  searchSpots(city, guest, dist) {
-    this.spotService.hideHome();
-    console.log(dist)
-
+  searchSpots(city, guest = 100 , dist) {
     if(this.model !== undefined)
       var day = `${this.model.year}-${this.model.month}-${this.model.day}`;
     
@@ -78,8 +77,9 @@ export class HomeComponent implements OnInit {
       if(res.status === 'OK') {
         const lat = res.results[0].geometry.location.lat;
         const lng = res.results[0].geometry.location.lng;
-        this.spotService.getSpotsByLocation(lat, lng, day, guest, dist)
-        .subscribe()
+        console.log(lat, lng)
+        this.spotService.spotsByLocation(lat, lng, day, guest, dist)
+        .subscribe(() => this.router.navigate(['search']))
       }
     })
   }

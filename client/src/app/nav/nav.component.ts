@@ -21,10 +21,7 @@ export class NavComponent implements OnInit {
   ngOnInit() {
   }
 
-  anchor(a, showHome = false) {
-    if(showHome == true)
-      this.spotService.showHome();
-
+  anchor(a) {
     const childrens = a.parentNode.parentNode.children;
     for(let i=0; i<childrens.length; i++) {
       childrens[i].classList.remove('pink');

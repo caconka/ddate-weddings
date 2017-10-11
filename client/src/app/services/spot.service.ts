@@ -10,7 +10,7 @@ const BASEURL = environment.BASEURL;
 export class SpotService {
 
   private options = { withCredentials: true };
-  private hide: boolean = false;
+  private arraySpots: Array<any>;
   private searchData: Array<object>;
 
   constructor( private http: Http ) { }
@@ -55,20 +55,32 @@ export class SpotService {
       .catch(this.handleError);
   }
 
-  getSpotsByLocation(lat, lng, day, guest, dist) {
+  spotsByLocation(lat, lng, day, guest, dist) {
+    this.searchData = [];
+    dist *= 1000;
+
     return this.http.post(`${BASEURL}/spot/search`, { lat, lng, dist }, this.options)
       .map(res => {
-        console.log(res)
-        this.searchData = res.json()
+        this.arraySpots = res.json();
+        this.searchData = this.arraySpots;
+
+        if(day !== undefined) {
+          this.searchData = [];
+          this.arraySpots.forEach(spot => {
+            spot.dates.forEach(d => {
+              const thisDay = `${d.year}-${d.month}-${d.day}`;
+              if(thisDay === day && spot.features.guest >= guest)
+                this.searchData.push(spot);
+            });
+          });
+          this.arraySpots = this.searchData;
+        }
       })
       .catch(this.handleError);
   }
 
-  showHome() {
-    this.hide = false;
+  getSearchData() {
+    return this.searchData;
   }
 
-  hideHome() {
-    this.hide = true;
-  }
 }
