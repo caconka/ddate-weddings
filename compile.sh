@@ -1,8 +1,9 @@
 #!/bin/bash
-echo "Copy files to public..."
 cd client
-ng build --env=prod
+echo 'Building client...'
+ng build -e prod
 cd ..
+echo "Copy files to public..."
 rm -rf ./server/public
 mkdir ./server/public
 mkdir ./server/public/uploads
