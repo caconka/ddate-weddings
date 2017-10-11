@@ -1,7 +1,48 @@
-<agm-map [latitude]="lat" [longitude]="lng">
-    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-</agm-map>
+<div *ngIf="spot" class="fullWidth">
+  <ngb-carousel>
+    <ng-template ngbSlide *ngFor="let photo of spot.photos">
+      <img src="{{photo}}" alt="Random first slide">
+      <div class="carousel-caption">
+        <h5> {{ spot.spotName }} </h5>
+        <i class="fa fa-star" aria-hidden="true"></i>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+</div>
 
-<div *ngIf="spot">
-  {{spot.spotName}}
+<div *ngIf="spot" class="container">
+
+  <div class="icon-container">
+    <div class="icon"><i class="fa fa-users" aria-hidden="true"></i>algo</div>
+    <div class="icon"><i class="fa fa-btc" aria-hidden="true"></i>algo</div>
+    <div class="icon"><i class="fa fa-tree" aria-hidden="true"></i>algo</div>
+    <div class="icon"><i class="fa fa-bed" aria-hidden="true"></i>algo</div>
+    <div class="icon"><i class="fa fa-user-secret" aria-hidden="true"></i>algo</div>
+    <div class="icon"><i class="fa fa-car" aria-hidden="true"></i>algo</div>
+  </div>
+  <hr>
+  <div class="section">
+    <div class="title"><h5>Descripción</h5></div>
+    <div class="description"><p>{{spot.description}}</p></div>
+  </div>
+  <hr>
+  <div class="section">
+    <div class="column"><h5>Disponibilidad</h5></div>
+    <div class="column right"><a href="">Ver calendario</a></div>
+  </div>
+  <hr>
+  <div class="section">
+    <div class="column"><h5>Precios</h5></div>
+    <div class="column right"><a href="">Ver detalles</a></div>
+  </div>
+  <hr>
+  <div class="section">
+    <div class="column"><h5>Quiero visitarla</h5></div>
+    <div class="column right"><a href="">Pedir cita</a></div>
+  </div>
+  <hr>
+
+  <agm-map [latitude]="lat" [longitude]="lng" [scrollwheel]="false" [zoom]="zoom">
+      <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  </agm-map>
 </div>

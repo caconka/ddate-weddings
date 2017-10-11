@@ -1,3 +1,58 @@
 agm-map {
   height: 300px;
 }
+
+.fullWidth img {
+  border-radius: 0;
+}
+
+.fullWidth div.carousel-caption {
+  text-align: center;
+}
+
+agm-map {
+  height: 250px;
+}
+
+div.icon-container {
+  text-align: center;
+}
+
+.icon-container div.icon {
+  display: inline-block;
+  width: 15%;
+  height: 50px;
+  margin-left: 2px;
+  font-size: .9rem;
+  margin-bottom: 0;
+}
+
+hr {
+  margin-top: .3rem;
+  margin-bottom: 1rem;
+}
+
+.icon i {
+  font-size: 1.8rem;
+  margin: 0;
+  display: block;
+  color: lightgray;
+}
+
+div.section {
+  text-align: left;
+  position: relative;
+}
+
+.section a {
+  color: #f37e95;
+}
+
+div.column {
+  display: inline-block;
+}
+
+div.column.right {
+  position: absolute;
+  right: 0;
+}

@@ -10,17 +10,23 @@ import { SpotService } from '../services/spot.service';
 export class SpotComponent implements OnInit {
 
   spot: object;
-  lat: number = 51.678418;
-  lng: number = 7.809007;
+  zoom: number = 11;
+  lat: number;
+  lng: number;
+  currentJustify = 'justified';
 
   constructor( private router: Router, private route: ActivatedRoute,
-               private spotService: SpotService ) { }
+               private spotService: SpotService) { }
 
   ngOnInit() {
     this.route.params
     .subscribe( params => {
       this.spotService.spot(params['id'])
-      .subscribe(spot => this.spot = spot);
+      .subscribe(spot => {
+        this.spot = spot;
+        this.lat = parseFloat(spot.location.lat);
+        this.lng = parseFloat(spot.location.lng);
+      });
     })
   }
 
