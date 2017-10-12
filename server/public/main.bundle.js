@@ -94,26 +94,28 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__spot_spot_component__ = __webpack_require__("../../../../../src/app/spot/spot.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__messages_messages_component__ = __webpack_require__("../../../../../src/app/messages/messages.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__spot_comments_comments_component__ = __webpack_require__("../../../../../src/app/spot/comments/comments.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__provider_spot_provider_spot_component__ = __webpack_require__("../../../../../src/app/provider-spot/provider-spot.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__provider_spot_edit_spot_edit_spot_component__ = __webpack_require__("../../../../../src/app/provider-spot/edit-spot/edit-spot.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__provider_signup_provider_signup_component__ = __webpack_require__("../../../../../src/app/provider-signup/provider-signup.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__profile_edit_profile_edit_profile_component__ = __webpack_require__("../../../../../src/app/profile/edit-profile/edit-profile.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__routes__ = __webpack_require__("../../../../../src/app/routes.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_isLoggedIn_service__ = __webpack_require__("../../../../../src/app/services/isLoggedIn.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__services_spot_service__ = __webpack_require__("../../../../../src/app/services/spot.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__services_admin_service__ = __webpack_require__("../../../../../src/app/services/admin.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26_ng2_file_upload__ = __webpack_require__("../../../../ng2-file-upload/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26_ng2_file_upload___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_26_ng2_file_upload__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__agm_core__ = __webpack_require__("../../../../@agm/core/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__spot_calendar_calendar_component__ = __webpack_require__("../../../../../src/app/spot/calendar/calendar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__provider_spot_provider_spot_component__ = __webpack_require__("../../../../../src/app/provider-spot/provider-spot.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__provider_spot_edit_spot_edit_spot_component__ = __webpack_require__("../../../../../src/app/provider-spot/edit-spot/edit-spot.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__provider_signup_provider_signup_component__ = __webpack_require__("../../../../../src/app/provider-signup/provider-signup.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__profile_edit_profile_edit_profile_component__ = __webpack_require__("../../../../../src/app/profile/edit-profile/edit-profile.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__routes__ = __webpack_require__("../../../../../src/app/routes.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__services_isLoggedIn_service__ = __webpack_require__("../../../../../src/app/services/isLoggedIn.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__services_spot_service__ = __webpack_require__("../../../../../src/app/services/spot.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__services_admin_service__ = __webpack_require__("../../../../../src/app/services/admin.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27_ng2_file_upload__ = __webpack_require__("../../../../ng2-file-upload/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27_ng2_file_upload___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_27_ng2_file_upload__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__agm_core__ = __webpack_require__("../../../../@agm/core/index.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -153,16 +155,16 @@ AppModule = __decorate([
         declarations: [
             __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */], __WEBPACK_IMPORTED_MODULE_6__home_home_component__["a" /* HomeComponent */], __WEBPACK_IMPORTED_MODULE_7__nav_nav_component__["a" /* NavComponent */], __WEBPACK_IMPORTED_MODULE_8__login_login_component__["a" /* LoginComponent */], __WEBPACK_IMPORTED_MODULE_9__signup_signup_component__["a" /* SignupComponent */],
             __WEBPACK_IMPORTED_MODULE_10__search_search_component__["a" /* SearchComponent */], __WEBPACK_IMPORTED_MODULE_11__favorites_favorites_component__["a" /* FavoritesComponent */], __WEBPACK_IMPORTED_MODULE_12__profile_profile_component__["a" /* ProfileComponent */], __WEBPACK_IMPORTED_MODULE_13__spot_spot_component__["a" /* SpotComponent */],
-            __WEBPACK_IMPORTED_MODULE_14__messages_messages_component__["a" /* MessagesComponent */], __WEBPACK_IMPORTED_MODULE_15__spot_comments_comments_component__["a" /* CommentsComponent */], __WEBPACK_IMPORTED_MODULE_16__provider_spot_provider_spot_component__["a" /* ProviderSpotComponent */], __WEBPACK_IMPORTED_MODULE_17__provider_spot_edit_spot_edit_spot_component__["a" /* EditSpotComponent */],
-            __WEBPACK_IMPORTED_MODULE_18__provider_signup_provider_signup_component__["a" /* ProviderSignupComponent */], __WEBPACK_IMPORTED_MODULE_26_ng2_file_upload__["FileSelectDirective"], __WEBPACK_IMPORTED_MODULE_19__profile_edit_profile_edit_profile_component__["a" /* EditProfileComponent */]
+            __WEBPACK_IMPORTED_MODULE_14__messages_messages_component__["a" /* MessagesComponent */], __WEBPACK_IMPORTED_MODULE_15__spot_comments_comments_component__["a" /* CommentsComponent */], __WEBPACK_IMPORTED_MODULE_17__provider_spot_provider_spot_component__["a" /* ProviderSpotComponent */], __WEBPACK_IMPORTED_MODULE_18__provider_spot_edit_spot_edit_spot_component__["a" /* EditSpotComponent */],
+            __WEBPACK_IMPORTED_MODULE_19__provider_signup_provider_signup_component__["a" /* ProviderSignupComponent */], __WEBPACK_IMPORTED_MODULE_27_ng2_file_upload__["FileSelectDirective"], __WEBPACK_IMPORTED_MODULE_20__profile_edit_profile_edit_profile_component__["a" /* EditProfileComponent */], __WEBPACK_IMPORTED_MODULE_16__spot_calendar_calendar_component__["a" /* CalendarComponent */]
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */], __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_20__routes__["a" /* routes */]),
-            __WEBPACK_IMPORTED_MODULE_27__ng_bootstrap_ng_bootstrap__["d" /* NgbModule */].forRoot(),
-            __WEBPACK_IMPORTED_MODULE_28__agm_core__["a" /* AgmCoreModule */].forRoot({ apiKey: 'AIzaSyDnT-UNmO3HtkLjtJllS1XgwF44XniS8qA' })
+            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */], __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_21__routes__["a" /* routes */]),
+            __WEBPACK_IMPORTED_MODULE_28__ng_bootstrap_ng_bootstrap__["d" /* NgbModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_29__agm_core__["a" /* AgmCoreModule */].forRoot({ apiKey: 'AIzaSyDnT-UNmO3HtkLjtJllS1XgwF44XniS8qA' })
         ],
-        providers: [__WEBPACK_IMPORTED_MODULE_22__services_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_21__services_isLoggedIn_service__["a" /* IsLoggedInService */], __WEBPACK_IMPORTED_MODULE_23__services_spot_service__["a" /* SpotService */], __WEBPACK_IMPORTED_MODULE_24__services_user_service__["a" /* UserService */],
-            __WEBPACK_IMPORTED_MODULE_25__services_admin_service__["a" /* AdminService */]],
+        providers: [__WEBPACK_IMPORTED_MODULE_23__services_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_22__services_isLoggedIn_service__["a" /* IsLoggedInService */], __WEBPACK_IMPORTED_MODULE_24__services_spot_service__["a" /* SpotService */], __WEBPACK_IMPORTED_MODULE_25__services_user_service__["a" /* UserService */],
+            __WEBPACK_IMPORTED_MODULE_26__services_admin_service__["a" /* AdminService */]],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
@@ -273,7 +275,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"user !== undefined && user !== null\">\n  <div *ngIf=\"user.role === 'Admin'\">\n    <app-provider-signup></app-provider-signup>\n  </div>\n  <div *ngIf=\"user.role === 'Provider'\">\n    <app-provider-spot></app-provider-spot>\n  </div>\n</div>\n\n<div *ngIf=\"!user || user.role === 'User'\" class=\"container\">\n      \n  <form class=\"search form-inline\">\n    <div class=\"search\">\n      <i class=\"fa fa-search\" (click)=\"searchSpots(city.value, gst.value, distnc.value)\"\n         aria-hidden=\"true\"></i>\n      <input type=\"text\" id=\"search\" #city placeholder=\"Prueba 'Madrid' \">\n    </div>\n    <div class=\"buttons form-group\">\n      <input type=\"text\" #gst (click)=\"setColor($event.target)\" id=\"guest\" placeholder=\"Nº Invitados \">\n      <input class=\"form-control\" placeholder=\"yyyy-mm-dd\" hidden\n              name=\"dp\" [(ngModel)]=\"model\" ngbDatepicker #d=\"ngbDatepicker\">\n      <button *ngIf=\"!model\" class=\"search-button\" (click)=\"d.toggle()\"> \n        Fecha\n      </button>\n      <button *ngIf=\"model\" class=\"search-button pink\" (click)=\"d.toggle()\"> \n        {{model.day}}.{{model.month}}.{{model.year}}\n      </button>\n      <button id=\"search-sett\" (click)=\"filters()\"><i class=\"fa fa-sliders\" aria-hidden=\"true\"></i></button>\n\n      <input type=\"text\" #distnc value=\"{{distance}}\" hidden>\n      <div *ngIf=\"!filtersHide\" class=\"filters\">\n        <input type=\"text\" #myInput (keyup)=\"onKey(myInput.value)\" >\n        <label for=\"dist\">km</label>\n      </div>\n    </div>\n  </form>\n\n  <hr>\n\n  <div>\n    <h4>Los más vistos</h4>\n    <ngb-carousel>\n      <ng-template ngbSlide *ngFor=\"let spot of mostVisited\">\n        <div *ngIf=\"favorites\" class=\"hearth\">\n          <a *ngIf=\"checkFavorit(spot._id)\" \n              (click)=\"deleteFromFavorites(user._id, spot._id)\">\n            <i class=\"fa fa-heart\" aria-hidden=\"true\" style=\"color: #ffc2ce;\"></i>\n          </a>\n          <a *ngIf=\"!checkFavorit(spot._id)\" \n              (click)=\"addToFavorites(user._id, spot._id)\">\n            <i class=\"fa fa-heart-o\" aria-hidden=\"true\" style=\"color: white;\"></i>\n          </a>\n        </div>\n        <img src=\"{{spot.photos[0]}}\" alt=\"Random first slide\">\n        <div class=\"carousel-caption\">\n          <a [routerLink]=\"[spot._id, 'view']\"><h5> {{ spot.spotName }} </h5></a>\n          <p>Menú desde {{spot.features.menuPrice}}€ / px</p>\n          <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n        </div>\n      </ng-template>\n    </ngb-carousel>\n  \n    <hr>\n    \n    <h4>Todos</h4>\n    <ngb-carousel>\n      <ng-template ngbSlide *ngFor=\"let spot of spots\">\n        <div *ngIf=\"favorites\" class=\"hearth\">\n          <a *ngIf=\"checkFavorit(spot._id)\" \n              (click)=\"deleteFromFavorites(user._id, spot._id)\">\n            <i class=\"fa fa-heart\" aria-hidden=\"true\" style=\"color: #ffc2ce;\"></i>\n          </a>\n          <a *ngIf=\"!checkFavorit(spot._id)\" \n              (click)=\"addToFavorites(user._id, spot._id)\">\n            <i class=\"fa fa-heart-o\" aria-hidden=\"true\" style=\"color: white;\"></i>\n          </a>\n        </div>\n        <img src=\"{{spot.photos[0]}}\" alt=\"Random first slide\">\n        <div class=\"carousel-caption\">\n          <a [routerLink]=\"[spot._id, 'view']\"><h5> {{ spot.spotName }} </h5></a>\n          <p>Menú desde {{spot.features.menuPrice}}€ / px</p>\n          <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n        </div>\n      </ng-template>\n    </ngb-carousel>\n  </div>\n</div>\n"
+module.exports = "<div *ngIf=\"user !== undefined && user !== null\">\n  <div *ngIf=\"user.role === 'Admin'\">\n    <app-provider-signup></app-provider-signup>\n  </div>\n  <div *ngIf=\"user.role === 'Provider'\">\n    <app-provider-spot></app-provider-spot>\n  </div>\n</div>\n\n<div *ngIf=\"!user || user.role === 'User'\" class=\"container\">\n      \n  <form class=\"search form-inline\">\n    <div class=\"search\">\n      <i class=\"fa fa-search\" (click)=\"searchSpots(city.value, gst.value, distnc.value)\"\n         aria-hidden=\"true\"></i>\n      <input type=\"text\" id=\"search\" #city placeholder=\"Prueba 'Madrid' \">\n    </div>\n    <div class=\"buttons form-group\">\n      <input type=\"text\" #gst (click)=\"setColor($event.target)\" id=\"guest\" placeholder=\"Nº Invitados \">\n      <input class=\"form-control\" placeholder=\"yyyy-mm-dd\" hidden\n              name=\"dp\" [(ngModel)]=\"model\" ngbDatepicker #d=\"ngbDatepicker\">\n      <button *ngIf=\"!model\" class=\"search-button\" (click)=\"d.toggle()\"> \n        Fecha\n      </button>\n      <button *ngIf=\"model\" class=\"search-button pink\" (click)=\"d.toggle()\"> \n        {{model.day}}.{{model.month}}.{{model.year}}\n      </button>\n      <button id=\"search-sett\" (click)=\"filters()\"><i class=\"fa fa-sliders\" aria-hidden=\"true\"></i></button>\n\n      <input type=\"text\" #distnc value=\"{{distance}}\" hidden>\n      <div *ngIf=\"!filtersHide\" class=\"filters\">\n        <input type=\"text\" #myInput (keyup)=\"onKey(myInput.value)\" >\n        <label for=\"dist\">km</label>\n      </div>\n    </div>\n  </form>\n\n  <hr>\n\n  <div>\n    <h4>Los más vistos</h4>\n    <div *ngIf=\"spots && mostVisited\">\n      <ngb-carousel>\n        <ng-template ngbSlide *ngFor=\"let spot of mostVisited\">\n          <div *ngIf=\"favorites\" class=\"hearth\">\n            <a *ngIf=\"checkFavorit(spot._id)\" \n                (click)=\"deleteFromFavorites(user._id, spot._id)\">\n              <i class=\"fa fa-heart\" aria-hidden=\"true\" style=\"color: #ffc2ce;\"></i>\n            </a>\n            <a *ngIf=\"!checkFavorit(spot._id)\" \n                (click)=\"addToFavorites(user._id, spot._id)\">\n              <i class=\"fa fa-heart-o\" aria-hidden=\"true\" style=\"color: white;\"></i>\n            </a>\n          </div>\n          <img src=\"{{spot.photos[0]}}\" alt=\"Random first slide\">\n          <div class=\"carousel-caption\">\n            <a [routerLink]=\"[spot._id, 'view']\"><h5> {{ spot.spotName }} </h5></a>\n            <p>Menú desde {{spot.features.menuPrice}}€ / px</p>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n          </div>\n        </ng-template>\n      </ngb-carousel>\n    \n      <hr>\n      \n      <h4>Todos</h4>\n      <ngb-carousel>\n        <ng-template ngbSlide *ngFor=\"let spot of spots\">\n          <div *ngIf=\"favorites\" class=\"hearth\">\n            <a *ngIf=\"checkFavorit(spot._id)\" \n                (click)=\"deleteFromFavorites(user._id, spot._id)\">\n              <i class=\"fa fa-heart\" aria-hidden=\"true\" style=\"color: #ffc2ce;\"></i>\n            </a>\n            <a *ngIf=\"!checkFavorit(spot._id)\" \n                (click)=\"addToFavorites(user._id, spot._id)\">\n              <i class=\"fa fa-heart-o\" aria-hidden=\"true\" style=\"color: white;\"></i>\n            </a>\n          </div>\n          <img src=\"{{spot.photos[0]}}\" alt=\"Random first slide\">\n          <div class=\"carousel-caption\">\n            <a [routerLink]=\"[spot._id, 'view']\"><h5> {{ spot.spotName }} </h5></a>\n            <p>Menú desde {{spot.features.menuPrice}}€ / px</p>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n          </div>\n        </ng-template>\n      </ngb-carousel>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1115,7 +1117,9 @@ var _a, _b;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__messages_messages_component__ = __webpack_require__("../../../../../src/app/messages/messages.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__spot_spot_component__ = __webpack_require__("../../../../../src/app/spot/spot.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__spot_comments_comments_component__ = __webpack_require__("../../../../../src/app/spot/comments/comments.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__services_isLoggedIn_service__ = __webpack_require__("../../../../../src/app/services/isLoggedIn.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__spot_calendar_calendar_component__ = __webpack_require__("../../../../../src/app/spot/calendar/calendar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__services_isLoggedIn_service__ = __webpack_require__("../../../../../src/app/services/isLoggedIn.service.ts");
+
 
 
 
@@ -1134,14 +1138,15 @@ var routes = [
     { path: 'search', component: __WEBPACK_IMPORTED_MODULE_6__search_search_component__["a" /* SearchComponent */] },
     { path: ':id/view', component: __WEBPACK_IMPORTED_MODULE_8__spot_spot_component__["a" /* SpotComponent */] },
     { path: ':id/comments', component: __WEBPACK_IMPORTED_MODULE_9__spot_comments_comments_component__["a" /* CommentsComponent */] },
+    { path: ':id/calendar', component: __WEBPACK_IMPORTED_MODULE_10__spot_calendar_calendar_component__["a" /* CalendarComponent */] },
     { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_4__profile_profile_component__["a" /* ProfileComponent */],
-        canActivate: [__WEBPACK_IMPORTED_MODULE_10__services_isLoggedIn_service__["a" /* IsLoggedInService */]] },
+        canActivate: [__WEBPACK_IMPORTED_MODULE_11__services_isLoggedIn_service__["a" /* IsLoggedInService */]] },
     { path: 'profile/edit', component: __WEBPACK_IMPORTED_MODULE_5__profile_edit_profile_edit_profile_component__["a" /* EditProfileComponent */],
-        canActivate: [__WEBPACK_IMPORTED_MODULE_10__services_isLoggedIn_service__["a" /* IsLoggedInService */]] },
+        canActivate: [__WEBPACK_IMPORTED_MODULE_11__services_isLoggedIn_service__["a" /* IsLoggedInService */]] },
     { path: ':id/favorites', component: __WEBPACK_IMPORTED_MODULE_3__favorites_favorites_component__["a" /* FavoritesComponent */],
-        canActivate: [__WEBPACK_IMPORTED_MODULE_10__services_isLoggedIn_service__["a" /* IsLoggedInService */]] },
+        canActivate: [__WEBPACK_IMPORTED_MODULE_11__services_isLoggedIn_service__["a" /* IsLoggedInService */]] },
     { path: 'messages', component: __WEBPACK_IMPORTED_MODULE_7__messages_messages_component__["a" /* MessagesComponent */],
-        canActivate: [__WEBPACK_IMPORTED_MODULE_10__services_isLoggedIn_service__["a" /* IsLoggedInService */]] },
+        canActivate: [__WEBPACK_IMPORTED_MODULE_11__services_isLoggedIn_service__["a" /* IsLoggedInService */]] },
     { path: '**', redirectTo: '' }
 ];
 //# sourceMappingURL=routes.js.map
@@ -1709,6 +1714,196 @@ var _a, _b;
 
 /***/ }),
 
+/***/ "../../../../../src/app/spot/calendar/calendar.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "div.day {\n  width: 30px;\n  height: 30px;\n  margin: 6px;\n}\n\ndiv.calendar {\n  width: 100%;\n  text-align: center;\n}\n\ndiv.month-year {\n  margin-bottom: 30px;\n}\n\n.month-year h4, .month-year h5 {\n  display: inline-block;\n  margin: 10px;\n}\n\ndiv.day-avai {\n  color: white;\n  background: #ffabbb;\n  border-radius: 50%;\n}\n\ndiv.day-not {\n  color: lightgray;\n}\n\ndiv.week {\n  display: inline-block;\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/spot/calendar/calendar.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div *ngIf=\"spot\" class=\"container\">\n  <div class=\"login calendar\">\n    <div class=\"month-year\">\n      <h4 (click)=\"prevMonth()\"><</h4>\n      <h5> {{monthName}} {{year}} </h5>\n      <h4 (click)=\"nextMonth()\">></h4>\n    </div>\n    <div *ngFor=\"let week of thisMonth\">\n      <div *ngFor=\"let day of week\" class=\"week\">\n        <div *ngIf=\"day.length\" class=\"day-avai day\"><p>{{day}}</p></div>\n        <div *ngIf=\"!day.length\" class=\"day-not day\"><p>{{day}}</p></div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/spot/calendar/calendar.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CalendarComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_spot_service__ = __webpack_require__("../../../../../src/app/services/spot.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var CalendarComponent = (function () {
+    function CalendarComponent(router, route, spotService) {
+        this.router = router;
+        this.route = route;
+        this.spotService = spotService;
+        this.daysAvai = [];
+        this.thisMonth = [];
+        this.toDay = new Date();
+        this.year = this.toDay.getFullYear();
+        this.month = this.toDay.getMonth();
+        this.months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+            'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre',
+            'Diciembre'];
+    }
+    CalendarComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.route.params
+            .subscribe(function (params) {
+            _this.spotService.spot(params['id'])
+                .subscribe(function (spot) {
+                _this.spot = spot;
+                _this.cal = new Calendar(1);
+                _this.monthName = _this.months[_this.month];
+                var m = _this.cal.monthDays(_this.year, _this.month);
+                for (var i_1 = 0; i_1 < m.length; i_1++)
+                    _this.thisMonth.push(m[i_1]);
+                spot.dates.forEach(function (date) {
+                    if (date.month === _this.month + 1) {
+                        _this.thisMonth.forEach(function (week, i) {
+                            week.forEach(function (d, j) {
+                                if (date.day === d)
+                                    _this.thisMonth[i][j] = "" + d;
+                            });
+                        });
+                    }
+                });
+            });
+        });
+        var CalendarException = function CalendarException(message) {
+            this.message = message;
+            this.toString = function () {
+                return this.constructor.name + ": " + this.message;
+            };
+        };
+        var Calendar = function Calendar(firstWeekDay) {
+            this.firstWeekDay = firstWeekDay || 0;
+        };
+        Calendar.prototype = {
+            constructor: Calendar,
+            weekStartDate: function weekStartDate(date) {
+                var startDate = new Date(date.getTime());
+                while (startDate.getDay() !== this.firstWeekDay) {
+                    startDate.setDate(startDate.getDate() - 1);
+                }
+                return startDate;
+            },
+            monthDates: function monthDates(year, month, dayFormatter, weekFormatter) {
+                if ((typeof year !== "number") || (year < 1970)) {
+                    throw new CalendarException('year must be a number >= 1970');
+                }
+                ;
+                if ((typeof month !== "number") || (month < 0) || (month > 11)) {
+                    throw new CalendarException('month must be a number (Jan is 0)');
+                }
+                ;
+                var weeks = [], week = [], i = 0, date = this.weekStartDate(new Date(year, month, 1));
+                do {
+                    for (i = 0; i < 7; i++) {
+                        week.push(dayFormatter ? dayFormatter(date) : date);
+                        date = new Date(date.getTime());
+                        date.setDate(date.getDate() + 1);
+                    }
+                    weeks.push(weekFormatter ? weekFormatter(week) : week);
+                    week = [];
+                } while ((date.getMonth() <= month) && (date.getFullYear() === year));
+                return weeks;
+            },
+            monthDays: function monthDays(year, month) {
+                var getDayOrZero = function getDayOrZero(date) {
+                    return date.getMonth() === month ? date.getDate() : 0;
+                };
+                return this.monthDates(year, month, getDayOrZero);
+            },
+            monthText: function monthText(year, month) {
+                if (typeof year === "undefined") {
+                    var now = new Date();
+                    year = now.getFullYear();
+                    month = now.getMonth();
+                }
+                ;
+                var getDayOrBlank = function getDayOrBlank(date) {
+                    var s = date.getMonth() === month ? date.getDate().toString() : "  ";
+                    while (s.length < 2)
+                        s = " " + s;
+                    return s;
+                };
+                var weeks = this.monthDates(year, month, getDayOrBlank, function (week) { return week.join(" "); });
+                return weeks.join("\n");
+            }
+        };
+        var months = "JAN FEB MAR APR MAY JUN JUL AUG SEP OCT NOV DEC".split(" ");
+        for (var i = 0; i < months.length; i++)
+            Calendar[months[i]] = i;
+    };
+    CalendarComponent.prototype.nextMonth = function () {
+        var _this = this;
+        if (this.month < 11) {
+            this.month += 1;
+        }
+        else {
+            this.month = 0;
+            this.year += 1;
+        }
+        this.monthName = this.months[this.month];
+        this.thisMonth = [];
+        var m = this.cal.monthDays(this.year, this.month);
+        for (var i = 0; i < m.length; i++)
+            this.thisMonth.push(m[i]);
+        this.spot.dates.forEach(function (date) {
+            if (date.month === _this.month + 1) {
+                _this.thisMonth.forEach(function (week, i) {
+                    week.forEach(function (d, j) {
+                        if (date.day === d)
+                            _this.thisMonth[i][j] = "" + d;
+                    });
+                });
+            }
+        });
+    };
+    return CalendarComponent;
+}());
+CalendarComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-calendar',
+        template: __webpack_require__("../../../../../src/app/spot/calendar/calendar.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/spot/calendar/calendar.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_spot_service__["a" /* SpotService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_spot_service__["a" /* SpotService */]) === "function" && _c || Object])
+], CalendarComponent);
+
+var _a, _b, _c;
+//# sourceMappingURL=calendar.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/spot/comments/comments.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1792,7 +1987,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "agm-map {\n  height: 300px;\n}", ""]);
+exports.push([module.i, "agm-map {\n  height: 300px;\n}\n\n.fullWidth img {\n  border-radius: 0;\n}\n\n.fullWidth div.carousel-caption {\n  text-align: center;\n}\n\nagm-map {\n  height: 250px;\n}\n\ndiv.icon-container {\n  text-align: center;\n  margin-top: 18px;\n}\n\n.icon-container div.icon {\n  display: inline-block;\n  width: 15%;\n  height: 50px;\n  margin-left: 2px;\n  font-size: .9rem;\n  margin-bottom: 0;\n}\n\nhr {\n  margin-top: .3rem;\n  margin-bottom: 1rem;\n}\n\n.icon i {\n  font-size: 1.8rem;\n  margin: 0;\n  display: block;\n  color: lightgray;\n}\n\ndiv.section {\n  text-align: left;\n  position: relative;\n}\n\n.section a {\n  color: #f37e95;\n}\n\ndiv.column {\n  display: inline-block;\n}\n\ndiv.column.right {\n  position: absolute;\n  right: 0;\n}\n\ndiv.rate {\n  margin-top: 20px;\n}\n\ndiv.number {\n  text-align: left;\n  display: inline-block;\n  width: 28%;\n}\n\n.number h1 {\n  font-size: 4rem;\n  color: #f37e95;\n}\n\ndiv.stars {\n  display: inline-block;\n  text-align: right;\n  font-size: .8rem;\n}\n\ndiv.slide {\n  display: inline-block;\n  font-size: .8rem;\n  width: 35%;\n}\n\ndiv.card {\n  width: 100%;\n  background: rgb(241, 241, 241);\n  border: none;\n}", ""]);
 
 // exports
 
@@ -1805,7 +2000,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/spot/spot.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<agm-map [latitude]=\"lat\" [longitude]=\"lng\">\n    <agm-marker [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\n</agm-map>\n\n<div *ngIf=\"spot\">\n  {{spot.spotName}}\n</div>"
+module.exports = "<div *ngIf=\"spot\" class=\"fullWidth\">\n  <ngb-carousel>\n    <ng-template ngbSlide *ngFor=\"let photo of spot.photos\">\n      <img src=\"{{photo}}\" alt=\"Random first slide\">\n      <div class=\"carousel-caption\">\n        <h5> {{ spot.spotName }} </h5>\n        <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n      </div>\n    </ng-template>\n  </ngb-carousel>\n</div>\n\n<div *ngIf=\"spot\" class=\"container\">\n\n\n  <ngb-tabset>\n    <ngb-tab title=\"Destacados\">\n      <ng-template ngbTabContent>\n        <div class=\"icon-container\">\n          <div class=\"icon\"><i class=\"fa fa-users\" aria-hidden=\"true\"></i>algo</div>\n          <div class=\"icon\"><i class=\"fa fa-btc\" aria-hidden=\"true\"></i>algo</div>\n          <div class=\"icon\"><i class=\"fa fa-tree\" aria-hidden=\"true\"></i>algo</div>\n          <div class=\"icon\"><i class=\"fa fa-bed\" aria-hidden=\"true\"></i>algo</div>\n          <div class=\"icon\"><i class=\"fa fa-user-secret\" aria-hidden=\"true\"></i>algo</div>\n          <div class=\"icon\"><i class=\"fa fa-car\" aria-hidden=\"true\"></i>algo</div>\n        </div>\n        <hr>\n        <div class=\"section\">\n          <div class=\"title\"><h5>Descripción</h5></div>\n          <div class=\"description\"><p>{{spot.description}}</p></div>\n        </div>\n        <hr>\n        <div class=\"section\">\n          <div class=\"column\"><h5>Disponibilidad</h5></div>\n          <div class=\"column right\">\n            <a [routerLink]=\"['/', spot._id, 'calendar']\">Ver calendario</a>\n          </div>\n        </div>\n        <hr>\n        <div class=\"section\">\n          <div class=\"column\"><h5>Precios</h5></div>\n          <div class=\"column right\"><a>Ver detalles</a></div>\n        </div>\n        <hr>\n        <div class=\"section\">\n          <div class=\"column\"><h5>Quiero visitarla</h5></div>\n          <div class=\"column right\"><a>Pedir cita</a></div>\n        </div>\n        <hr>\n      \n        <agm-map [latitude]=\"lat\" [longitude]=\"lng\" [scrollwheel]=\"false\" [zoom]=\"zoom\" \n                 [styles]=\"styles\" scaleControl=\"false\">\n            <agm-marker [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\n        </agm-map>\n      </ng-template>\n    </ngb-tab>\n\n    <ngb-tab title=\"Instalaciones\">\n      <ng-template ngbTabContent>\n        <div class=\"section\">\n        </div>\n        <hr>\n        <div class=\"section\">\n          <div class=\"column\"><h5>Condiciones de uso</h5></div>\n          <div class=\"column right\"><a>Saber más</a></div>\n        </div>\n        <hr>\n        <div class=\"section\">\n          <div class=\"column\"><h5>Servicios</h5></div>\n          <div class=\"column right\"><a>Ver detalle</a></div>\n        </div>\n        <hr>\n        <div class=\"section\">\n          <div class=\"column\"><h5>Quiero visitarla</h5></div>\n          <div class=\"column right\"><a>Pedir cita</a></div>\n        </div>\n      </ng-template>\n    </ngb-tab>\n\n    <ngb-tab title=\"Opiniones\">\n      <ng-template ngbTabContent>\n        <div class=\"rate\">\n          <div class=\"number\">\n            <h1>4.8</h1>\n            <br>\n          </div>\n          <div class=\"stars\">\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <br>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <br>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <br>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <br>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n          </div>\n          <div class=\"slide\">\n          </div>\n          <hr>\n\n          <div class=\"card\">\n            <div class=\"card-body\">\n              <h4 class=\"card-title\">Card title</h4>\n              <h6 class=\"card-subtitle mb-2 text-muted\">Card subtitle</h6>\n              <p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p>\n            </div>\n          </div>\n\n        </div>\n      </ng-template>\n    </ngb-tab>\n  </ngb-tabset>\n  \n  \n</div>"
 
 /***/ }),
 
@@ -1834,15 +2029,260 @@ var SpotComponent = (function () {
         this.router = router;
         this.route = route;
         this.spotService = spotService;
-        this.lat = 51.678418;
-        this.lng = 7.809007;
+        this.zoom = 11;
+        this.currentJustify = 'justified';
+        this.styles = [
+            {
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#ebe3cd"
+                    }
+                ]
+            },
+            {
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                        "color": "#523735"
+                    }
+                ]
+            },
+            {
+                "elementType": "labels.text.stroke",
+                "stylers": [
+                    {
+                        "color": "#f5f1e6"
+                    }
+                ]
+            },
+            {
+                "featureType": "administrative",
+                "elementType": "geometry.stroke",
+                "stylers": [
+                    {
+                        "color": "#c9b2a6"
+                    }
+                ]
+            },
+            {
+                "featureType": "administrative.land_parcel",
+                "elementType": "geometry.stroke",
+                "stylers": [
+                    {
+                        "color": "#dcd2be"
+                    }
+                ]
+            },
+            {
+                "featureType": "administrative.land_parcel",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                        "color": "#ae9e90"
+                    }
+                ]
+            },
+            {
+                "featureType": "landscape.natural",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#dfd2ae"
+                    }
+                ]
+            },
+            {
+                "featureType": "poi",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#dfd2ae"
+                    }
+                ]
+            },
+            {
+                "featureType": "poi",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                        "color": "#93817c"
+                    }
+                ]
+            },
+            {
+                "featureType": "poi.park",
+                "elementType": "geometry.fill",
+                "stylers": [
+                    {
+                        "color": "#a5b076"
+                    }
+                ]
+            },
+            {
+                "featureType": "poi.park",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                        "color": "#447530"
+                    }
+                ]
+            },
+            {
+                "featureType": "road",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#f5f1e6"
+                    }
+                ]
+            },
+            {
+                "featureType": "road.arterial",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#fdfcf8"
+                    }
+                ]
+            },
+            {
+                "featureType": "road.arterial",
+                "elementType": "labels",
+                "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                ]
+            },
+            {
+                "featureType": "road.highway",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#f8c967"
+                    }
+                ]
+            },
+            {
+                "featureType": "road.highway",
+                "elementType": "geometry.stroke",
+                "stylers": [
+                    {
+                        "color": "#e9bc62"
+                    }
+                ]
+            },
+            {
+                "featureType": "road.highway",
+                "elementType": "labels",
+                "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                ]
+            },
+            {
+                "featureType": "road.highway.controlled_access",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#e98d58"
+                    }
+                ]
+            },
+            {
+                "featureType": "road.highway.controlled_access",
+                "elementType": "geometry.stroke",
+                "stylers": [
+                    {
+                        "color": "#db8555"
+                    }
+                ]
+            },
+            {
+                "featureType": "road.local",
+                "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                ]
+            },
+            {
+                "featureType": "road.local",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                        "color": "#806b63"
+                    }
+                ]
+            },
+            {
+                "featureType": "transit.line",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#dfd2ae"
+                    }
+                ]
+            },
+            {
+                "featureType": "transit.line",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                        "color": "#8f7d77"
+                    }
+                ]
+            },
+            {
+                "featureType": "transit.line",
+                "elementType": "labels.text.stroke",
+                "stylers": [
+                    {
+                        "color": "#ebe3cd"
+                    }
+                ]
+            },
+            {
+                "featureType": "transit.station",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#dfd2ae"
+                    }
+                ]
+            },
+            {
+                "featureType": "water",
+                "elementType": "geometry.fill",
+                "stylers": [
+                    {
+                        "color": "#b9d3c2"
+                    }
+                ]
+            },
+            {
+                "featureType": "water",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                        "color": "#92998d"
+                    }
+                ]
+            }
+        ];
     }
     SpotComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.route.params
             .subscribe(function (params) {
             _this.spotService.spot(params['id'])
-                .subscribe(function (spot) { return _this.spot = spot; });
+                .subscribe(function (spot) {
+                _this.spot = spot;
+                _this.lat = parseFloat(spot.location.lat);
+                _this.lng = parseFloat(spot.location.lng);
+            });
         });
     };
     return SpotComponent;
