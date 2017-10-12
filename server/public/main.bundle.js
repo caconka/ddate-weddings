@@ -109,12 +109,14 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27_ng2_file_upload___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_27_ng2_file_upload__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__agm_core__ = __webpack_require__("../../../../@agm/core/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__spot_create_comnt_create_comnt_component__ = __webpack_require__("../../../../../src/app/spot/create-comnt/create-comnt.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -156,7 +158,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */], __WEBPACK_IMPORTED_MODULE_6__home_home_component__["a" /* HomeComponent */], __WEBPACK_IMPORTED_MODULE_7__nav_nav_component__["a" /* NavComponent */], __WEBPACK_IMPORTED_MODULE_8__login_login_component__["a" /* LoginComponent */], __WEBPACK_IMPORTED_MODULE_9__signup_signup_component__["a" /* SignupComponent */],
             __WEBPACK_IMPORTED_MODULE_10__search_search_component__["a" /* SearchComponent */], __WEBPACK_IMPORTED_MODULE_11__favorites_favorites_component__["a" /* FavoritesComponent */], __WEBPACK_IMPORTED_MODULE_12__profile_profile_component__["a" /* ProfileComponent */], __WEBPACK_IMPORTED_MODULE_13__spot_spot_component__["a" /* SpotComponent */],
             __WEBPACK_IMPORTED_MODULE_14__messages_messages_component__["a" /* MessagesComponent */], __WEBPACK_IMPORTED_MODULE_15__spot_comments_comments_component__["a" /* CommentsComponent */], __WEBPACK_IMPORTED_MODULE_17__provider_spot_provider_spot_component__["a" /* ProviderSpotComponent */], __WEBPACK_IMPORTED_MODULE_18__provider_spot_edit_spot_edit_spot_component__["a" /* EditSpotComponent */],
-            __WEBPACK_IMPORTED_MODULE_19__provider_signup_provider_signup_component__["a" /* ProviderSignupComponent */], __WEBPACK_IMPORTED_MODULE_27_ng2_file_upload__["FileSelectDirective"], __WEBPACK_IMPORTED_MODULE_20__profile_edit_profile_edit_profile_component__["a" /* EditProfileComponent */], __WEBPACK_IMPORTED_MODULE_16__spot_calendar_calendar_component__["a" /* CalendarComponent */]
+            __WEBPACK_IMPORTED_MODULE_19__provider_signup_provider_signup_component__["a" /* ProviderSignupComponent */], __WEBPACK_IMPORTED_MODULE_27_ng2_file_upload__["FileSelectDirective"], __WEBPACK_IMPORTED_MODULE_20__profile_edit_profile_edit_profile_component__["a" /* EditProfileComponent */], __WEBPACK_IMPORTED_MODULE_16__spot_calendar_calendar_component__["a" /* CalendarComponent */], __WEBPACK_IMPORTED_MODULE_30__spot_create_comnt_create_comnt_component__["a" /* CreateComntComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */], __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_21__routes__["a" /* routes */]),
@@ -322,7 +324,8 @@ var HomeComponent = (function () {
         this.user = this.auth.getUser();
         this.auth.getLoginEventEmitter()
             .subscribe(function (user) {
-            _this.user = user;
+            if (user !== undefined)
+                _this.user = user;
             if (user !== undefined && user.role === 'User')
                 _this.asignFavorites(user._id);
         });
@@ -1118,7 +1121,9 @@ var _a, _b;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__spot_spot_component__ = __webpack_require__("../../../../../src/app/spot/spot.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__spot_comments_comments_component__ = __webpack_require__("../../../../../src/app/spot/comments/comments.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__spot_calendar_calendar_component__ = __webpack_require__("../../../../../src/app/spot/calendar/calendar.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__services_isLoggedIn_service__ = __webpack_require__("../../../../../src/app/services/isLoggedIn.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__spot_create_comnt_create_comnt_component__ = __webpack_require__("../../../../../src/app/spot/create-comnt/create-comnt.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__services_isLoggedIn_service__ = __webpack_require__("../../../../../src/app/services/isLoggedIn.service.ts");
+
 
 
 
@@ -1136,17 +1141,18 @@ var routes = [
     { path: 'login', component: __WEBPACK_IMPORTED_MODULE_1__login_login_component__["a" /* LoginComponent */] },
     { path: 'signup', component: __WEBPACK_IMPORTED_MODULE_2__signup_signup_component__["a" /* SignupComponent */] },
     { path: 'search', component: __WEBPACK_IMPORTED_MODULE_6__search_search_component__["a" /* SearchComponent */] },
+    { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_4__profile_profile_component__["a" /* ProfileComponent */],
+        canActivate: [__WEBPACK_IMPORTED_MODULE_12__services_isLoggedIn_service__["a" /* IsLoggedInService */]] },
+    { path: 'profile/edit', component: __WEBPACK_IMPORTED_MODULE_5__profile_edit_profile_edit_profile_component__["a" /* EditProfileComponent */],
+        canActivate: [__WEBPACK_IMPORTED_MODULE_12__services_isLoggedIn_service__["a" /* IsLoggedInService */]] },
+    { path: 'messages', component: __WEBPACK_IMPORTED_MODULE_7__messages_messages_component__["a" /* MessagesComponent */],
+        canActivate: [__WEBPACK_IMPORTED_MODULE_12__services_isLoggedIn_service__["a" /* IsLoggedInService */]] },
     { path: ':id/view', component: __WEBPACK_IMPORTED_MODULE_8__spot_spot_component__["a" /* SpotComponent */] },
     { path: ':id/comments', component: __WEBPACK_IMPORTED_MODULE_9__spot_comments_comments_component__["a" /* CommentsComponent */] },
+    { path: ':id/comment/create', component: __WEBPACK_IMPORTED_MODULE_11__spot_create_comnt_create_comnt_component__["a" /* CreateComntComponent */] },
     { path: ':id/calendar', component: __WEBPACK_IMPORTED_MODULE_10__spot_calendar_calendar_component__["a" /* CalendarComponent */] },
-    { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_4__profile_profile_component__["a" /* ProfileComponent */],
-        canActivate: [__WEBPACK_IMPORTED_MODULE_11__services_isLoggedIn_service__["a" /* IsLoggedInService */]] },
-    { path: 'profile/edit', component: __WEBPACK_IMPORTED_MODULE_5__profile_edit_profile_edit_profile_component__["a" /* EditProfileComponent */],
-        canActivate: [__WEBPACK_IMPORTED_MODULE_11__services_isLoggedIn_service__["a" /* IsLoggedInService */]] },
     { path: ':id/favorites', component: __WEBPACK_IMPORTED_MODULE_3__favorites_favorites_component__["a" /* FavoritesComponent */],
-        canActivate: [__WEBPACK_IMPORTED_MODULE_11__services_isLoggedIn_service__["a" /* IsLoggedInService */]] },
-    { path: 'messages', component: __WEBPACK_IMPORTED_MODULE_7__messages_messages_component__["a" /* MessagesComponent */],
-        canActivate: [__WEBPACK_IMPORTED_MODULE_11__services_isLoggedIn_service__["a" /* IsLoggedInService */]] },
+        canActivate: [__WEBPACK_IMPORTED_MODULE_12__services_isLoggedIn_service__["a" /* IsLoggedInService */]] },
     { path: '**', redirectTo: '' }
 ];
 //# sourceMappingURL=routes.js.map
@@ -1541,6 +1547,12 @@ var SpotService = (function () {
     SpotService.prototype.getSearchData = function () {
         return this.searchData;
     };
+    SpotService.prototype.createComment = function (spotId, userId, title, rating, text) {
+        return this.http.post(BASEURL + "/comment/" + userId + "/create", { spotId: spotId,
+            title: title, rating: rating, text: text }, this.options)
+            .map(function (res) { return res.json(); })
+            .catch(this.handleError);
+    };
     return SpotService;
 }());
 SpotService = __decorate([
@@ -1722,7 +1734,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "div.day {\n  width: 30px;\n  height: 30px;\n  margin: 6px;\n}\n\ndiv.calendar {\n  width: 100%;\n  text-align: center;\n}\n\ndiv.month-year {\n  margin-bottom: 30px;\n}\n\n.month-year h4, .month-year h5 {\n  display: inline-block;\n  margin: 10px;\n}\n\ndiv.day-avai {\n  color: white;\n  background: #ffabbb;\n  border-radius: 50%;\n}\n\ndiv.day-not {\n  color: lightgray;\n}\n\ndiv.week {\n  display: inline-block;\n}", ""]);
+exports.push([module.i, "div.day {\n  width: 30px;\n  height: 30px;\n  margin: 6px;\n}\n\ndiv.calendar {\n  width: 100%;\n  text-align: center;\n}\n\ndiv.month-year {\n  margin-bottom: 30px;\n}\n\n.month-year h4, .month-year h5 {\n  display: inline-block;\n  margin: 10px;\n}\n\ndiv.calendar-body {\n  border: 1px solid lightgray;\n  width: 88%;\n  margin-left: 6%;\n  border-radius: 4px;\n}\n\ndiv.day-avai {\n  color: white;\n  background: #ffabbb;\n  border-radius: 50%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\ndiv.day-not {\n  color: lightgray;\n}\n\ndiv.week {\n  display: inline-block;\n}", ""]);
 
 // exports
 
@@ -1735,7 +1747,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/spot/calendar/calendar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"spot\" class=\"container\">\n  <div class=\"login calendar\">\n    <div class=\"month-year\">\n      <h4 (click)=\"prevMonth()\"><</h4>\n      <h5> {{monthName}} {{year}} </h5>\n      <h4 (click)=\"nextMonth()\">></h4>\n    </div>\n    <div *ngFor=\"let week of thisMonth\">\n      <div *ngFor=\"let day of week\" class=\"week\">\n        <div *ngIf=\"day.length\" class=\"day-avai day\"><p>{{day}}</p></div>\n        <div *ngIf=\"!day.length\" class=\"day-not day\"><p>{{day}}</p></div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div *ngIf=\"spot\" class=\"container\">\n  <div class=\"login calendar\">\n    <div class=\"month-year\">\n      <h4 (click)=\"prevMonth()\"><</h4>\n      <h5> {{monthName}} {{year}} </h5>\n      <h4 (click)=\"nextMonth()\">></h4>\n    </div>\n    <div class=\"calendar-body\">\n      <div *ngFor=\"let week of thisMonth\">\n        <div *ngFor=\"let day of week\" class=\"week\">\n          <div *ngIf=\"day.length\" class=\"day-avai day\">{{day}}</div>\n          <div *ngIf=\"!day.length\" class=\"day-not day\"><p>{{day}}</p></div>\n        </div>\n      </div>\n    </div>\n    <br>\n    <button (click)=\"back()\" clasS=\"button-signup\"> Volver </button>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -1746,7 +1758,8 @@ module.exports = "<div *ngIf=\"spot\" class=\"container\">\n  <div class=\"login
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CalendarComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_spot_service__ = __webpack_require__("../../../../../src/app/services/spot.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_spot_service__ = __webpack_require__("../../../../../src/app/services/spot.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1759,11 +1772,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var CalendarComponent = (function () {
-    function CalendarComponent(router, route, spotService) {
+    function CalendarComponent(router, route, spotService, location) {
         this.router = router;
         this.route = route;
         this.spotService = spotService;
+        this.location = location;
         this.daysAvai = [];
         this.thisMonth = [];
         this.toDay = new Date();
@@ -1864,7 +1879,6 @@ var CalendarComponent = (function () {
             Calendar[months[i]] = i;
     };
     CalendarComponent.prototype.nextMonth = function () {
-        var _this = this;
         if (this.month < 11) {
             this.month += 1;
         }
@@ -1872,6 +1886,20 @@ var CalendarComponent = (function () {
             this.month = 0;
             this.year += 1;
         }
+        this.calendar();
+    };
+    CalendarComponent.prototype.prevMonth = function () {
+        if (this.month > 0) {
+            this.month -= 1;
+        }
+        else {
+            this.month = 11;
+            this.year -= 1;
+        }
+        this.calendar();
+    };
+    CalendarComponent.prototype.calendar = function () {
+        var _this = this;
         this.monthName = this.months[this.month];
         this.thisMonth = [];
         var m = this.cal.monthDays(this.year, this.month);
@@ -1888,6 +1916,9 @@ var CalendarComponent = (function () {
             }
         });
     };
+    CalendarComponent.prototype.back = function () {
+        this.location.back();
+    };
     return CalendarComponent;
 }());
 CalendarComponent = __decorate([
@@ -1896,10 +1927,10 @@ CalendarComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/spot/calendar/calendar.component.html"),
         styles: [__webpack_require__("../../../../../src/app/spot/calendar/calendar.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_spot_service__["a" /* SpotService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_spot_service__["a" /* SpotService */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__services_spot_service__["a" /* SpotService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_spot_service__["a" /* SpotService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common__["Location"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common__["Location"]) === "function" && _d || Object])
 ], CalendarComponent);
 
-var _a, _b, _c;
+var _a, _b, _c, _d;
 //# sourceMappingURL=calendar.component.js.map
 
 /***/ }),
@@ -1912,7 +1943,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "div.card {\n  width: 100%;\n  background: rgb(241, 241, 241);\n  border: none;\n  margin-bottom: 20px;\n}\n\ndiv.title {\n  padding-bottom: 20px;\n}\n\ndiv.left {\n  text-align: left;\n  display: inline-block;\n  width: 48%;\n}\n\ndiv.right {\n  text-align: right;\n  display: inline-block;\n  width: 48%;\n}\n\nh6.star {\n  color: #ffabbb;\n}\n\n.section a {\n  color: #f37e95;\n}\n\np.card-text {\n  text-align: left;\n}", ""]);
 
 // exports
 
@@ -1925,7 +1956,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/spot/comments/comments.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>{{comments | json}}</div>"
+module.exports = "<div *ngIf=\"comments\">\n  <div *ngFor=\"let comment of comments\" class=\"card\">\n    <div class=\"card-body\">\n      <div class=\"title left\">\n        <h4 class=\"card-title\"> {{comment.title}} </h4>\n        <h6 class=\"card-subtitle mb-2 star\">\n          <span *ngIf=\"comment.rating === 1\">\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star-o\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star-o\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star-o\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star-o\" aria-hidden=\"true\"></i>\n          </span>\n          <span *ngIf=\"comment.rating === 2\">\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star-o\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star-o\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star-o\" aria-hidden=\"true\"></i>\n          </span>\n          <span *ngIf=\"comment.rating === 3\">\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star-o\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star-o\" aria-hidden=\"true\"></i>\n          </span>\n          <span *ngIf=\"comment.rating === 4\">\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star-o\" aria-hidden=\"true\"></i>\n          </span>\n          <span *ngIf=\"comment.rating === 5\">\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n          </span>\n        </h6>\n      </div>\n      <div class=\"title right\">\n        <h5 class=\"card-title\"> {{comment.userId.name}} </h5>\n        <h6 class=\"card-subtitle mb-2 text-muted\"> {{comment.createdAt}} </h6>\n      </div>\n      <p class=\"card-text\"> {{comment.text}} </p>\n    </div>\n  </div>\n        \n\n<hr>\n<div *ngIf=\"spot\" class=\"section\">\n  <div class=\"column\"><h5>Escribir una opinion</h5></div>\n  <div class=\"column right\"><a [routerLink]=\"['/', spot._id, 'comment', 'create']\">Mensaje</a></div>\n</div>"
 
 /***/ }),
 
@@ -1961,6 +1992,8 @@ var CommentsComponent = (function () {
             .subscribe(function (params) {
             _this.spotService.getComments(params['id'])
                 .subscribe(function (comments) { return _this.comments = comments; });
+            _this.spotService.spot(params['id'])
+                .subscribe(function (spot) { return _this.spot = spot; });
         });
     };
     return CommentsComponent;
@@ -1979,6 +2012,104 @@ var _a, _b, _c;
 
 /***/ }),
 
+/***/ "../../../../../src/app/spot/create-comnt/create-comnt.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "textarea#content-text {\n  border-radius: 5px;\n  border: 1px solid lightgray;\n  padding: 10px;\n  background: rgb(240, 240, 240);\n}\n\ndiv.comment-body {\n  margin-top: 40%;\n}\n\n#title {\n  border: 1px solid lightgray;\n  padding: 4px;\n  border-radius: 5px;\n  background: rgb(240, 240, 240);\n}\n\n#rating {\n  font-size: 2rem;\n  color: #f37e95;\n  margin-bottom: 35px;\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/spot/create-comnt/create-comnt.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div *ngIf=\"spot && user\" clasS=\"container\">\n  <div class=\"comment-body\">\n    <form>\n      <input [(ngModel)]=\"formInfo.title\" name=\"title\" type=\"text\" id=\"title\" placeholder=\"Título\"><br>\n      <ngb-rating [(rate)]=\"formInfo.rating\" id=\"rating\" max=\"5\"></ngb-rating>\n      <textarea [(ngModel)]=\"formInfo.text\" name=\"text\" id=\"content-text\" cols=\"38\" \n                 rows=\"8\" placeholder=\"Contenido del mensaje\"></textarea>\n      <button (click)=\"addComment(user._id)\"> Enviar </button>\n    </form>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/spot/create-comnt/create-comnt.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CreateComntComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_spot_service__ = __webpack_require__("../../../../../src/app/services/spot.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var CreateComntComponent = (function () {
+    function CreateComntComponent(router, route, spotService, auth) {
+        this.router = router;
+        this.route = route;
+        this.spotService = spotService;
+        this.auth = auth;
+        this.formInfo = {
+            spotId: '',
+            title: '',
+            text: '',
+            rating: 4
+        };
+    }
+    CreateComntComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.user = this.auth.getUser();
+        this.auth.getLoginEventEmitter()
+            .subscribe(function (user) {
+            _this.user = user;
+        });
+        this.route.params
+            .subscribe(function (params) {
+            _this.spotService.spot(params['id'])
+                .subscribe(function (spot) {
+                _this.formInfo.spotId = spot._id;
+                _this.spot = spot;
+            });
+        });
+    };
+    CreateComntComponent.prototype.addComment = function (userId) {
+        var _this = this;
+        var _a = this.formInfo, spotId = _a.spotId, title = _a.title, rating = _a.rating, text = _a.text;
+        this.spotService.createComment(spotId, userId, title, rating, text)
+            .subscribe(function () { return _this.router.navigate(['']); });
+    };
+    return CreateComntComponent;
+}());
+CreateComntComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-create-comnt',
+        template: __webpack_require__("../../../../../src/app/spot/create-comnt/create-comnt.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/spot/create-comnt/create-comnt.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_spot_service__["a" /* SpotService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_spot_service__["a" /* SpotService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */]) === "function" && _d || Object])
+], CreateComntComponent);
+
+var _a, _b, _c, _d;
+//# sourceMappingURL=create-comnt.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/spot/spot.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1987,7 +2118,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "agm-map {\n  height: 300px;\n}\n\n.fullWidth img {\n  border-radius: 0;\n}\n\n.fullWidth div.carousel-caption {\n  text-align: center;\n}\n\nagm-map {\n  height: 250px;\n}\n\ndiv.icon-container {\n  text-align: center;\n  margin-top: 18px;\n}\n\n.icon-container div.icon {\n  display: inline-block;\n  width: 15%;\n  height: 50px;\n  margin-left: 2px;\n  font-size: .9rem;\n  margin-bottom: 0;\n}\n\nhr {\n  margin-top: .3rem;\n  margin-bottom: 1rem;\n}\n\n.icon i {\n  font-size: 1.8rem;\n  margin: 0;\n  display: block;\n  color: lightgray;\n}\n\ndiv.section {\n  text-align: left;\n  position: relative;\n}\n\n.section a {\n  color: #f37e95;\n}\n\ndiv.column {\n  display: inline-block;\n}\n\ndiv.column.right {\n  position: absolute;\n  right: 0;\n}\n\ndiv.rate {\n  margin-top: 20px;\n}\n\ndiv.number {\n  text-align: left;\n  display: inline-block;\n  width: 28%;\n}\n\n.number h1 {\n  font-size: 4rem;\n  color: #f37e95;\n}\n\ndiv.stars {\n  display: inline-block;\n  text-align: right;\n  font-size: .8rem;\n}\n\ndiv.slide {\n  display: inline-block;\n  font-size: .8rem;\n  width: 35%;\n}\n\ndiv.card {\n  width: 100%;\n  background: rgb(241, 241, 241);\n  border: none;\n}", ""]);
+exports.push([module.i, "agm-map {\n  height: 300px;\n}\n\n.fullWidth img {\n  border-radius: 0;\n}\n\n.fullWidth div.carousel-caption {\n  text-align: center;\n}\n\nagm-map {\n  height: 250px;\n}\n\ndiv.icon-container {\n  text-align: center;\n  margin-top: 18px;\n}\n\n.icon-container div.icon {\n  display: inline-block;\n  width: 15%;\n  height: 50px;\n  margin-left: 2px;\n  font-size: .9rem;\n  margin-bottom: 0;\n}\n\nhr {\n  margin-top: .3rem;\n  margin-bottom: 1rem;\n}\n\n.icon i {\n  font-size: 1.8rem;\n  margin: 0;\n  display: block;\n  color: lightgray;\n}\n\n.section a {\n  color: #f37e95;\n}\n\ndiv.rate {\n  margin-top: 20px;\n}\n\ndiv.number {\n  text-align: left;\n  display: inline-block;\n  width: 28%;\n}\n\n.number h1 {\n  font-size: 4rem;\n  color: #f37e95;\n}\n\ndiv.stars {\n  display: inline-block;\n  text-align: right;\n  font-size: .8rem;\n}\n\ndiv.slide {\n  display: inline-block;\n  font-size: .8rem;\n  width: 35%;\n}\n\n.section ul {\n  margin-top: 25px;\n  list-style: none;\n  padding: 0;\n}\n\ndiv.carousel-caption i {\n  color: #ffabbb;\n  font-size: 1.1rem;\n}\n\ndiv.spot-footer {\n  text-align: right;\n}", ""]);
 
 // exports
 
@@ -2000,7 +2131,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/spot/spot.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"spot\" class=\"fullWidth\">\n  <ngb-carousel>\n    <ng-template ngbSlide *ngFor=\"let photo of spot.photos\">\n      <img src=\"{{photo}}\" alt=\"Random first slide\">\n      <div class=\"carousel-caption\">\n        <h5> {{ spot.spotName }} </h5>\n        <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n      </div>\n    </ng-template>\n  </ngb-carousel>\n</div>\n\n<div *ngIf=\"spot\" class=\"container\">\n\n\n  <ngb-tabset>\n    <ngb-tab title=\"Destacados\">\n      <ng-template ngbTabContent>\n        <div class=\"icon-container\">\n          <div class=\"icon\"><i class=\"fa fa-users\" aria-hidden=\"true\"></i>algo</div>\n          <div class=\"icon\"><i class=\"fa fa-btc\" aria-hidden=\"true\"></i>algo</div>\n          <div class=\"icon\"><i class=\"fa fa-tree\" aria-hidden=\"true\"></i>algo</div>\n          <div class=\"icon\"><i class=\"fa fa-bed\" aria-hidden=\"true\"></i>algo</div>\n          <div class=\"icon\"><i class=\"fa fa-user-secret\" aria-hidden=\"true\"></i>algo</div>\n          <div class=\"icon\"><i class=\"fa fa-car\" aria-hidden=\"true\"></i>algo</div>\n        </div>\n        <hr>\n        <div class=\"section\">\n          <div class=\"title\"><h5>Descripción</h5></div>\n          <div class=\"description\"><p>{{spot.description}}</p></div>\n        </div>\n        <hr>\n        <div class=\"section\">\n          <div class=\"column\"><h5>Disponibilidad</h5></div>\n          <div class=\"column right\">\n            <a [routerLink]=\"['/', spot._id, 'calendar']\">Ver calendario</a>\n          </div>\n        </div>\n        <hr>\n        <div class=\"section\">\n          <div class=\"column\"><h5>Precios</h5></div>\n          <div class=\"column right\"><a>Ver detalles</a></div>\n        </div>\n        <hr>\n        <div class=\"section\">\n          <div class=\"column\"><h5>Quiero visitarla</h5></div>\n          <div class=\"column right\"><a>Pedir cita</a></div>\n        </div>\n        <hr>\n      \n        <agm-map [latitude]=\"lat\" [longitude]=\"lng\" [scrollwheel]=\"false\" [zoom]=\"zoom\" \n                 [styles]=\"styles\" scaleControl=\"false\">\n            <agm-marker [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\n        </agm-map>\n      </ng-template>\n    </ngb-tab>\n\n    <ngb-tab title=\"Instalaciones\">\n      <ng-template ngbTabContent>\n        <div class=\"section\">\n        </div>\n        <hr>\n        <div class=\"section\">\n          <div class=\"column\"><h5>Condiciones de uso</h5></div>\n          <div class=\"column right\"><a>Saber más</a></div>\n        </div>\n        <hr>\n        <div class=\"section\">\n          <div class=\"column\"><h5>Servicios</h5></div>\n          <div class=\"column right\"><a>Ver detalle</a></div>\n        </div>\n        <hr>\n        <div class=\"section\">\n          <div class=\"column\"><h5>Quiero visitarla</h5></div>\n          <div class=\"column right\"><a>Pedir cita</a></div>\n        </div>\n      </ng-template>\n    </ngb-tab>\n\n    <ngb-tab title=\"Opiniones\">\n      <ng-template ngbTabContent>\n        <div class=\"rate\">\n          <div class=\"number\">\n            <h1>4.8</h1>\n            <br>\n          </div>\n          <div class=\"stars\">\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <br>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <br>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <br>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <br>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n          </div>\n          <div class=\"slide\">\n          </div>\n          <hr>\n\n          <div class=\"card\">\n            <div class=\"card-body\">\n              <h4 class=\"card-title\">Card title</h4>\n              <h6 class=\"card-subtitle mb-2 text-muted\">Card subtitle</h6>\n              <p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p>\n            </div>\n          </div>\n\n        </div>\n      </ng-template>\n    </ngb-tab>\n  </ngb-tabset>\n  \n  \n</div>"
+module.exports = "<div *ngIf=\"spot\" class=\"fullWidth\">\n  <ngb-carousel>\n    <ng-template ngbSlide *ngFor=\"let photo of spot.photos\">\n      <img src=\"{{photo}}\" alt=\"Random first slide\">\n      <div class=\"carousel-caption\">\n        <h5> {{ spot.spotName }} </h5>\n        <span *ngFor=\"let star of rating\">\n          <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n        </span>\n      </div>\n    </ng-template>\n  </ngb-carousel>\n</div>\n\n<div *ngIf=\"spot\" class=\"container\">\n\n  <ngb-tabset>\n    <ngb-tab title=\"Destacados\">\n      <ng-template ngbTabContent>\n        <div class=\"icon-container\">\n          <div class=\"icon\"><i class=\"fa fa-users\" aria-hidden=\"true\"></i>algo</div>\n          <div class=\"icon\"><i class=\"fa fa-btc\" aria-hidden=\"true\"></i>algo</div>\n          <div class=\"icon\"><i class=\"fa fa-tree\" aria-hidden=\"true\"></i>algo</div>\n          <div class=\"icon\"><i class=\"fa fa-bed\" aria-hidden=\"true\"></i>algo</div>\n          <div class=\"icon\"><i class=\"fa fa-user-secret\" aria-hidden=\"true\"></i>algo</div>\n          <div class=\"icon\"><i class=\"fa fa-car\" aria-hidden=\"true\"></i>algo</div>\n        </div>\n        <hr>\n        <div class=\"section\">\n          <div class=\"title\"><h5>Descripción</h5></div>\n          <div class=\"description\"><p>{{spot.description}}</p></div>\n        </div>\n        <hr>\n        <div class=\"section\">\n          <div class=\"column\"><h5>Disponibilidad</h5></div>\n          <div class=\"column right\">\n            <a [routerLink]=\"['/', spot._id, 'calendar']\">Ver calendario</a>\n          </div>\n        </div>\n        <hr>\n        <div class=\"section\">\n          <div class=\"column\"><h5>Precios</h5></div>\n          <div class=\"column right\"><a>Ver detalles</a></div>\n        </div>\n        <hr>\n        <div class=\"section\">\n          <div class=\"column\"><h5>Quiero visitarla</h5></div>\n          <div class=\"column right\"><a>Pedir cita</a></div>\n        </div>\n        <hr>\n      \n        <agm-map [latitude]=\"lat\" [longitude]=\"lng\" [scrollwheel]=\"false\" [zoom]=\"zoom\" \n                 [styles]=\"styles\" scaleControl=\"false\">\n            <agm-marker [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\n        </agm-map>\n      </ng-template>\n    </ngb-tab>\n\n    <ngb-tab title=\"Instalaciones\">\n      <ng-template ngbTabContent>\n        <div class=\"section\">\n          <ul>\n            <li *ngFor=\"let places of spot.features.places\"><h6>{{places}}</h6></li>\n          </ul>\n        </div>\n        <hr>\n        <div class=\"section\">\n          <div class=\"column\"><h5>Condiciones de uso</h5></div>\n          <div class=\"column right\"><a>Saber más</a></div>\n        </div>\n        <hr>\n        <div class=\"section\">\n          <div class=\"column\"><h5>Servicios</h5></div>\n          <div class=\"column right\"><a>Ver detalle</a></div>\n        </div>\n        <hr>\n        <div class=\"section\">\n          <div class=\"column\"><h5>Quiero visitarla</h5></div>\n          <div class=\"column right\"><a>Pedir cita</a></div>\n        </div>\n      </ng-template>\n    </ngb-tab>\n\n    <ngb-tab title=\"Opiniones\">\n      <ng-template ngbTabContent>\n        <div class=\"rate\">\n          <div class=\"number\">\n            <h1>4.8</h1>\n            <br>\n          </div>\n          <div class=\"stars\">\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <br>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <br>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <br>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <br>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n          </div>\n          <div class=\"slide\">\n          </div>\n          <hr>\n        </div>\n        \n        <app-comments></app-comments>\n      </ng-template>\n    </ngb-tab>\n  </ngb-tabset>\n  <hr>\n\n  <div class=\"spot-footer\">\n    <button [routerLink]=\"['/', spot._id, 'calendar']\">Ver disponibilidad</button>\n  </div>\n  \n</div>"
 
 /***/ }),
 
@@ -2029,6 +2160,7 @@ var SpotComponent = (function () {
         this.router = router;
         this.route = route;
         this.spotService = spotService;
+        this.rating = [];
         this.zoom = 11;
         this.currentJustify = 'justified';
         this.styles = [
@@ -2282,6 +2414,18 @@ var SpotComponent = (function () {
                 _this.spot = spot;
                 _this.lat = parseFloat(spot.location.lat);
                 _this.lng = parseFloat(spot.location.lng);
+                _this.spotService.getComments(params['id'])
+                    .subscribe(function (comments) {
+                    var sum = 0;
+                    var count = 0;
+                    comments.forEach(function (comnt) {
+                        sum += comnt.rating;
+                        count++;
+                    });
+                    var rat = Math.round(sum / count);
+                    for (var i = 0; i < rat; i++)
+                        _this.rating.push('*');
+                });
             });
         });
     };
