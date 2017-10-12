@@ -12,37 +12,113 @@
 
 <div *ngIf="spot" class="container">
 
-  <div class="icon-container">
-    <div class="icon"><i class="fa fa-users" aria-hidden="true"></i>algo</div>
-    <div class="icon"><i class="fa fa-btc" aria-hidden="true"></i>algo</div>
-    <div class="icon"><i class="fa fa-tree" aria-hidden="true"></i>algo</div>
-    <div class="icon"><i class="fa fa-bed" aria-hidden="true"></i>algo</div>
-    <div class="icon"><i class="fa fa-user-secret" aria-hidden="true"></i>algo</div>
-    <div class="icon"><i class="fa fa-car" aria-hidden="true"></i>algo</div>
-  </div>
-  <hr>
-  <div class="section">
-    <div class="title"><h5>Descripción</h5></div>
-    <div class="description"><p>{{spot.description}}</p></div>
-  </div>
-  <hr>
-  <div class="section">
-    <div class="column"><h5>Disponibilidad</h5></div>
-    <div class="column right"><a href="">Ver calendario</a></div>
-  </div>
-  <hr>
-  <div class="section">
-    <div class="column"><h5>Precios</h5></div>
-    <div class="column right"><a href="">Ver detalles</a></div>
-  </div>
-  <hr>
-  <div class="section">
-    <div class="column"><h5>Quiero visitarla</h5></div>
-    <div class="column right"><a href="">Pedir cita</a></div>
-  </div>
-  <hr>
 
-  <agm-map [latitude]="lat" [longitude]="lng" [scrollwheel]="false" [zoom]="zoom">
-      <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-  </agm-map>
+  <ngb-tabset>
+    <ngb-tab title="Destacados">
+      <ng-template ngbTabContent>
+        <div class="icon-container">
+          <div class="icon"><i class="fa fa-users" aria-hidden="true"></i>algo</div>
+          <div class="icon"><i class="fa fa-btc" aria-hidden="true"></i>algo</div>
+          <div class="icon"><i class="fa fa-tree" aria-hidden="true"></i>algo</div>
+          <div class="icon"><i class="fa fa-bed" aria-hidden="true"></i>algo</div>
+          <div class="icon"><i class="fa fa-user-secret" aria-hidden="true"></i>algo</div>
+          <div class="icon"><i class="fa fa-car" aria-hidden="true"></i>algo</div>
+        </div>
+        <hr>
+        <div class="section">
+          <div class="title"><h5>Descripción</h5></div>
+          <div class="description"><p>{{spot.description}}</p></div>
+        </div>
+        <hr>
+        <div class="section">
+          <div class="column"><h5>Disponibilidad</h5></div>
+          <div class="column right"><a>Ver calendario</a></div>
+        </div>
+        <hr>
+        <div class="section">
+          <div class="column"><h5>Precios</h5></div>
+          <div class="column right"><a>Ver detalles</a></div>
+        </div>
+        <hr>
+        <div class="section">
+          <div class="column"><h5>Quiero visitarla</h5></div>
+          <div class="column right"><a>Pedir cita</a></div>
+        </div>
+        <hr>
+      
+        <agm-map [latitude]="lat" [longitude]="lng" [scrollwheel]="false" [zoom]="zoom" 
+                 [styles]="styles" scaleControl="false">
+            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+        </agm-map>
+      </ng-template>
+    </ngb-tab>
+
+    <ngb-tab title="Instalaciones">
+      <ng-template ngbTabContent>
+        <div class="section">
+        </div>
+        <hr>
+        <div class="section">
+          <div class="column"><h5>Condiciones de uso</h5></div>
+          <div class="column right"><a>Saber más</a></div>
+        </div>
+        <hr>
+        <div class="section">
+          <div class="column"><h5>Servicios</h5></div>
+          <div class="column right"><a>Ver detalle</a></div>
+        </div>
+        <hr>
+        <div class="section">
+          <div class="column"><h5>Quiero visitarla</h5></div>
+          <div class="column right"><a>Pedir cita</a></div>
+        </div>
+      </ng-template>
+    </ngb-tab>
+
+    <ngb-tab title="Opiniones">
+      <ng-template ngbTabContent>
+        <div class="rate">
+          <div class="number">
+            <h1>4.8</h1>
+            <br>
+          </div>
+          <div class="stars">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <br>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <br>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <br>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <br>
+            <i class="fa fa-star" aria-hidden="true"></i>
+          </div>
+          <div class="slide">
+          </div>
+          <hr>
+
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Card title</h4>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+
+        </div>
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>
+  
+  
 </div>
