@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 import { SpotService } from '../../services/spot.service';
 
 @Component({
@@ -21,7 +22,7 @@ export class CalendarComponent implements OnInit {
                            'Diciembre'];
 
   constructor( private router: Router, private route: ActivatedRoute,
-               private spotService: SpotService) { }
+               private spotService: SpotService, private location: Location) { }
 
   ngOnInit() {
     this.route.params
@@ -121,6 +122,20 @@ export class CalendarComponent implements OnInit {
       this.month = 0;
       this.year += 1;
     }
+    this.calendar();
+  }
+
+  prevMonth() {
+    if(this.month > 0) {
+      this.month -= 1;
+    } else {
+      this.month = 11;
+      this.year -= 1;
+    }
+    this.calendar();
+  }
+  
+  private calendar() {
     this.monthName = this.months[this.month];
     this.thisMonth = [];
     const m = this.cal.monthDays(this.year, this.month);
@@ -133,7 +148,11 @@ export class CalendarComponent implements OnInit {
           });
         });
       }
-    }); 
+    });
+  }
+
+  back() {
+    this.location.back();
   }
 
 }
