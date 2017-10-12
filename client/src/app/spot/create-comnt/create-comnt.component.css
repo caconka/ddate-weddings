@@ -1,0 +1,23 @@
+textarea#content-text {
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  padding: 10px;
+  background: rgb(240, 240, 240);
+}
+
+div.comment-body {
+  margin-top: 40%;
+}
+
+#title {
+  border: 1px solid lightgray;
+  padding: 4px;
+  border-radius: 5px;
+  background: rgb(240, 240, 240);
+}
+
+#rating {
+  font-size: 2rem;
+  color: #f37e95;
+  margin-bottom: 35px;
+}

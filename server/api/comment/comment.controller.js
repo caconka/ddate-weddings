@@ -2,15 +2,15 @@ const Comnt = require('./comment.model');
 
 module.exports = {
   createPost: (req, res, next) => {
-    const { spotId, rating, text } = req.body;
+    const { spotId, title, rating, text } = req.body;
     const userId = req.params.id;
     
     Comnt.findOne({ userId, spotId }, '_id').exec()
     .then( comment => {
-      if(comment)
-        return res.status(400).json({ message: 'You have already make a comment' });
+      // if(comment)
+      //   return res.status(400).json({ message: 'You have already make a comment' });
       
-      const theComment = new Comnt({ userId, spotId, rating, text });
+      const theComment = new Comnt({ userId, spotId, title, rating, text });
 
       return theComment.save()
       .then( comment => { res.status(200).json(comment) })

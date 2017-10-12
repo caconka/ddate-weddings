@@ -83,4 +83,11 @@ export class SpotService {
     return this.searchData;
   }
 
+  createComment(spotId, userId, title, rating, text) {
+    return this.http.post(`${BASEURL}/comment/${userId}/create`, { spotId,
+      title, rating, text }, this.options)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
+
 }

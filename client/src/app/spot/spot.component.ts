@@ -10,7 +10,7 @@ import { SpotService } from '../services/spot.service';
 export class SpotComponent implements OnInit {
 
   spot;
-  rating: number;
+  rating: Array<string> = [];
   zoom: number = 11;
   lat: number;
   lng: number;
@@ -277,7 +277,9 @@ export class SpotComponent implements OnInit {
             sum += comnt.rating;
             count ++;
           });
-          this.rating = sum / count;
+          const rat = Math.round(sum / count);
+          for(let i = 0; i<rat; i++) 
+            this.rating.push('*');
         });
       });
     });

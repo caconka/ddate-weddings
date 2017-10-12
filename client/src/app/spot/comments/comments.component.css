@@ -2,6 +2,7 @@ div.card {
   width: 100%;
   background: rgb(241, 241, 241);
   border: none;
+  margin-bottom: 20px;
 }
 
 div.title {
@@ -26,4 +27,8 @@ h6.star {
 
 .section a {
   color: #f37e95;
+}
+
+p.card-text {
+  text-align: left;
 }

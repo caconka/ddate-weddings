@@ -4,14 +4,15 @@
       <img src="{{photo}}" alt="Random first slide">
       <div class="carousel-caption">
         <h5> {{ spot.spotName }} </h5>
-        <i class="fa fa-star" aria-hidden="true"></i>
+        <span *ngFor="let star of rating">
+          <i class="fa fa-star" aria-hidden="true"></i>
+        </span>
       </div>
     </ng-template>
   </ngb-carousel>
 </div>
 
 <div *ngIf="spot" class="container">
-
 
   <ngb-tabset>
     <ngb-tab title="Destacados">

@@ -9,11 +9,12 @@ import { SpotService } from '../../services/spot.service';
 })
 export class CommentsComponent implements OnInit {
 
+  user: object;
   spot: object;
   comments: Array<object>;
 
   constructor( private router: Router, private route: ActivatedRoute,
-               private spotService: SpotService ) { }
+               private spotService: SpotService) { }
 
   ngOnInit() {
     this.route.params

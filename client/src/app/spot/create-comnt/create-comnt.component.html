@@ -1,3 +1,11 @@
-<p>
-  create-comnt works!
-</p>
+<div *ngIf="spot && user" clasS="container">
+  <div class="comment-body">
+    <form>
+      <input [(ngModel)]="formInfo.title" name="title" type="text" id="title" placeholder="Título"><br>
+      <ngb-rating [(rate)]="formInfo.rating" id="rating" max="5"></ngb-rating>
+      <textarea [(ngModel)]="formInfo.text" name="text" id="content-text" cols="38" 
+                 rows="8" placeholder="Contenido del mensaje"></textarea>
+      <button (click)="addComment(user._id)"> Enviar </button>
+    </form>
+  </div>
+</div>
