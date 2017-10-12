@@ -58,6 +58,9 @@
     <ngb-tab title="Instalaciones">
       <ng-template ngbTabContent>
         <div class="section">
+          <ul>
+            <li *ngFor="let places of spot.features.places"><h6>{{places}}</h6></li>
+          </ul>
         </div>
         <hr>
         <div class="section">
@@ -108,19 +111,16 @@
           <div class="slide">
           </div>
           <hr>
-
-          <div class="card">
-            <div class="card-body">
-              <h4 class="card-title">Card title</h4>
-              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-          </div>
-
         </div>
+        
+        <app-comments></app-comments>
       </ng-template>
     </ngb-tab>
   </ngb-tabset>
-  
+  <hr>
+
+  <div class="spot-footer">
+    <button [routerLink]="['/', spot._id, 'calendar']">Ver disponibilidad</button>
+  </div>
   
 </div>

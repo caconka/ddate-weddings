@@ -1,0 +1,29 @@
+div.card {
+  width: 100%;
+  background: rgb(241, 241, 241);
+  border: none;
+}
+
+div.title {
+  padding-bottom: 20px;
+}
+
+div.left {
+  text-align: left;
+  display: inline-block;
+  width: 48%;
+}
+
+div.right {
+  text-align: right;
+  display: inline-block;
+  width: 48%;
+}
+
+h6.star {
+  color: #ffabbb;
+}
+
+.section a {
+  color: #f37e95;
+}

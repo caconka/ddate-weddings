@@ -32,13 +32,14 @@ import { AdminService } from './services/admin.service';
 import { FileSelectDirective } from "ng2-file-upload";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AgmCoreModule } from '@agm/core';
+import { CreateComntComponent } from './spot/create-comnt/create-comnt.component';
 
 @NgModule({
   declarations: [
     AppComponent, HomeComponent, NavComponent, LoginComponent, SignupComponent,
     SearchComponent, FavoritesComponent, ProfileComponent, SpotComponent,
     MessagesComponent, CommentsComponent, ProviderSpotComponent, EditSpotComponent,
-    ProviderSignupComponent, FileSelectDirective, EditProfileComponent, CalendarComponent
+    ProviderSignupComponent, FileSelectDirective, EditProfileComponent, CalendarComponent, CreateComntComponent
   ],
   imports: [
     BrowserModule, HttpModule, FormsModule, RouterModule.forRoot(routes),

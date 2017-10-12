@@ -5,13 +5,15 @@
       <h5> {{monthName}} {{year}} </h5>
       <h4 (click)="nextMonth()">></h4>
     </div>
-    <div *ngFor="let week of thisMonth">
-      <div *ngFor="let day of week" class="week">
-        <div *ngIf="day.length" class="day-avai day">{{day}}</div>
-        <div *ngIf="!day.length" class="day-not day"><p>{{day}}</p></div>
+    <div class="calendar-body">
+      <div *ngFor="let week of thisMonth">
+        <div *ngFor="let day of week" class="week">
+          <div *ngIf="day.length" class="day-avai day">{{day}}</div>
+          <div *ngIf="!day.length" class="day-not day"><p>{{day}}</p></div>
+        </div>
       </div>
     </div>
     <br>
-    <a (click)="back()"> Volver </a>
+    <button (click)="back()" clasS="button-signup"> Volver </button>
   </div>
 </div>

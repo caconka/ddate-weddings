@@ -11,6 +11,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { SpotComponent } from './spot/spot.component';
 import { CommentsComponent } from './spot/comments/comments.component';
 import { CalendarComponent } from './spot/calendar/calendar.component';
+import { CreateComntComponent } from './spot/create-comnt/create-comnt.component';
 
 import { IsLoggedInService } from './services/isLoggedIn.service';
 
@@ -19,16 +20,17 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'signup', component: SignupComponent },
     { path: 'search', component: SearchComponent },
-    { path: ':id/view', component: SpotComponent },
-    { path: ':id/comments', component: CommentsComponent },
-    { path: ':id/calendar', component: CalendarComponent },
     { path: 'profile', component: ProfileComponent,
     canActivate: [IsLoggedInService] },
     { path: 'profile/edit', component: EditProfileComponent,
     canActivate: [IsLoggedInService] },
-    { path: ':id/favorites', component: FavoritesComponent,
-    canActivate: [IsLoggedInService] },
     { path: 'messages', component: MessagesComponent,
+    canActivate: [IsLoggedInService] },
+    { path: ':id/view', component: SpotComponent },
+    { path: ':id/comments', component: CommentsComponent },
+    { path: ':id/comment/create', component: CreateComntComponent },
+    { path: ':id/calendar', component: CalendarComponent },
+    { path: ':id/favorites', component: FavoritesComponent,
     canActivate: [IsLoggedInService] },
     { path: '**', redirectTo: '' }
 ];

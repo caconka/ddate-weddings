@@ -192,3 +192,17 @@ footer span.icon-text {
 .ngb-dp-navigation-chevron {
   color: #ffc2ce;
 }
+
+div.section {
+  text-align: left;
+  position: relative;
+}
+
+div.column {
+  display: inline-block;
+}
+
+div.column.right {
+  position: absolute;
+  right: 0;
+}

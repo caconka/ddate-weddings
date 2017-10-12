@@ -7,8 +7,7 @@ const commentSchema = new Schema ({
   text: String,
   rating: {
     type: Number,
-    enum: [1, 2, 3, 4, 5],
-    default: 5
+    enum: [1, 2, 3, 4, 5]
   }
 });
 commentSchema.set('timestamps', true);

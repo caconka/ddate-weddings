@@ -9,6 +9,7 @@ import { SpotService } from '../../services/spot.service';
 })
 export class CommentsComponent implements OnInit {
 
+  spot: object;
   comments: Array<object>;
 
   constructor( private router: Router, private route: ActivatedRoute,
@@ -19,6 +20,9 @@ export class CommentsComponent implements OnInit {
     .subscribe( params => {
       this.spotService.getComments(params['id'])
       .subscribe(comments => this.comments = comments);
+      
+      this.spotService.spot(params['id'])
+      .subscribe(spot => this.spot = spot);
     })
   }
 

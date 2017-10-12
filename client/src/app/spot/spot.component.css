@@ -40,22 +40,8 @@ hr {
   color: lightgray;
 }
 
-div.section {
-  text-align: left;
-  position: relative;
-}
-
 .section a {
   color: #f37e95;
-}
-
-div.column {
-  display: inline-block;
-}
-
-div.column.right {
-  position: absolute;
-  right: 0;
 }
 
 div.rate {
@@ -85,8 +71,17 @@ div.slide {
   width: 35%;
 }
 
-div.card {
-  width: 100%;
-  background: rgb(241, 241, 241);
-  border: none;
+.section ul {
+  margin-top: 25px;
+  list-style: none;
+  padding: 0;
+}
+
+div.carousel-caption i {
+  color: #ffabbb;
+  font-size: 1.1rem;
+}
+
+div.spot-footer {
+  text-align: right;
 }

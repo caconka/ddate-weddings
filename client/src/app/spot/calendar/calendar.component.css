@@ -18,6 +18,13 @@ div.month-year {
   margin: 10px;
 }
 
+div.calendar-body {
+  border: 1px solid lightgray;
+  width: 88%;
+  margin-left: 6%;
+  border-radius: 4px;
+}
+
 div.day-avai {
   color: white;
   background: #ffabbb;

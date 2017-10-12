@@ -10,6 +10,7 @@ import { SpotService } from '../services/spot.service';
 export class SpotComponent implements OnInit {
 
   spot;
+  rating: number;
   zoom: number = 11;
   lat: number;
   lng: number;
@@ -267,6 +268,17 @@ export class SpotComponent implements OnInit {
         this.spot = spot;
         this.lat = parseFloat(spot.location.lat);
         this.lng = parseFloat(spot.location.lng);
+
+        this.spotService.getComments(params['id'])
+        .subscribe(comments => {
+          let sum = 0;
+          let count = 0;
+          comments.forEach(comnt => {
+            sum += comnt.rating;
+            count ++;
+          });
+          this.rating = sum / count;
+        });
       });
     });
   }

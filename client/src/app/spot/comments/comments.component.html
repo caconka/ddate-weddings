@@ -1,1 +1,31 @@
-<div>{{comments | json}}</div>
+<div *ngIf="comments">
+  <div *ngFor="let comment of comments" class="card">
+    <div class="card-body">
+      <h4 class="card-title">Card title</h4>
+      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+  </div>
+</div>
+        
+  <div class="card">
+    <div class="card-body">
+      <div class="title left">
+        <h4 class="card-title">Card title</h4>
+        <h6 class="card-subtitle mb-2 star">
+          <i class="fa fa-star" aria-hidden="true"></i>
+        </h6>
+      </div>
+      <div class="title right">
+        <h5 class="card-title">Nombre</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Fecha</h6>
+      </div>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+  </div>
+
+<hr>
+<div *ngIf="spot" class="section">
+  <div class="column"><h5>Escribir una opinion</h5></div>
+  <div class="column right"><a [routerLink]="['/', spot._id, 'comment', 'create']">Mensaje</a></div>
+</div>

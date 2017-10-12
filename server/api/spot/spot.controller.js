@@ -73,6 +73,6 @@ module.exports = {
       return res.status(200).json(listByLocation);
     })
     .catch(e => res.status(400).json({ message: 'Something went wrong' }));
-  }
+  },
 
 }
