@@ -1,0 +1,33 @@
+div.day {
+  width: 30px;
+  height: 30px;
+  margin: 6px;
+}
+
+div.calendar {
+  width: 100%;
+  text-align: center;
+}
+
+div.month-year {
+  margin-bottom: 30px;
+}
+
+.month-year h4, .month-year h5 {
+  display: inline-block;
+  margin: 10px;
+}
+
+div.day-avai {
+  color: white;
+  background: #ffabbb;
+  border-radius: 50%;
+}
+
+div.day-not {
+  color: lightgray;
+}
+
+div.week {
+  display: inline-block;
+}

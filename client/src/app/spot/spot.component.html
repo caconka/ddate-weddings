@@ -32,7 +32,9 @@
         <hr>
         <div class="section">
           <div class="column"><h5>Disponibilidad</h5></div>
-          <div class="column right"><a>Ver calendario</a></div>
+          <div class="column right">
+            <a [routerLink]="['/', spot._id, 'calendar']">Ver calendario</a>
+          </div>
         </div>
         <hr>
         <div class="section">

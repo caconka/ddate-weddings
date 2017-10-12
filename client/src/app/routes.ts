@@ -10,6 +10,7 @@ import { SearchComponent } from './search/search.component';
 import { MessagesComponent } from './messages/messages.component';
 import { SpotComponent } from './spot/spot.component';
 import { CommentsComponent } from './spot/comments/comments.component';
+import { CalendarComponent } from './spot/calendar/calendar.component';
 
 import { IsLoggedInService } from './services/isLoggedIn.service';
 
@@ -20,6 +21,7 @@ export const routes: Routes = [
     { path: 'search', component: SearchComponent },
     { path: ':id/view', component: SpotComponent },
     { path: ':id/comments', component: CommentsComponent },
+    { path: ':id/calendar', component: CalendarComponent },
     { path: 'profile', component: ProfileComponent,
     canActivate: [IsLoggedInService] },
     { path: 'profile/edit', component: EditProfileComponent,

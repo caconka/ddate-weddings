@@ -257,13 +257,11 @@ export class SpotComponent implements OnInit {
   ]; 
 
   constructor( private router: Router, private route: ActivatedRoute,
-               private spotService: SpotService) {
-
-  }
+               private spotService: SpotService) { }
 
   ngOnInit() {
     this.route.params
-    .subscribe( params => {
+    .subscribe(params => {
       this.spotService.spot(params['id'])
       .subscribe(spot => {
         this.spot = spot;

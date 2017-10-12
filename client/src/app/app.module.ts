@@ -15,6 +15,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { SpotComponent } from './spot/spot.component';
 import { MessagesComponent } from './messages/messages.component';
 import { CommentsComponent } from './spot/comments/comments.component';
+import { CalendarComponent } from './spot/calendar/calendar.component';
 import { ProviderSpotComponent } from './provider-spot/provider-spot.component';
 import { EditSpotComponent } from './provider-spot/edit-spot/edit-spot.component';
 import { ProviderSignupComponent } from './provider-signup/provider-signup.component';
@@ -37,7 +38,7 @@ import { AgmCoreModule } from '@agm/core';
     AppComponent, HomeComponent, NavComponent, LoginComponent, SignupComponent,
     SearchComponent, FavoritesComponent, ProfileComponent, SpotComponent,
     MessagesComponent, CommentsComponent, ProviderSpotComponent, EditSpotComponent,
-    ProviderSignupComponent, FileSelectDirective, EditProfileComponent
+    ProviderSignupComponent, FileSelectDirective, EditProfileComponent, CalendarComponent
   ],
   imports: [
     BrowserModule, HttpModule, FormsModule, RouterModule.forRoot(routes),
