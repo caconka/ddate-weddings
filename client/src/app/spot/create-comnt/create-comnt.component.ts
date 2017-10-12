@@ -50,7 +50,7 @@ export class CreateComntComponent implements OnInit {
   addComment(userId) {
     const { spotId, title, rating, text } = this.formInfo;
     this.spotService.createComment(spotId, userId, title, rating, text)
-    .subscribe(() => this.router.navigate(['']));
+    .subscribe(() => this.router.navigate(['/', spotId, 'view']));
   }
 
 }

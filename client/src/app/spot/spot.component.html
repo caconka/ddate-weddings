@@ -85,7 +85,7 @@
       <ng-template ngbTabContent>
         <div class="rate">
           <div class="number">
-            <h1>4.8</h1>
+            <h1 *ngIf="ratingGlobal">{{ratingGlobal}}</h1>
             <br>
           </div>
           <div class="stars">

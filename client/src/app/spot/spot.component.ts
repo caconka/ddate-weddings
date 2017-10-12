@@ -11,6 +11,7 @@ export class SpotComponent implements OnInit {
 
   spot;
   rating: Array<string> = [];
+  ratingGlobal;
   zoom: number = 11;
   lat: number;
   lng: number;
@@ -277,6 +278,7 @@ export class SpotComponent implements OnInit {
             sum += comnt.rating;
             count ++;
           });
+          this.ratingGlobal = (sum/count).toFixed(1);
           const rat = Math.round(sum / count);
           for(let i = 0; i<rat; i++) 
             this.rating.push('*');
