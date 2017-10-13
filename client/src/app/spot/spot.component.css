@@ -85,3 +85,7 @@ div.carousel-caption i {
 div.spot-footer {
   text-align: right;
 }
+
+h6.rating {
+  color: gray;
+}

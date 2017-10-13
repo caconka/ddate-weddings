@@ -32,3 +32,12 @@ h6.star {
 p.card-text {
   text-align: left;
 }
+
+div.num-com {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+span.gray {
+  color: gray;
+}
