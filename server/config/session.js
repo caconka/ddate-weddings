@@ -6,7 +6,7 @@ const passport = require('passport');
 module.exports = app => {
   app.use(session({
     secret: 'probando unas cosas',
-    resave: false,
+    resave: true,
     saveUninitialized: true,
     store: new MongoStore({
       mongooseConnection: mongoose.connection,

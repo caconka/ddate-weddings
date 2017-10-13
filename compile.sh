@@ -1,6 +1,7 @@
 #!/bin/bash
 cd client
 echo 'Building client...'
+rm -rf ./dist
 ng build -e prod
 cd ..
 echo "Copy files to public..."
