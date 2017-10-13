@@ -1,8 +1,9 @@
 <div *ngIf="searchData !== undefined" class="container">
   <div class="content">
     <h3> Búsqueda </h3>
+    <h6 class="result"> {{searchData.length}} resultados </h6>
     <div *ngIf="searchData.length === 0" class="error">
-      <h5>* No se han encontrado resultados</h5>
+      <h5>* Lo siento, no se han encontrado resultados</h5>
     </div>
     <div *ngIf="user">
       <div *ngFor="let spot of searchData" class="card">

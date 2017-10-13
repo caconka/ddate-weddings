@@ -75,4 +75,11 @@ module.exports = {
     .catch(e => res.status(400).json({ message: 'Something went wrong' }));
   },
 
+  dropGet: (req, res, next) => {
+    const spotId = req.params.id;
+    Spot.findByIdAndRemove(spotId).exec()
+    .then(spot => res.status(200).json(spot))
+    .catch(e => res.status(400).json({ message: 'Something went wrong' }));
+  }
+
 }

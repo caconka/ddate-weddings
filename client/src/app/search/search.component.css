@@ -3,10 +3,6 @@ div.content {
   text-align: left;
 }
 
-h3 {
-  margin-bottom: 20px;
-}
-
 div.card {
   width: 100%;
   border: none;
@@ -45,4 +41,9 @@ i.hearth {
 
 .error h5 {
   margin-top: 20px;
+}
+
+h6.result {
+  color: gray;
+  margin-bottom: 20px;
 }

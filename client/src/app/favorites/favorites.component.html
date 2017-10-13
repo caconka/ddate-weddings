@@ -1,6 +1,7 @@
 <div *ngIf="favorites" class="container">
   <div class="content">
     <h3>Favoritos</h3>
+    <h6 class="fav-num">{{favorites.length}} favoritos</h6>
     <div *ngFor="let favorit of favorites" class="card">
       <img class="card-img-top" src="{{favorit.photos[0]}}" alt="Card image cap">
       <a (click)="deleteFromFavorites(favorit._id)">

@@ -12,6 +12,7 @@ export class CommentsComponent implements OnInit {
   user: object;
   spot: object;
   comments: Array<object>;
+  control: Array<number> = [1, 2, 3, 4, 5];
 
   constructor( private router: Router, private route: ActivatedRoute,
                private spotService: SpotService) { }

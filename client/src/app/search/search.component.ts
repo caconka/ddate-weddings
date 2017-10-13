@@ -12,8 +12,6 @@ export class SearchComponent implements OnInit {
   user: any;
   favorites: Array<object>;
   searchData: Array<object>;
-  
-
 
   constructor( private auth: AuthService, private userService: UserService, 
                private spotService: SpotService) { }

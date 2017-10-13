@@ -4,40 +4,9 @@
       <div class="title left">
         <h4 class="card-title"> {{comment.title}} </h4>
         <h6 class="card-subtitle mb-2 star">
-          <span *ngIf="comment.rating === 1">
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star-o" aria-hidden="true"></i>
-            <i class="fa fa-star-o" aria-hidden="true"></i>
-            <i class="fa fa-star-o" aria-hidden="true"></i>
-            <i class="fa fa-star-o" aria-hidden="true"></i>
-          </span>
-          <span *ngIf="comment.rating === 2">
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star-o" aria-hidden="true"></i>
-            <i class="fa fa-star-o" aria-hidden="true"></i>
-            <i class="fa fa-star-o" aria-hidden="true"></i>
-          </span>
-          <span *ngIf="comment.rating === 3">
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star-o" aria-hidden="true"></i>
-            <i class="fa fa-star-o" aria-hidden="true"></i>
-          </span>
-          <span *ngIf="comment.rating === 4">
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star-o" aria-hidden="true"></i>
-          </span>
-          <span *ngIf="comment.rating === 5">
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
+          <span *ngFor="let c of control">
+            <i *ngIf="c <= comment.rating" class="fa fa-star" aria-hidden="true"></i>
+            <i *ngIf="c > comment.rating" class="fa fa-star-o" aria-hidden="true"></i>
           </span>
         </h6>
       </div>

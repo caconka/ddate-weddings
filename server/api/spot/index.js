@@ -10,5 +10,6 @@ router.get('/list', Controller.listGet);
 router.get('/list-visit', Controller.listVisitGet); 
 router.post('/search', Controller.getListByLocationPost); 
 router.get('/:id/view', checkIdParams, Controller.viewGet); 
+router.get('/:id/drop', checkIdParams, Controller.dropGet); 
 
 module.exports = router;

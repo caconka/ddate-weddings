@@ -56,6 +56,7 @@ export class EditProfileComponent implements OnInit {
       form.append('phone', this.formInfo.phone);
     };
     this.uploader.uploadAll();
+    this.uploader.onCompleteItem = () => this.router.navigate(['/', 'profile']);
   }
 
 }
