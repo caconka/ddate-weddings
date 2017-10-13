@@ -2,7 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const path = require('path');
 const rootPath = require('path').normalize(__dirname + '/../');
 const cors = require('cors');
 
