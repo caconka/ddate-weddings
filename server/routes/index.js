@@ -6,4 +6,7 @@ module.exports = function(app) {
   app.use('/api/spot', require('../api/spot'));
   app.use('/api/wedding', require('../api/wedding'));
   app.use('/api/comment', require('../api/comment'));
+  app.all('/*', function (req, res) {
+    res.sendfile(__dirname + '/../public/index.html');
+  });
 };

@@ -4,9 +4,6 @@ require('./config/express-connect');
 require('./config/express-app')(app);
 require('./config/session')(app);
 require('./routes')(app);
-app.all('/*', function (req, res) {
-  res.sendfile(__dirname + '/public/index.html');
-});
 require('./config/error-handler')(app);
 
 module.exports = app;
