@@ -19,9 +19,7 @@
       <input type="text" #gst (click)="setColor($event.target)" id="guest" placeholder="Nº Invitados ">
       <input class="form-control" placeholder="yyyy-mm-dd" hidden
               name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
-      <button *ngIf="!model" class="search-button" (click)="d.toggle()"> 
-        Fecha
-      </button>
+      <button *ngIf="!model" class="search-button" (click)="d.toggle()"> Fecha </button>
       <button *ngIf="model" class="search-button pink" (click)="d.toggle()"> 
         {{model.day}}.{{model.month}}.{{model.year}}
       </button>
@@ -29,7 +27,7 @@
 
       <input type="text" #distnc value="{{distance}}" hidden>
       <div *ngIf="!filtersHide" class="filters">
-        <input type="text" #myInput (keyup)="onKey(myInput.value)" >
+        <input type="text" #myInput (keyup)="onKey(myInput.value)">
         <label for="dist">km</label>
       </div>
     </div>

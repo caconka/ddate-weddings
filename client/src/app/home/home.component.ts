@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
                private router: Router) { 
     config.interval = 2000;
     config.wrap = false;
-    config.keyboard = false;
+    config.keyboard = true;
   }
               
   ngOnInit() {

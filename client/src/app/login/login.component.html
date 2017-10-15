@@ -6,13 +6,13 @@
       <input type="email" [(ngModel)]="formInfo.email" name="email" id="email"
          #myEmail="ngModel" email="true" required/>
       <p *ngIf="myEmail.errors && (myEmail.dirty || myEmail.touched)" class="error"
-         [hidden]="myEmail.valid.errors"> Enter a valid email </p>
+         [hidden]="myEmail.valid.errors"> * Enter a valid email </p>
     
       <label> Password </label>
       <input type="password" [(ngModel)]="formInfo.password" name="password"
          #myPass="ngModel" required/>
       <p *ngIf="myPass.errors && (myPass.dirty || myPass.touched)" class="error"
-         [hidden]="!myPass.errors.required"> Password is required </p>
+         [hidden]="!myPass.errors.required"> * Password is required </p>
     
       <div class="button-login">
         <button (click)="login()" [disabled]="myEmail.errors || myPass.errors"> Login </button>
