@@ -86,7 +86,9 @@ export class HomeComponent implements OnInit {
   }
 
   setColor(e) {
+    e.setAttribute('placeholder', '');
     e.setAttribute('class', 'color');
+    document.getElementById('guest-icon').setAttribute('class', 'fa fa-users color');
   }
 
   filters() {

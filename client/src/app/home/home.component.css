@@ -16,8 +16,7 @@ div.search > i {
 }
 
 div.search {
-  margin: 0 auto;
-  width: 75%;
+  width: 100%;
 }
 
 input#search {
@@ -47,8 +46,13 @@ button#search-sett {
 
 div.buttons {
   text-align: right;
-  width: 75%;
   margin: 0 auto;
+}
+
+i#guest-icon {
+  position: absolute;
+  margin: 10px 8px;
+  color: lightgray;
 }
 
 button.search-button {
@@ -92,6 +96,11 @@ button.pink {
 
 #guest.color {
   border: 1px solid #ffc2ce;
+  color: #ffc2ce;
+  width: 25%;
+}
+
+#guest-icon.color {
   color: #ffc2ce;
 }
 

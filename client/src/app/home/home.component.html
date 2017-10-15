@@ -16,11 +16,16 @@
       <input type="text" id="search" #city placeholder="Prueba 'Madrid' ">
     </div>
     <div class="buttons form-group">
+      <i class="fa fa-users" id="guest-icon" aria-hidden="true"></i>
       <input type="text" #gst (click)="setColor($event.target)" id="guest" placeholder="Nº Invitados ">
       <input class="form-control" placeholder="yyyy-mm-dd" hidden
               name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
-      <button *ngIf="!model" class="search-button" (click)="d.toggle()"> Fecha </button>
+      <button *ngIf="!model" class="search-button" (click)="d.toggle()">
+        <i class="fa fa-calendar" aria-hidden="true"></i>
+        Fecha 
+      </button>
       <button *ngIf="model" class="search-button pink" (click)="d.toggle()"> 
+        <i class="fa fa-calendar" aria-hidden="true"></i>
         {{model.day}}.{{model.month}}.{{model.year}}
       </button>
       <button id="search-sett" (click)="filters()"><i class="fa fa-sliders" aria-hidden="true"></i></button>
