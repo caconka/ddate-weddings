@@ -1,11 +1,13 @@
+require('dotenv').config();
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const mongoose = require('mongoose');
 const passport = require('passport');
+const secretSession = process.env.SECRET_SESSION;
 
 module.exports = app => {
   app.use(session({
-    secret: 'probando unas cosas',
+    secret: secretSession,
     resave: true,
     saveUninitialized: true,
     store: new MongoStore({

@@ -1,3 +1,36 @@
-<p>
-  diary works!
-</p>
+<div *ngIf="events" class="container">
+  <div class="login calendar">
+    <div class="month-year">
+      <h4 (click)="prevMonth()"><</h4>
+      <h5> {{monthName}} {{year}} </h5>
+      <h4 (click)="nextMonth()">></h4>
+    </div>
+    <div class="calendar-body">
+      <div *ngFor="let week of thisMonth">
+        <div *ngFor="let day of week" class="week">
+          <div *ngIf="day.length" class="day-avai day" (click)="showEvent(day)">{{day}}</div>
+          <div *ngIf="!day.length && day === 0" class="day-zero day">.</div>
+          <div *ngIf="!day.length && day !== 0" class="day-not day" (click)="open(content, day)"><p>{{day}}</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #content let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">{{eventDay}} {{monthName}} {{year}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="title">
+      <input type="text" #title placeholder="Título">
+      <ngb-timepicker [(ngModel)]="time"></ngb-timepicker>
+    </div>
+    <textarea name="content" id="content" #cntnt cols="35" rows="5"></textarea>
+    <button type="button" (click)="addEvent(user._id, title.value, cntnt.value)">Añadir</button>
+  </div>
+</ng-template>
+  

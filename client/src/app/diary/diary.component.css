@@ -1,0 +1,21 @@
+div.modal-body {
+  text-align: right;
+}
+
+.modal-body textarea {
+  width: 100%;
+  border: 1px solid lightgray;
+  padding: 5px;
+}
+
+.modal-body input {
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  padding: 4px;
+  margin-bottom: 4px;
+  text-align: center;
+}
+
+div.title {
+  text-align: center;
+}

@@ -5,12 +5,13 @@ const diarySchema = new Schema ({
   userId: { type: Schema.Types.ObjectId, ref:'User', required: true },
   events: [{
     title: String,
+    content: String,
     date: {
       year: Number,
       month: Number,
       day: Number
     },
-    spotId: { type: Schema.Types.ObjectId, ref:'Spot', required: true }
+    spotId: { type: Schema.Types.ObjectId, ref:'Spot' }
   }],
 });
 diarySchema.set('timestamps', true);

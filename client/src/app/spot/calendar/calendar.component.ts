@@ -33,7 +33,8 @@ export class CalendarComponent implements OnInit {
         this.cal = new Calendar(1);
         this.monthName = this.months[this.month];
         const m = this.cal.monthDays(this.year, this.month);
-        for (let i=0; i<m.length; i++) this.thisMonth.push(m[i]);
+        for (let i=0; i<m.length; i++) 
+          this.thisMonth.push(m[i]);
         spot.dates.forEach(date => {
           if(date.month === this.month + 1) {
             this.thisMonth.forEach((week, i) => {
@@ -139,7 +140,8 @@ export class CalendarComponent implements OnInit {
     this.monthName = this.months[this.month];
     this.thisMonth = [];
     const m = this.cal.monthDays(this.year, this.month);
-    for (let i=0; i<m.length; i++) this.thisMonth.push(m[i]);
+    for (let i=0; i<m.length; i++) 
+      this.thisMonth.push(m[i]);
     this.spot.dates.forEach(date => {
       if(date.month === this.month + 1) {
         this.thisMonth.forEach((week, i) => {

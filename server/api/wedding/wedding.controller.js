@@ -6,14 +6,14 @@ module.exports = {
     const userId = req.params.id;
     
     Wedding.findOne({ userId }, '_id').exec()
-    .then( wedding => {
+    .then(wedding => {
       if(wedding) {
         Wedding.findByIdAndUpdate( wedding._id, 
           { $push: { favoritSpots: spotId }}, { new:true }).populate('favoritSpots').exec()
-        .then( wedding => res.status(200).json(wedding.favoritSpots))
+        .then(wedding => res.status(200).json(wedding.favoritSpots))
       }
     })
-    .catch( e => res.status(400).json({ message: 'Something went wrong' }));
+    .catch(e => res.status(400).json({ message: 'Something went wrong' }));
   },
 
   editPost: (req, res, next) => {
@@ -21,7 +21,7 @@ module.exports = {
     const userId = req.params.id;
     
     Wedding.findOne({ userId }, '_id').exec()
-    .then( wedding => {
+    .then(wedding => {
       const updates = { guest, styles, dates }
 
       Wedding.findByIdAndUpdate(wedding._id, updates, { new: true }).exec()

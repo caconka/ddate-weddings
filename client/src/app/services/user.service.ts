@@ -45,7 +45,14 @@ export class UserService {
   }
 
   getDiary(id) {
-    return this.http.get(`${BASEURL}/diary`)
+    return this.http.get(`${BASEURL}/diary/${id}/events`)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
+
+  addEvent(userId, title, content, date, spotId) {
+    return this.http.post(`${BASEURL}/diary/${userId}/add-event`, 
+                          { title, content, date, spotId }, this.options)
       .map(res => res.json())
       .catch(this.handleError);
   }

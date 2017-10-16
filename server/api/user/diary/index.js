@@ -5,7 +5,7 @@ const checkRole = require('../../../middleware/check-role');
 const checkIdParams = require('../../../middleware/check-id');
 const Controller = require('./diary.controller')
 
-router.get('/create/:id', checkIdParams, Controller.createDiaryGet);
-router.get('/:id/diary', ensureLoggedIn(), checkRole.isUser, Controller.getDiaryGet);
+router.get('/:id/events', checkIdParams, Controller.getDiaryGet);
+router.post('/:id/add-event', checkIdParams, Controller.addEventPost);
 
 module.exports = router;

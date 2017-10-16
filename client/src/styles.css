@@ -13,8 +13,14 @@ select {
   border: 1px solid lightgray;
 }
 
+textarea {
+  resize: none;
+  border-radius: 3px;
+}
+
 input {
   color: #3a3a3a;
+  border-radius: 3px;
 }
 
 footer a {
@@ -143,6 +149,55 @@ div.button-signup {
 
 p.small {
   margin-bottom: 0;
+}
+
+/* Calendar */
+div.day {
+  width: 30px;
+  height: 30px;
+  margin: 6px;
+}
+
+div.calendar {
+  width: 100%;
+  text-align: center;
+}
+
+div.month-year {
+  margin-bottom: 30px;
+}
+
+.month-year h4, .month-year h5 {
+  display: inline-block;
+  margin: 10px;
+}
+
+div.calendar-body {
+  border: 1px solid lightgray;
+  width: 88%;
+  margin-left: 6%;
+  border-radius: 4px;
+}
+
+div.day-avai {
+  color: white;
+  background: #ffabbb;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.day-not {
+  color: lightgray;
+}
+
+div.week {
+  display: inline-block;
+}
+
+div.day-zero {
+  color: white;
 }
 
 .footer {
