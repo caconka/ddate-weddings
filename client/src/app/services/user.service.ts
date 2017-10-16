@@ -43,4 +43,10 @@ export class UserService {
     })
     return control;
   }
+
+  getDiary(id) {
+    return this.http.get(`${BASEURL}/diary`)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
 }

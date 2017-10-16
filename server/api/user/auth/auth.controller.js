@@ -2,6 +2,7 @@ const passport = require('passport');
 const bcrypt = require('bcrypt');
 const User = require('../user.model');
 const Wedding = require('../../wedding/wedding.model');
+const Diary = require('../diary/diary.model');
 
 module.exports = {
   signupPost: (req, res, next) => {
@@ -20,14 +21,18 @@ module.exports = {
       const theUser = new User({ email, name, role, password: hashPass });
 
       return theUser.save()
-      .then( user => {
+      .then(user => {
         if(user.role === 'User') {
           const theWedding = new Wedding({ userId: user._id });
           theWedding.save()
+          .then(() => {
+            const theDiary = new Diary({ userId: user._id });
+            theDiary.save()
+          })
           .then(() => { 
             req.login(user, (err) => {
               if(err)
-                return res.status(500).json({ message: 'Something went wrong' });
+                return res.status(400).json({ message: 'Something went wrong' });
               res.status(200).json(req.user);
             });
           })
@@ -43,14 +48,14 @@ module.exports = {
   loginPost: (req, res, next) => {
     passport.authenticate('local', (err, user, failureDetails) => {
       if (err)
-        return res.status(500).json({ message: 'Something went wrong' });
+        return res.status(400).json({ message: 'Something went wrong' });
 
       if (!user)
         return res.status(401).json(failureDetails);
 
       req.login(user, (err) => {
         if (err)
-          return res.status(500).json({ message: 'Something went wrong' });
+          return res.status(400).json({ message: 'Something went wrong' });
 
         res.status(200).json(req.user);
       });

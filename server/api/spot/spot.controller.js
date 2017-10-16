@@ -1,6 +1,5 @@
 const _ = require('lodash');
 const Spot = require('./spot.model');
-const multer = require('multer');
 const calculate = require('azimuth');
 
 module.exports = {

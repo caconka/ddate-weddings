@@ -8,6 +8,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
 import { SearchComponent } from './search/search.component';
 import { MessagesComponent } from './messages/messages.component';
+import { DiaryComponent } from './diary/diary.component';
 import { SpotComponent } from './spot/spot.component';
 import { CommentsComponent } from './spot/comments/comments.component';
 import { CalendarComponent } from './spot/calendar/calendar.component';
@@ -20,17 +21,18 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'signup', component: SignupComponent },
     { path: 'search', component: SearchComponent },
-    { path: 'profile', component: ProfileComponent,
-    canActivate: [IsLoggedInService] },
+    { path: 'profile', component: ProfileComponent, canActivate: [IsLoggedInService] },
     { path: 'profile/edit', component: EditProfileComponent,
-    canActivate: [IsLoggedInService] },
+      canActivate: [IsLoggedInService] },
     { path: 'messages', component: MessagesComponent,
-    canActivate: [IsLoggedInService] },
+      canActivate: [IsLoggedInService] },
+    { path: ':id/diary', component: DiaryComponent, canActivate: [IsLoggedInService] },
     { path: ':id/view', component: SpotComponent },
     { path: ':id/comments', component: CommentsComponent },
-    { path: ':id/comment/create', component: CreateComntComponent },
+    { path: ':id/comment/create', component: CreateComntComponent,
+      canActivate: [IsLoggedInService]},
     { path: ':id/calendar', component: CalendarComponent },
     { path: ':id/favorites', component: FavoritesComponent,
-    canActivate: [IsLoggedInService] },
+      canActivate: [IsLoggedInService] },
     { path: '**', redirectTo: '' }
 ];
