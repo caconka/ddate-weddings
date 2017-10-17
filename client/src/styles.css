@@ -18,9 +18,17 @@ textarea {
   border-radius: 3px;
 }
 
+textarea::-webkit-input-placeholder {
+  color: lightgray;
+}
+
 input {
   color: #3a3a3a;
   border-radius: 3px;
+}
+
+input::-webkit-input-placeholder {
+  color: lightgray;
 }
 
 footer a {

@@ -9,7 +9,11 @@ const diarySchema = new Schema ({
     date: {
       year: Number,
       month: Number,
-      day: Number
+      day: Number,
+      time: {
+        hour: Number,
+        minute: Number
+      }
     },
     spotId: { type: Schema.Types.ObjectId, ref:'Spot' }
   }],

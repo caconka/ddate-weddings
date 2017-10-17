@@ -26,10 +26,12 @@
   </div>
   <div class="modal-body">
     <div class="title">
-      <input type="text" #title placeholder="Título">
-      <ngb-timepicker [(ngModel)]="time"></ngb-timepicker>
+      <input type="text" #title placeholder="título">
+      <div class="time-picker">
+        <ngb-timepicker [(ngModel)]="time"></ngb-timepicker>
+      </div>
     </div>
-    <textarea name="content" id="content" #cntnt cols="35" rows="5"></textarea>
+    <textarea name="content" id="content" #cntnt cols="35" rows="5" placeholder="texto"></textarea>
     <button type="button" (click)="addEvent(user._id, title.value, cntnt.value)">Añadir</button>
   </div>
 </ng-template>

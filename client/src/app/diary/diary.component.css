@@ -19,3 +19,8 @@ div.modal-body {
 div.title {
   text-align: center;
 }
+
+div.time-picker {
+  width: fit-content;
+  margin: 0 auto;
+}

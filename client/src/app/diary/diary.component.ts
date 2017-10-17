@@ -186,11 +186,12 @@ export class DiaryComponent implements OnInit {
     const date = {
       year: this.year,
       month: this.month,
-      day: this.eventDay
+      day: this.eventDay,
+      time: this.time
     }
     const spotId = '';
 
     this.userService.addEvent(userId, title, content, date, spotId)
-    .subscribe(() => this.router.navigate(['/', userId, 'diary']));
+    .subscribe(() => this.calendar());
   }
 }
