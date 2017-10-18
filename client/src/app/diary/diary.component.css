@@ -24,3 +24,10 @@ div.time-picker {
   width: fit-content;
   margin: 0 auto;
 }
+
+div.modal-container {
+  position: absolute;
+  top: 0;
+  margin-top: 100px;
+  background: white;
+}

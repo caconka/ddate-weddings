@@ -10,17 +10,17 @@
         <div *ngFor="let day of week" class="week">
           <div *ngIf="day.length" class="day-avai day" (click)="showEvent(day)">{{day}}</div>
           <div *ngIf="!day.length && day === 0" class="day-zero day">.</div>
-          <div *ngIf="!day.length && day !== 0" class="day-not day" (click)="open(content, day)"><p>{{day}}</p></div>
+          <div *ngIf="!day.length && day !== 0" class="day-not day" (click)="open(day)"><p>{{day}}</p></div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<ng-template #content let-d="dismiss">
+<div *ngIf="modal" class="modal-container">
   <div class="modal-header">
     <h4 class="modal-title">{{eventDay}} {{monthName}} {{year}}</h4>
-    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+    <button type="button" class="close" aria-label="Close" (click)="close()">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
@@ -34,5 +34,5 @@
     <textarea name="content" id="content" #cntnt cols="35" rows="5" placeholder="texto"></textarea>
     <button type="button" (click)="addEvent(user._id, title.value, cntnt.value)">Añadir</button>
   </div>
-</ng-template>
+</div>
   

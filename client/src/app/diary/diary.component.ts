@@ -23,13 +23,15 @@ export class DiaryComponent implements OnInit {
                            'Diciembre'];
   closeResult: string;
   eventDay: number;
-  time = {hour: 13, minute: 30};
+  time: object = {hour: 13, minute: 30};
+  modal: boolean;
 
   constructor( private router: Router, private route: ActivatedRoute,
                private userService: UserService, private modalService: NgbModal,
                private auth: AuthService ) { }
 
   ngOnInit() {
+    this.modal = false;
     this.user = this.auth.getUser();
     this.auth.getLoginEventEmitter()
     .subscribe(user => {  
@@ -163,13 +165,13 @@ export class DiaryComponent implements OnInit {
     });
   }
 
-  open(content, day) {
+  open(day) {
     this.eventDay = day;
-    this.modalService.open(content).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
+    this.modal = true;
+  }
+
+  close() {
+    this.modal = false;
   }
 
   private getDismissReason(reason: any): string {
@@ -192,6 +194,10 @@ export class DiaryComponent implements OnInit {
     const spotId = '';
 
     this.userService.addEvent(userId, title, content, date, spotId)
-    .subscribe(() => this.calendar());
+    .subscribe(() => {
+      this.monthName = this.months[this.month];
+      this.thisMonth = [];
+      this.ngOnInit();
+    });
   }
 }
