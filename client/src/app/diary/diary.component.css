@@ -33,5 +33,6 @@ div.modal-container {
 }
 
 div.event-show {
+  width: 95%;
   min-height: 400px;
 }
