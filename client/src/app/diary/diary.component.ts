@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { UserService } from '../services/user.service';
 import { AuthService } from '../services/auth.service';
 
@@ -24,14 +23,26 @@ export class DiaryComponent implements OnInit {
   closeResult: string;
   eventDay: number;
   time: object = {hour: 13, minute: 30};
-  modal: boolean;
+  modalAdd: boolean;
+  modalShow: boolean;
+  evntCont: object = {
+    day: '',
+    month: '',
+    year: '',
+    title: '',
+    time: {
+      hour: '',
+      minute: ''
+    },
+    content: ''
+  }
 
   constructor( private router: Router, private route: ActivatedRoute,
-               private userService: UserService, private modalService: NgbModal,
-               private auth: AuthService ) { }
+               private userService: UserService, private auth: AuthService ) { }
 
   ngOnInit() {
-    this.modal = false;
+    this.modalAdd = false;
+    this.modalShow = false;
     this.user = this.auth.getUser();
     this.auth.getLoginEventEmitter()
     .subscribe(user => {  
@@ -167,21 +178,12 @@ export class DiaryComponent implements OnInit {
 
   open(day) {
     this.eventDay = day;
-    this.modal = true;
+    this.modalAdd = true;
   }
 
   close() {
-    this.modal = false;
-  }
-
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return  `with: ${reason}`;
-    }
+    this.modalAdd = false;
+    this.modalShow = false;
   }
 
   addEvent(userId, title, content) {
@@ -199,5 +201,17 @@ export class DiaryComponent implements OnInit {
       this.thisMonth = [];
       this.ngOnInit();
     });
+  }
+
+  showEvent(day) {
+    this.events.forEach(evnt => {
+      if(this.year === evnt.date.year && this.month === evnt.date.month && day == evnt.date.day) {
+        this.evntCont = {
+          day: day, month: this.month, year: this.year, content: evnt.content,
+          title: evnt.title, time: evnt.date.time
+        }
+      }
+    })
+    this.modalShow = true;
   }
 }
