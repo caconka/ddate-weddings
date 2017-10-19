@@ -110,12 +110,14 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__agm_core__ = __webpack_require__("../../../../@agm/core/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__spot_create_comnt_create_comnt_component__ = __webpack_require__("../../../../../src/app/spot/create-comnt/create-comnt.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__diary_diary_component__ = __webpack_require__("../../../../../src/app/diary/diary.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -158,7 +160,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */], __WEBPACK_IMPORTED_MODULE_6__home_home_component__["a" /* HomeComponent */], __WEBPACK_IMPORTED_MODULE_7__nav_nav_component__["a" /* NavComponent */], __WEBPACK_IMPORTED_MODULE_8__login_login_component__["a" /* LoginComponent */], __WEBPACK_IMPORTED_MODULE_9__signup_signup_component__["a" /* SignupComponent */],
             __WEBPACK_IMPORTED_MODULE_10__search_search_component__["a" /* SearchComponent */], __WEBPACK_IMPORTED_MODULE_11__favorites_favorites_component__["a" /* FavoritesComponent */], __WEBPACK_IMPORTED_MODULE_12__profile_profile_component__["a" /* ProfileComponent */], __WEBPACK_IMPORTED_MODULE_13__spot_spot_component__["a" /* SpotComponent */],
             __WEBPACK_IMPORTED_MODULE_14__messages_messages_component__["a" /* MessagesComponent */], __WEBPACK_IMPORTED_MODULE_15__spot_comments_comments_component__["a" /* CommentsComponent */], __WEBPACK_IMPORTED_MODULE_17__provider_spot_provider_spot_component__["a" /* ProviderSpotComponent */], __WEBPACK_IMPORTED_MODULE_18__provider_spot_edit_spot_edit_spot_component__["a" /* EditSpotComponent */],
-            __WEBPACK_IMPORTED_MODULE_19__provider_signup_provider_signup_component__["a" /* ProviderSignupComponent */], __WEBPACK_IMPORTED_MODULE_27_ng2_file_upload__["FileSelectDirective"], __WEBPACK_IMPORTED_MODULE_20__profile_edit_profile_edit_profile_component__["a" /* EditProfileComponent */], __WEBPACK_IMPORTED_MODULE_16__spot_calendar_calendar_component__["a" /* CalendarComponent */], __WEBPACK_IMPORTED_MODULE_30__spot_create_comnt_create_comnt_component__["a" /* CreateComntComponent */]
+            __WEBPACK_IMPORTED_MODULE_19__provider_signup_provider_signup_component__["a" /* ProviderSignupComponent */], __WEBPACK_IMPORTED_MODULE_27_ng2_file_upload__["FileSelectDirective"], __WEBPACK_IMPORTED_MODULE_20__profile_edit_profile_edit_profile_component__["a" /* EditProfileComponent */], __WEBPACK_IMPORTED_MODULE_16__spot_calendar_calendar_component__["a" /* CalendarComponent */], __WEBPACK_IMPORTED_MODULE_30__spot_create_comnt_create_comnt_component__["a" /* CreateComntComponent */], __WEBPACK_IMPORTED_MODULE_31__diary_diary_component__["a" /* DiaryComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */], __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_21__routes__["a" /* routes */]),
@@ -172,6 +174,266 @@ AppModule = __decorate([
 ], AppModule);
 
 //# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/diary/diary.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "div.modal-body {\n  text-align: right;\n}\n\n.modal-body textarea {\n  width: 100%;\n  border: 1px solid lightgray;\n  padding: 5px;\n}\n\n.modal-body input {\n  border: 1px solid lightgray;\n  border-radius: 4px;\n  padding: 4px;\n  margin-bottom: 4px;\n  text-align: center;\n}\n\ndiv.title {\n  text-align: center;\n}\n\ndiv.time-picker {\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: 0 auto;\n}\n\ndiv.modal-container {\n  position: absolute;\n  top: 0;\n  margin-top: 130px;\n  background: white;\n}\n\ndiv.event-show {\n  width: 95%;\n  min-height: 400px;\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/diary/diary.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div *ngIf=\"events\" class=\"container\">\n  <div class=\"login calendar\">\n    <div class=\"month-year\">\n      <h4 (click)=\"prevMonth()\"><</h4>\n      <h5> {{monthName}} {{year}} </h5>\n      <h4 (click)=\"nextMonth()\">></h4>\n    </div>\n    <div class=\"calendar-body\">\n      <div *ngFor=\"let week of thisMonth\">\n        <div *ngFor=\"let day of week\" class=\"week\">\n          <div *ngIf=\"day.length\" class=\"day-avai day\" (click)=\"showEvent(day)\">{{day}}</div>\n          <div *ngIf=\"!day.length && day === 0\" class=\"day-zero day\">.</div>\n          <div *ngIf=\"!day.length && day !== 0\" class=\"day-not day\" (click)=\"open(day)\"><p>{{day}}</p></div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <div *ngIf=\"modalAdd\" class=\"modal-container\">\n    <div class=\"modal-header\">\n      <h4 class=\"modal-title\">{{eventDay}} {{monthName}} {{year}}</h4>\n      <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"close()\">\n        <span aria-hidden=\"true\">&times;</span>\n      </button>\n    </div>\n    <div class=\"modal-body\">\n      <div class=\"title\">\n        <input type=\"text\" #title placeholder=\"título\">\n        <div class=\"time-picker\">\n          <ngb-timepicker [(ngModel)]=\"time\"></ngb-timepicker>\n        </div>\n      </div>\n      <textarea name=\"content\" id=\"content\" #cntnt cols=\"35\" rows=\"5\" placeholder=\"texto\"></textarea>\n      <button type=\"button\" (click)=\"addEvent(user._id, title.value, cntnt.value)\">Añadir</button>\n    </div>\n  </div>\n\n  <div *ngIf=\"modalShow\" clasS=\"modal-container event-show\">\n    <div class=\"modal-header\">\n      <h4 class=\"modal-title\">{{evntCont.day}} {{monthName}} {{year}}</h4>\n      <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"close()\">\n        <span aria-hidden=\"true\">&times;</span>\n      </button>\n    </div>\n    <div class=\"modal-body\">\n      <div class=\"title\">\n        <h4>{{evntCont.title}}</h4>\n        <p>{{evntCont.time.hour}} : {{evntCont.time.minute}}</p>\n        <p>{{evntCont.content}}</p>\n      </div>\n    </div>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/diary/diary.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DiaryComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var DiaryComponent = (function () {
+    function DiaryComponent(router, route, userService, auth) {
+        this.router = router;
+        this.route = route;
+        this.userService = userService;
+        this.auth = auth;
+        this.thisMonth = [];
+        this.toDay = new Date();
+        this.year = this.toDay.getFullYear();
+        this.month = this.toDay.getMonth();
+        this.months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+            'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre',
+            'Diciembre'];
+        this.time = { hour: 13, minute: 30 };
+        this.evntCont = {
+            day: '',
+            month: '',
+            year: '',
+            title: '',
+            time: {
+                hour: '',
+                minute: ''
+            },
+            content: ''
+        };
+    }
+    DiaryComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.modalAdd = false;
+        this.modalShow = false;
+        this.user = this.auth.getUser();
+        this.auth.getLoginEventEmitter()
+            .subscribe(function (user) {
+            _this.user = user;
+        });
+        this.route.params
+            .subscribe(function (params) {
+            _this.userService.getDiary(params['id'])
+                .subscribe(function (diary) {
+                _this.events = diary.events;
+                _this.cal = new Calendar(1);
+                _this.monthName = _this.months[_this.month];
+                var m = _this.cal.monthDays(_this.year, _this.month);
+                for (var i_1 = 0; i_1 < m.length; i_1++)
+                    _this.thisMonth.push(m[i_1]);
+                diary.events.forEach(function (evnt) {
+                    if (evnt.date.month === _this.month) {
+                        _this.thisMonth.forEach(function (week, i) {
+                            week.forEach(function (d, j) {
+                                if (evnt.date.day === d)
+                                    _this.thisMonth[i][j] = "" + d;
+                            });
+                        });
+                    }
+                });
+            });
+        });
+        var CalendarException = function CalendarException(message) {
+            this.message = message;
+            this.toString = function () {
+                return this.constructor.name + ": " + this.message;
+            };
+        };
+        var Calendar = function Calendar(firstWeekDay) {
+            this.firstWeekDay = firstWeekDay || 0;
+        };
+        Calendar.prototype = {
+            constructor: Calendar,
+            weekStartDate: function weekStartDate(date) {
+                var startDate = new Date(date.getTime());
+                while (startDate.getDay() !== this.firstWeekDay) {
+                    startDate.setDate(startDate.getDate() - 1);
+                }
+                return startDate;
+            },
+            monthDates: function monthDates(year, month, dayFormatter, weekFormatter) {
+                if ((typeof year !== "number") || (year < 1970)) {
+                    throw new CalendarException('year must be a number >= 1970');
+                }
+                ;
+                if ((typeof month !== "number") || (month < 0) || (month > 11)) {
+                    throw new CalendarException('month must be a number (Jan is 0)');
+                }
+                ;
+                var weeks = [], week = [], i = 0, date = this.weekStartDate(new Date(year, month, 1));
+                do {
+                    for (i = 0; i < 7; i++) {
+                        week.push(dayFormatter ? dayFormatter(date) : date);
+                        date = new Date(date.getTime());
+                        date.setDate(date.getDate() + 1);
+                    }
+                    weeks.push(weekFormatter ? weekFormatter(week) : week);
+                    week = [];
+                } while ((date.getMonth() <= month) && (date.getFullYear() === year));
+                return weeks;
+            },
+            monthDays: function monthDays(year, month) {
+                var getDayOrZero = function getDayOrZero(date) {
+                    return date.getMonth() === month ? date.getDate() : 0;
+                };
+                return this.monthDates(year, month, getDayOrZero);
+            },
+            monthText: function monthText(year, month) {
+                if (typeof year === "undefined") {
+                    var now = new Date();
+                    year = now.getFullYear();
+                    month = now.getMonth();
+                }
+                ;
+                var getDayOrBlank = function getDayOrBlank(date) {
+                    var s = date.getMonth() === month ? date.getDate().toString() : "  ";
+                    while (s.length < 2)
+                        s = " " + s;
+                    return s;
+                };
+                var weeks = this.monthDates(year, month, getDayOrBlank, function (week) { return week.join(" "); });
+                return weeks.join("\n");
+            }
+        };
+        var months = "JAN FEB MAR APR MAY JUN JUL AUG SEP OCT NOV DEC".split(" ");
+        for (var i = 0; i < months.length; i++)
+            Calendar[months[i]] = i;
+    };
+    DiaryComponent.prototype.nextMonth = function () {
+        if (this.month < 11) {
+            this.month += 1;
+        }
+        else {
+            this.month = 0;
+            this.year += 1;
+        }
+        this.calendar();
+    };
+    DiaryComponent.prototype.prevMonth = function () {
+        if (this.month > 0) {
+            this.month -= 1;
+        }
+        else {
+            this.month = 11;
+            this.year -= 1;
+        }
+        this.calendar();
+    };
+    DiaryComponent.prototype.calendar = function () {
+        var _this = this;
+        this.monthName = this.months[this.month];
+        this.thisMonth = [];
+        var m = this.cal.monthDays(this.year, this.month);
+        for (var i = 0; i < m.length; i++)
+            this.thisMonth.push(m[i]);
+        this.events.forEach(function (evnt) {
+            if (evnt.date.month === _this.month) {
+                _this.thisMonth.forEach(function (week, i) {
+                    week.forEach(function (d, j) {
+                        if (evnt.date.day === d)
+                            _this.thisMonth[i][j] = "" + d;
+                    });
+                });
+            }
+        });
+    };
+    DiaryComponent.prototype.open = function (day) {
+        this.eventDay = day;
+        this.modalAdd = true;
+    };
+    DiaryComponent.prototype.close = function () {
+        this.modalAdd = false;
+        this.modalShow = false;
+    };
+    DiaryComponent.prototype.addEvent = function (userId, title, content) {
+        var _this = this;
+        var date = {
+            year: this.year,
+            month: this.month,
+            day: this.eventDay,
+            time: this.time
+        };
+        var spotId = '';
+        this.userService.addEvent(userId, title, content, date, spotId)
+            .subscribe(function () {
+            _this.monthName = _this.months[_this.month];
+            _this.thisMonth = [];
+            _this.ngOnInit();
+        });
+    };
+    DiaryComponent.prototype.showEvent = function (day) {
+        var _this = this;
+        this.events.forEach(function (evnt) {
+            if (_this.year === evnt.date.year && _this.month === evnt.date.month && day == evnt.date.day) {
+                _this.evntCont = {
+                    day: day, month: _this.month, year: _this.year, content: evnt.content,
+                    title: evnt.title, time: evnt.date.time
+                };
+            }
+        });
+        this.modalShow = true;
+    };
+    return DiaryComponent;
+}());
+DiaryComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-diary',
+        template: __webpack_require__("../../../../../src/app/diary/diary.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/diary/diary.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_user_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_user_service__["a" /* UserService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */]) === "function" && _d || Object])
+], DiaryComponent);
+
+var _a, _b, _c, _d;
+//# sourceMappingURL=diary.component.js.map
 
 /***/ }),
 
@@ -196,7 +458,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/favorites/favorites.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"favorites\" class=\"container\">\n  <div class=\"content\">\n    <h3>Favoritos</h3>\n    <h6 class=\"fav-num\">{{favorites.length}} favoritos</h6>\n    <div *ngFor=\"let favorit of favorites\" class=\"card\">\n      <img class=\"card-img-top\" src=\"{{favorit.photos[0]}}\" alt=\"Card image cap\">\n      <a (click)=\"deleteFromFavorites(favorit._id)\">\n        <i class=\"fa fa-heart hearth\" aria-hidden=\"true\" style=\"color: #ffc2ce;\"></i>\n      </a>\n      <div class=\"card-body\">\n        <a [routerLink]=\"['/', favorit._id, 'view']\">\n          <h5 class=\"card-title\">{{favorit.spotName}}</h5>\n        </a>\n        <p class=\"card-text\">Menú desde {{favorit.features.menuPrice}}€ / px</p>\n        <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<div *ngIf=\"favorites\" class=\"container\">\n  <div class=\"content\">\n    <h3>Favoritos</h3>\n    <h6 class=\"fav-num\">{{favorites.length}} favoritos</h6>\n    <div *ngFor=\"let favorit of favorites\" class=\"card\">\n      <img class=\"card-img-top\" src=\"{{favorit.photos[0]}}\" alt=\"Card image cap\">\n      <a (click)=\"deleteFromFavorites(favorit._id)\">\n        <i class=\"fa fa-heart hearth\" aria-hidden=\"true\" style=\"color: #ffc2ce;\"></i>\n      </a>\n      <div class=\"card-body\">\n        <a [routerLink]=\"['/', favorit._id, 'view']\">\n          <h5 class=\"card-title\">{{favorit.spotName}}</h5>\n        </a>\n        <p class=\"card-text\">Menú desde {{favorit.features.menuPrice}}€ / px</p>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -264,7 +526,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "h4 {\n  text-align: left;\n}\n\nform.search {\n  position: relative;\n  margin: 20px auto;\n  text-align: center;\n}\n\ndiv.search > i {\n  position: absolute;\n  color: gray;\n  font-size: 1.4em;\n  margin: 5px 8px;\n}\n\ndiv.search {\n  margin: 0 auto;\n  width: 75%;\n}\n\ninput#search {\n  width: 100%;\n  height: 2.2em;\n  border: 1px solid lightgrey;\n  border-radius: 3px;\n  text-align: right;\n  margin-right: 6px;\n  padding-right: 4px;\n}\n\ninput#search::-webkit-input-placeholder {\n  color: lightgray;\n}\n\ninput#search:-ms-input-placeholder {\n  color: lightgray;\n}\n\ninput#search::placeholder {\n  color: lightgray;\n}\n\nbutton#search-sett {\n  background: white;\n  border: 1px solid lightgrey;\n  border-radius: 3px;\n  color: gray;\n  font-size: 1.3em;\n  vertical-align: middle;\n  padding: 1px 8px;\n  margin: 0;\n}\n\ndiv.buttons {\n  text-align: right;\n  width: 75%;\n  margin: 0 auto;\n}\n\nbutton.search-button {\n  background: white;\n  border: 1px solid lightgray;\n  border-radius: 3px;\n  color: lightgray;\n  font-size: .9em;\n  padding: 5px 10px;\n  margin-top: 3px;\n}\n\n.carousel-caption a h5:hover {\n  color: #ffc2ce;\n}\n\nbutton.pink {\n  background: white;\n  border: 1px solid #ffc2ce;\n  border-radius: 3px;\n  color: #ffc2ce;\n  font-size: .9em;\n  padding: 5px 10px;\n  margin-top: 3px;\n}\n\n#guest {\n  background: white;\n  border: 1px solid lightgray;\n  border-radius: 3px;\n  text-align: right;\n  height: 2.05em;\n  padding-right: 10px;\n  margin-top: 3px;\n  width: 40%;\n}\n\n#guest::-webkit-input-placeholder {\n  color: lightgray;\n}\n\n#guest:-ms-input-placeholder {\n  color: lightgray;\n}\n\n#guest::placeholder {\n  color: lightgray;\n}\n\n#guest.color {\n  border: 1px solid #ffc2ce;\n  color: #ffc2ce;\n}\n\n#dist.color {\n  border: 1px solid #ffc2ce;\n  color: #ffc2ce;\n}\n\n#ex1Slider .slider-selection {\n\tbackground: #BABABA;\n}\n\ndiv.filters {\n  text-align: right;\n}\n\n.filters input {\n  background: white;\n  border: 1px solid lightgray;\n  border-radius: 3px;\n  text-align: right;\n  height: 2.05em;\n  padding-right: 10px;\n  margin-top: 3px;\n  width: 22.3%;\n  margin-right: 2%;\n}\n\n.filters label {\n  margin-right: 2.5%;\n  color: gray;\n}", ""]);
+exports.push([module.i, "h4 {\n  text-align: left;\n}\n\nform.search {\n  position: relative;\n  margin: 20px auto;\n  text-align: center;\n}\n\ndiv.search > i {\n  position: absolute;\n  color: gray;\n  font-size: 1.4em;\n  margin: 5px 8px;\n}\n\ndiv.search {\n  width: 100%;\n}\n\ninput#search {\n  width: 100%;\n  height: 2.2em;\n  border: 1px solid lightgrey;\n  border-radius: 3px;\n  text-align: right;\n  margin-right: 6px;\n  padding-right: 4px;\n}\n\ninput#search::-webkit-input-placeholder {\n  color: lightgray;\n}\n\ninput#search:-ms-input-placeholder {\n  color: lightgray;\n}\n\ninput#search::placeholder {\n  color: lightgray;\n}\n\nbutton#search-sett {\n  background: white;\n  border: 1px solid lightgrey;\n  border-radius: 3px;\n  color: gray;\n  font-size: 1.3em;\n  vertical-align: middle;\n  padding: 1px 8px;\n  margin: 0;\n}\n\ndiv.buttons {\n  text-align: right;\n  margin: 0 auto;\n  width: 100%;\n}\n\ni#guest-icon {\n  position: absolute;\n  margin: 10px 8px;\n  color: lightgray;\n}\n\nbutton.search-button {\n  background: white;\n  border: 1px solid lightgray;\n  border-radius: 3px;\n  color: lightgray;\n  font-size: .9em;\n  padding: 5px 10px;\n  margin-top: 3px;\n}\n\n.carousel-caption a h5:hover {\n  color: #ffc2ce;\n}\n\nbutton.pink {\n  background: white;\n  border: 1px solid #ffc2ce;\n  border-radius: 3px;\n  color: #ffc2ce;\n  font-size: .9em;\n  padding: 5px 10px;\n  margin-top: 3px;\n}\n\n#guest {\n  background: white;\n  border: 1px solid lightgray;\n  border-radius: 3px;\n  text-align: right;\n  height: 2.05em;\n  padding-right: 10px;\n  margin-top: 3px;\n  width: 40%;\n}\n\n#guest::-webkit-input-placeholder {\n  color: lightgray;\n}\n\n#guest:-ms-input-placeholder {\n  color: lightgray;\n}\n\n#guest::placeholder {\n  color: lightgray;\n}\n\n#guest.color {\n  border: 1px solid #ffc2ce;\n  color: #ffc2ce;\n  width: 25%;\n}\n\n#guest-icon.color {\n  color: #ffc2ce;\n}\n\n#dist.color {\n  border: 1px solid #ffc2ce;\n  color: #ffc2ce;\n}\n\n#ex1Slider .slider-selection {\n\tbackground: #BABABA;\n}\n\ndiv.filters {\n  text-align: right;\n}\n\n.filters input {\n  background: white;\n  border: 1px solid lightgray;\n  border-radius: 3px;\n  text-align: right;\n  height: 2.05em;\n  padding-right: 10px;\n  margin-top: 3px;\n  width: 21%;\n  margin-right: 1%;\n}\n\n.filters label {\n  margin-right: 2.5%;\n  color: gray;\n}\n\nselect {\n  margin-top: 5px;\n  padding: 6.5px 10px;\n}\n\nselect.style {\n  margin-left: 8px;\n}", ""]);
 
 // exports
 
@@ -277,7 +539,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"user !== undefined && user !== null\">\n  <div *ngIf=\"user.role === 'Admin'\">\n    <app-provider-signup></app-provider-signup>\n  </div>\n  <div *ngIf=\"user.role === 'Provider'\">\n    <app-provider-spot></app-provider-spot>\n  </div>\n</div>\n\n<div *ngIf=\"!user || user.role === 'User'\" class=\"container\">\n      \n  <form class=\"search form-inline\">\n    <div class=\"search\">\n      <i class=\"fa fa-search\" (click)=\"searchSpots(city.value, gst.value, distnc.value)\"\n         aria-hidden=\"true\"></i>\n      <input type=\"text\" id=\"search\" #city placeholder=\"Prueba 'Madrid' \">\n    </div>\n    <div class=\"buttons form-group\">\n      <input type=\"text\" #gst (click)=\"setColor($event.target)\" id=\"guest\" placeholder=\"Nº Invitados \">\n      <input class=\"form-control\" placeholder=\"yyyy-mm-dd\" hidden\n              name=\"dp\" [(ngModel)]=\"model\" ngbDatepicker #d=\"ngbDatepicker\">\n      <button *ngIf=\"!model\" class=\"search-button\" (click)=\"d.toggle()\"> \n        Fecha\n      </button>\n      <button *ngIf=\"model\" class=\"search-button pink\" (click)=\"d.toggle()\"> \n        {{model.day}}.{{model.month}}.{{model.year}}\n      </button>\n      <button id=\"search-sett\" (click)=\"filters()\"><i class=\"fa fa-sliders\" aria-hidden=\"true\"></i></button>\n\n      <input type=\"text\" #distnc value=\"{{distance}}\" hidden>\n      <div *ngIf=\"!filtersHide\" class=\"filters\">\n        <input type=\"text\" #myInput (keyup)=\"onKey(myInput.value)\" >\n        <label for=\"dist\">km</label>\n      </div>\n    </div>\n  </form>\n\n  <hr>\n\n  <div>\n    <h4>Los más vistos</h4>\n    <div *ngIf=\"spots && mostVisited\">\n      <ngb-carousel>\n        <ng-template ngbSlide *ngFor=\"let spot of mostVisited\">\n          <div *ngIf=\"favorites\" class=\"hearth\">\n            <a *ngIf=\"checkFavorit(spot._id)\" \n                (click)=\"deleteFromFavorites(user._id, spot._id)\">\n              <i class=\"fa fa-heart\" aria-hidden=\"true\" style=\"color: #ffc2ce;\"></i>\n            </a>\n            <a *ngIf=\"!checkFavorit(spot._id)\" \n                (click)=\"addToFavorites(user._id, spot._id)\">\n              <i class=\"fa fa-heart-o\" aria-hidden=\"true\" style=\"color: white;\"></i>\n            </a>\n          </div>\n          <img src=\"{{spot.photos[0]}}\" alt=\"Random first slide\">\n          <div class=\"carousel-caption\">\n            <a [routerLink]=\"[spot._id, 'view']\"><h5> {{ spot.spotName }} </h5></a>\n            <p>Menú desde {{spot.features.menuPrice}}€ / px</p>\n          </div>\n        </ng-template>\n      </ngb-carousel>\n    \n      <hr>\n      \n      <h4>Todos</h4>\n      <ngb-carousel>\n        <ng-template ngbSlide *ngFor=\"let spot of spots\">\n          <div *ngIf=\"favorites\" class=\"hearth\">\n            <a *ngIf=\"checkFavorit(spot._id)\" \n                (click)=\"deleteFromFavorites(user._id, spot._id)\">\n              <i class=\"fa fa-heart\" aria-hidden=\"true\" style=\"color: #ffc2ce;\"></i>\n            </a>\n            <a *ngIf=\"!checkFavorit(spot._id)\" \n                (click)=\"addToFavorites(user._id, spot._id)\">\n              <i class=\"fa fa-heart-o\" aria-hidden=\"true\" style=\"color: white;\"></i>\n            </a>\n          </div>\n          <img src=\"{{spot.photos[0]}}\" alt=\"Random first slide\">\n          <div class=\"carousel-caption\">\n            <a [routerLink]=\"[spot._id, 'view']\"><h5> {{ spot.spotName }} </h5></a>\n            <p>Menú desde {{spot.features.menuPrice}}€ / px</p>\n          </div>\n        </ng-template>\n      </ngb-carousel>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div *ngIf=\"user !== undefined && user !== null\">\n  <div *ngIf=\"user.role === 'Admin'\">\n    <app-provider-signup></app-provider-signup>\n  </div>\n  <div *ngIf=\"user.role === 'Provider'\">\n    <app-provider-spot></app-provider-spot>\n  </div>\n</div>\n\n<div *ngIf=\"!user || user.role === 'User'\" class=\"container\">\n      \n  <form class=\"search form-inline\">\n    <div class=\"search\">\n      <i class=\"fa fa-search\" (click)=\"searchSpots(city.value, gst.value, distnc.value)\"\n         aria-hidden=\"true\"></i>\n      <input type=\"text\" id=\"search\" #city placeholder=\"Prueba 'Madrid' \">\n    </div>\n    <div class=\"buttons form-group\">\n      <i class=\"fa fa-users\" id=\"guest-icon\" aria-hidden=\"true\"></i>\n      <input type=\"text\" #gst (click)=\"setColor($event.target)\" id=\"guest\" placeholder=\"Nº Invitados \">\n      <input class=\"form-control\" placeholder=\"yyyy-mm-dd\" hidden\n              name=\"dp\" [(ngModel)]=\"model\" ngbDatepicker #d=\"ngbDatepicker\">\n      <button *ngIf=\"!model\" class=\"search-button\" (click)=\"d.toggle()\">\n        <i class=\"fa fa-calendar\" aria-hidden=\"true\"></i>\n        Fecha \n      </button>\n      <button *ngIf=\"model\" class=\"search-button pink\" (click)=\"d.toggle()\"> \n        <i class=\"fa fa-calendar\" aria-hidden=\"true\"></i>\n        {{model.day}}.{{model.month}}.{{model.year}}\n      </button>\n      <button id=\"search-sett\" (click)=\"filters()\"><i class=\"fa fa-sliders\" aria-hidden=\"true\"></i></button>\n\n      <input type=\"text\" #distnc value=\"{{distance}}\" hidden>\n      <div *ngIf=\"!filtersHide\" class=\"filters\">\n        <input type=\"text\" #myInput (keyup)=\"onKey(myInput.value)\">\n        <label for=\"dist\">km</label>\n        <select name=\"style\">\n          <option value=\"Montaña\">Montaña</option>\n          <option value=\"Playa\">Playa</option>\n          <option value=\"Ciudad\">Ciudad</option>\n          <option value=\"Campo\">Campo</option>\n        </select>\n        <select name=\"style\" clasS=\"style\">\n          <option value=\"Finca\">Finca</option>\n          <option value=\"Hotel\">Hotel</option>\n          <option value=\"Restaurante\">Restaurante</option>\n          <option value=\"Convento\">Convento</option>\n          <option value=\"Castillo\">Castillo</option>\n          <option value=\"Casa Rural\">Casa Rural</option>\n          <option value=\"Bodega\">Bodega</option>\n          <option value=\"Palacio\">Palacio</option>\n          <option value=\"Otros\">Otros</option>\n        </select>\n      </div>\n    </div>\n  </form>\n\n  <hr>\n\n  <div>\n    <h4>Los más vistos</h4>\n    <div *ngIf=\"spots && mostVisited\">\n      <ngb-carousel>\n        <ng-template ngbSlide *ngFor=\"let spot of mostVisited\">\n          <div *ngIf=\"favorites\" class=\"hearth\">\n            <a *ngIf=\"checkFavorit(spot._id)\" \n                (click)=\"deleteFromFavorites(user._id, spot._id)\">\n              <i class=\"fa fa-heart\" aria-hidden=\"true\" style=\"color: #ffc2ce;\"></i>\n            </a>\n            <a *ngIf=\"!checkFavorit(spot._id)\" \n                (click)=\"addToFavorites(user._id, spot._id)\">\n              <i class=\"fa fa-heart-o\" aria-hidden=\"true\" style=\"color: white;\"></i>\n            </a>\n          </div>\n          <img src=\"{{spot.photos[0]}}\" alt=\"Random first slide\">\n          <div class=\"carousel-caption\">\n            <a [routerLink]=\"[spot._id, 'view']\"><h5> {{ spot.spotName }} </h5></a>\n            <p>Menú desde {{spot.features.menuPrice}}€ / px</p>\n          </div>\n        </ng-template>\n      </ngb-carousel>\n    \n      <hr>\n      \n      <h4>Todos</h4>\n      <ngb-carousel>\n        <ng-template ngbSlide *ngFor=\"let spot of spots\">\n          <div *ngIf=\"favorites\" class=\"hearth\">\n            <a *ngIf=\"checkFavorit(spot._id)\" \n                (click)=\"deleteFromFavorites(user._id, spot._id)\">\n              <i class=\"fa fa-heart\" aria-hidden=\"true\" style=\"color: #ffc2ce;\"></i>\n            </a>\n            <a *ngIf=\"!checkFavorit(spot._id)\" \n                (click)=\"addToFavorites(user._id, spot._id)\">\n              <i class=\"fa fa-heart-o\" aria-hidden=\"true\" style=\"color: white;\"></i>\n            </a>\n          </div>\n          <img src=\"{{spot.photos[0]}}\" alt=\"Random first slide\">\n          <div class=\"carousel-caption\">\n            <a [routerLink]=\"[spot._id, 'view']\"><h5> {{ spot.spotName }} </h5></a>\n            <p>Menú desde {{spot.features.menuPrice}}€ / px</p>\n          </div>\n        </ng-template>\n      </ngb-carousel>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -317,7 +579,7 @@ var HomeComponent = (function () {
         this.distance = 40;
         config.interval = 2000;
         config.wrap = false;
-        config.keyboard = false;
+        config.keyboard = true;
     }
     HomeComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -370,7 +632,9 @@ var HomeComponent = (function () {
         });
     };
     HomeComponent.prototype.setColor = function (e) {
+        e.setAttribute('placeholder', '');
         e.setAttribute('class', 'color');
+        document.getElementById('guest-icon').setAttribute('class', 'fa fa-users color');
     };
     HomeComponent.prototype.filters = function () {
         this.filtersHide = !this.filtersHide;
@@ -416,7 +680,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <app-signup [hidden]=\"auth.hide\"></app-signup>\n    <div class=\"login\" [hidden]=\"!auth.hide\">\n    <form>\n      <label for=\"email\"> Email </label>\n      <input type=\"email\" [(ngModel)]=\"formInfo.email\" name=\"email\" id=\"email\"\n         #myEmail=\"ngModel\" email=\"true\" required/>\n      <p *ngIf=\"myEmail.errors && (myEmail.dirty || myEmail.touched)\" class=\"error\"\n         [hidden]=\"myEmail.valid.errors\"> Enter a valid email </p>\n    \n      <label> Password </label>\n      <input type=\"password\" [(ngModel)]=\"formInfo.password\" name=\"password\"\n         #myPass=\"ngModel\" required/>\n      <p *ngIf=\"myPass.errors && (myPass.dirty || myPass.touched)\" class=\"error\"\n         [hidden]=\"!myPass.errors.required\"> Password is required </p>\n    \n      <div class=\"button-login\">\n        <button (click)=\"login()\" [disabled]=\"myEmail.errors || myPass.errors\"> Login </button>\n      </div>\n    </form>\n  \n    <div class=\"button-login\">\n      <p class=\"small\">¿Todavía no tienes cuenta?</p>\n      <button (click)=\"auth.showHide()\" [hidden]=\"!auth.hide\" class=\"button-signup\"> Signup </button>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <app-signup [hidden]=\"auth.hide\"></app-signup>\n    <div class=\"login\" [hidden]=\"!auth.hide\">\n    <form>\n      <label for=\"email\"> Email </label>\n      <input type=\"email\" [(ngModel)]=\"formInfo.email\" name=\"email\" id=\"email\"\n         #myEmail=\"ngModel\" email=\"true\" required/>\n      <p *ngIf=\"myEmail.errors && (myEmail.dirty || myEmail.touched)\" class=\"error\"\n         [hidden]=\"myEmail.valid.errors\"> * Enter a valid email </p>\n    \n      <label> Password </label>\n      <input type=\"password\" [(ngModel)]=\"formInfo.password\" name=\"password\"\n         #myPass=\"ngModel\" required/>\n      <p *ngIf=\"myPass.errors && (myPass.dirty || myPass.touched)\" class=\"error\"\n         [hidden]=\"!myPass.errors.required\"> * Password is required </p>\n    \n      <div class=\"button-login\">\n        <button (click)=\"login()\" [disabled]=\"myEmail.errors || myPass.errors\"> Login </button>\n      </div>\n    </form>\n  \n    <div class=\"button-login\">\n      <p class=\"small\">¿Todavía no tienes cuenta?</p>\n      <button (click)=\"auth.showHide()\" [hidden]=\"!auth.hide\" class=\"button-signup\"> Signup </button>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -455,7 +719,7 @@ var LoginComponent = (function () {
         var _this = this;
         var _a = this.formInfo, email = _a.email, password = _a.password;
         this.auth.login(email, password)
-            .subscribe(function () { return _this.router.navigate(['']); });
+            .subscribe(function () { return _this.router.navigate(['/profile']); });
     };
     return LoginComponent;
 }());
@@ -555,7 +819,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/nav/nav.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<footer class=\"footer\">\n  <div *ngIf=\"user\">\n    <a (click)=\"anchor($event.target)\" [routerLink]=\"['']\" class=\"pink\">\n      <i class=\"fa fa-search links\" aria-hidden=\"true\"></i>\n      <span class=\"icon-text links\">Buscar</span>\n    </a>\n    <a (click)=\"anchor($event.target)\" [routerLink]=\"['/', user._id, 'favorites']\" class=\"gray\">\n        <i class=\"fa fa-heart-o links\" aria-hidden=\"true\"></i>\n      <span class=\"icon-text links\">Favoritos</span>\n    </a>\n    <a [routerLink]=\"\" [routerLink]=\"\" class=\"gray\">\n        <i class=\"fa fa-book links\" aria-hidden=\"true\"></i>\n      <span class=\"icon-text links\">Agenda</span>\n    </a>\n    <a (click)=\"anchor($event.target)\" [routerLink]=\"['/messages']\" class=\"gray\">\n      <i class=\"fa fa-envelope-o links\" aria-hidden=\"true\"></i>\n      <span class=\"icon-text links\">Mensajes</span>\n    </a>\n    <a (click)=\"anchor($event.target)\" [routerLink]=\"['/profile']\" class=\"gray\">\n      <i class=\"fa fa-user-circle-o links\" aria-hidden=\"true\"></i>\n      <span class=\"icon-text links\">Perfil</span>\n    </a>\n  </div>\n  <div *ngIf=\"!user\">\n    <a (click)=\"anchor($event.target)\" [routerLink]=\"['']\" class=\"pink\">\n      <i class=\"fa fa-search links\" aria-hidden=\"true\"></i>\n      <span class=\"icon-text links\">Buscar</span>\n    </a>\n    <a class=\"light-gray\">\n        <i class=\"fa fa-heart-o links\" aria-hidden=\"true\"></i>\n      <span class=\"icon-text links\">Favoritos</span>\n    </a>\n    <a class=\"light-gray\">\n        <i class=\"fa fa-book links\" aria-hidden=\"true\"></i>\n      <span class=\"icon-text links\">Agenda</span>\n    </a>\n    <a class=\"light-gray\">\n      <i class=\"fa fa-envelope-o links\" aria-hidden=\"true\"></i>\n      <span class=\"icon-text links\">Mensajes</span>\n    </a>\n    <a (click)=\"specialAnchor($event.target)\" [routerLink]=\"['/login']\" class=\"not-user\">\n      <i class=\"fa fa-sign-in links\" aria-hidden=\"true\"></i>\n      <span class=\"icon-text links\"> Login </span>\n    </a>\n  </div>\n</footer>"
+module.exports = "<footer class=\"footer\">\n  <div *ngIf=\"user\">\n    <a (click)=\"anchor($event.target)\" [routerLink]=\"['']\" class=\"pink\">\n      <i class=\"fa fa-search links\" aria-hidden=\"true\"></i>\n      <span class=\"icon-text links\">Buscar</span>\n    </a>\n    <a (click)=\"anchor($event.target)\" [routerLink]=\"['/', user._id, 'favorites']\" class=\"gray\">\n        <i class=\"fa fa-heart-o links\" aria-hidden=\"true\"></i>\n      <span class=\"icon-text links\">Favoritos</span>\n    </a>\n    <a (click)=\"anchor($event.target)\" [routerLink]=\"['/', user._id, 'diary']\" class=\"gray\">\n        <i class=\"fa fa-book links\" aria-hidden=\"true\"></i>\n      <span class=\"icon-text links\">Agenda</span>\n    </a>\n    <a (click)=\"anchor($event.target)\" [routerLink]=\"['/messages']\" class=\"gray\">\n      <i class=\"fa fa-envelope-o links\" aria-hidden=\"true\"></i>\n      <span class=\"icon-text links\">Mensajes</span>\n    </a>\n    <a (click)=\"anchor($event.target)\" [routerLink]=\"['/profile']\" class=\"gray\">\n      <i class=\"fa fa-user-circle-o links\" aria-hidden=\"true\"></i>\n      <span class=\"icon-text links\">Perfil</span>\n    </a>\n  </div>\n  <div *ngIf=\"!user\">\n    <a (click)=\"anchor($event.target)\" [routerLink]=\"['']\" class=\"pink\">\n      <i class=\"fa fa-search links\" aria-hidden=\"true\"></i>\n      <span class=\"icon-text links\">Buscar</span>\n    </a>\n    <a class=\"light-gray\">\n        <i class=\"fa fa-heart-o links\" aria-hidden=\"true\"></i>\n      <span class=\"icon-text links\">Favoritos</span>\n    </a>\n    <a class=\"light-gray\">\n        <i class=\"fa fa-book links\" aria-hidden=\"true\"></i>\n      <span class=\"icon-text links\">Agenda</span>\n    </a>\n    <a class=\"light-gray\">\n      <i class=\"fa fa-envelope-o links\" aria-hidden=\"true\"></i>\n      <span class=\"icon-text links\">Mensajes</span>\n    </a>\n    <a (click)=\"specialAnchor($event.target)\" [routerLink]=\"['/login']\" class=\"not-user\">\n      <i class=\"fa fa-sign-in links\" aria-hidden=\"true\"></i>\n      <span class=\"icon-text links\"> Login </span>\n    </a>\n  </div>\n</footer>"
 
 /***/ }),
 
@@ -1119,11 +1383,13 @@ var _a, _b;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__profile_edit_profile_edit_profile_component__ = __webpack_require__("../../../../../src/app/profile/edit-profile/edit-profile.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__search_search_component__ = __webpack_require__("../../../../../src/app/search/search.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__messages_messages_component__ = __webpack_require__("../../../../../src/app/messages/messages.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__spot_spot_component__ = __webpack_require__("../../../../../src/app/spot/spot.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__spot_comments_comments_component__ = __webpack_require__("../../../../../src/app/spot/comments/comments.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__spot_calendar_calendar_component__ = __webpack_require__("../../../../../src/app/spot/calendar/calendar.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__spot_create_comnt_create_comnt_component__ = __webpack_require__("../../../../../src/app/spot/create-comnt/create-comnt.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__services_isLoggedIn_service__ = __webpack_require__("../../../../../src/app/services/isLoggedIn.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__diary_diary_component__ = __webpack_require__("../../../../../src/app/diary/diary.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__spot_spot_component__ = __webpack_require__("../../../../../src/app/spot/spot.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__spot_comments_comments_component__ = __webpack_require__("../../../../../src/app/spot/comments/comments.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__spot_calendar_calendar_component__ = __webpack_require__("../../../../../src/app/spot/calendar/calendar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__spot_create_comnt_create_comnt_component__ = __webpack_require__("../../../../../src/app/spot/create-comnt/create-comnt.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__services_isLoggedIn_service__ = __webpack_require__("../../../../../src/app/services/isLoggedIn.service.ts");
+
 
 
 
@@ -1142,18 +1408,19 @@ var routes = [
     { path: 'login', component: __WEBPACK_IMPORTED_MODULE_1__login_login_component__["a" /* LoginComponent */] },
     { path: 'signup', component: __WEBPACK_IMPORTED_MODULE_2__signup_signup_component__["a" /* SignupComponent */] },
     { path: 'search', component: __WEBPACK_IMPORTED_MODULE_6__search_search_component__["a" /* SearchComponent */] },
-    { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_4__profile_profile_component__["a" /* ProfileComponent */],
-        canActivate: [__WEBPACK_IMPORTED_MODULE_12__services_isLoggedIn_service__["a" /* IsLoggedInService */]] },
+    { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_4__profile_profile_component__["a" /* ProfileComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_13__services_isLoggedIn_service__["a" /* IsLoggedInService */]] },
     { path: 'profile/edit', component: __WEBPACK_IMPORTED_MODULE_5__profile_edit_profile_edit_profile_component__["a" /* EditProfileComponent */],
-        canActivate: [__WEBPACK_IMPORTED_MODULE_12__services_isLoggedIn_service__["a" /* IsLoggedInService */]] },
+        canActivate: [__WEBPACK_IMPORTED_MODULE_13__services_isLoggedIn_service__["a" /* IsLoggedInService */]] },
     { path: 'messages', component: __WEBPACK_IMPORTED_MODULE_7__messages_messages_component__["a" /* MessagesComponent */],
-        canActivate: [__WEBPACK_IMPORTED_MODULE_12__services_isLoggedIn_service__["a" /* IsLoggedInService */]] },
-    { path: ':id/view', component: __WEBPACK_IMPORTED_MODULE_8__spot_spot_component__["a" /* SpotComponent */] },
-    { path: ':id/comments', component: __WEBPACK_IMPORTED_MODULE_9__spot_comments_comments_component__["a" /* CommentsComponent */] },
-    { path: ':id/comment/create', component: __WEBPACK_IMPORTED_MODULE_11__spot_create_comnt_create_comnt_component__["a" /* CreateComntComponent */] },
-    { path: ':id/calendar', component: __WEBPACK_IMPORTED_MODULE_10__spot_calendar_calendar_component__["a" /* CalendarComponent */] },
+        canActivate: [__WEBPACK_IMPORTED_MODULE_13__services_isLoggedIn_service__["a" /* IsLoggedInService */]] },
+    { path: ':id/diary', component: __WEBPACK_IMPORTED_MODULE_8__diary_diary_component__["a" /* DiaryComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_13__services_isLoggedIn_service__["a" /* IsLoggedInService */]] },
+    { path: ':id/view', component: __WEBPACK_IMPORTED_MODULE_9__spot_spot_component__["a" /* SpotComponent */] },
+    { path: ':id/comments', component: __WEBPACK_IMPORTED_MODULE_10__spot_comments_comments_component__["a" /* CommentsComponent */] },
+    { path: ':id/comment/create', component: __WEBPACK_IMPORTED_MODULE_12__spot_create_comnt_create_comnt_component__["a" /* CreateComntComponent */],
+        canActivate: [__WEBPACK_IMPORTED_MODULE_13__services_isLoggedIn_service__["a" /* IsLoggedInService */]] },
+    { path: ':id/calendar', component: __WEBPACK_IMPORTED_MODULE_11__spot_calendar_calendar_component__["a" /* CalendarComponent */] },
     { path: ':id/favorites', component: __WEBPACK_IMPORTED_MODULE_3__favorites_favorites_component__["a" /* FavoritesComponent */],
-        canActivate: [__WEBPACK_IMPORTED_MODULE_12__services_isLoggedIn_service__["a" /* IsLoggedInService */]] },
+        canActivate: [__WEBPACK_IMPORTED_MODULE_13__services_isLoggedIn_service__["a" /* IsLoggedInService */]] },
     { path: '**', redirectTo: '' }
 ];
 //# sourceMappingURL=routes.js.map
@@ -1624,6 +1891,16 @@ var UserService = (function () {
         });
         return control;
     };
+    UserService.prototype.getDiary = function (id) {
+        return this.http.get(BASEURL + "/diary/" + id + "/events")
+            .map(function (res) { return res.json(); })
+            .catch(this.handleError);
+    };
+    UserService.prototype.addEvent = function (userId, title, content, date, spotId) {
+        return this.http.post(BASEURL + "/diary/" + userId + "/add-event", { title: title, content: content, date: date, spotId: spotId }, this.options)
+            .map(function (res) { return res.json(); })
+            .catch(this.handleError);
+    };
     return UserService;
 }());
 UserService = __decorate([
@@ -1735,7 +2012,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "div.day {\n  width: 30px;\n  height: 30px;\n  margin: 6px;\n}\n\ndiv.calendar {\n  width: 100%;\n  text-align: center;\n}\n\ndiv.month-year {\n  margin-bottom: 30px;\n}\n\n.month-year h4, .month-year h5 {\n  display: inline-block;\n  margin: 10px;\n}\n\ndiv.calendar-body {\n  border: 1px solid lightgray;\n  width: 88%;\n  margin-left: 6%;\n  border-radius: 4px;\n}\n\ndiv.day-avai {\n  color: white;\n  background: #ffabbb;\n  border-radius: 50%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\ndiv.day-not {\n  color: lightgray;\n}\n\ndiv.week {\n  display: inline-block;\n}", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -1748,7 +2025,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/spot/calendar/calendar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"spot\" class=\"container\">\n  <div class=\"login calendar\">\n    <div class=\"month-year\">\n      <h4 (click)=\"prevMonth()\"><</h4>\n      <h5> {{monthName}} {{year}} </h5>\n      <h4 (click)=\"nextMonth()\">></h4>\n    </div>\n    <div class=\"calendar-body\">\n      <div *ngFor=\"let week of thisMonth\">\n        <div *ngFor=\"let day of week\" class=\"week\">\n          <div *ngIf=\"day.length\" class=\"day-avai day\">{{day}}</div>\n          <div *ngIf=\"!day.length\" class=\"day-not day\"><p>{{day}}</p></div>\n        </div>\n      </div>\n    </div>\n    <br>\n    <button (click)=\"back()\" clasS=\"button-signup\"> Volver </button>\n  </div>\n</div>"
+module.exports = "<div *ngIf=\"spot\" class=\"container\">\n  <div class=\"login calendar\">\n    <div class=\"month-year\">\n      <h4 (click)=\"prevMonth()\"><</h4>\n      <h5> {{monthName}} {{year}} </h5>\n      <h4 (click)=\"nextMonth()\">></h4>\n    </div>\n    <div class=\"calendar-body\">\n      <div *ngFor=\"let week of thisMonth\">\n        <div *ngFor=\"let day of week\" class=\"week\">\n          <div *ngIf=\"day.length\" class=\"day-avai day\">{{day}}</div>\n          <div *ngIf=\"!day.length && day === 0\" class=\"day-zero day\">.</div>\n          <div *ngIf=\"!day.length && day !== 0\" class=\"day-not day\">{{day}}</div>\n        </div>\n      </div>\n    </div>\n    <br>\n    <button (click)=\"back()\" clasS=\"button-signup\"> Volver </button>\n  </div>\n</div>"
 
 /***/ }),
 

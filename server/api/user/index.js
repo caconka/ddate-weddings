@@ -6,8 +6,7 @@ const checkIdParams = require('../../middleware/check-id');
 const Controller = require('./user.controller');
 const upload = require('../../config/multer');
 
-router.put('/:id/edit', checkIdParams, ensureLoggedIn(), checkRole.isUser, 
-            upload.single('file'), Controller.editPut);
-router.get('/providers', checkRole.isAdmin, Controller.providersGet);
+router.put('/:id/edit', checkIdParams, upload.single('file'), Controller.editPut);
+router.get('/providers', Controller.providersGet);
 
 module.exports = router;
