@@ -5,7 +5,7 @@ import { AuthService } from '../../services/auth.service';
 import { UserService } from '../../services/user.service';
 import { environment } from '../../../environments/environment';
 
-const BASEURL = environment.BASEURL + "/user";
+const BASEURL = environment.BASEURL + "/api/user";
 
 @Component({
   selector: 'app-edit-profile',

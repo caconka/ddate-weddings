@@ -934,7 +934,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var BASEURL = __WEBPACK_IMPORTED_MODULE_5__environments_environment__["a" /* environment */].BASEURL + "/user";
+var BASEURL = __WEBPACK_IMPORTED_MODULE_5__environments_environment__["a" /* environment */].BASEURL + "/api/user";
 var EditProfileComponent = (function () {
     function EditProfileComponent(auth, userService, router) {
         this.auth = auth;
@@ -1553,7 +1553,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var BASEURL = __WEBPACK_IMPORTED_MODULE_4__environments_environment__["a" /* environment */].BASEURL;
+var BASEURL = __WEBPACK_IMPORTED_MODULE_4__environments_environment__["a" /* environment */].BASEURL + '/api';
 var AdminService = (function () {
     function AdminService(http) {
         this.http = http;
@@ -1611,7 +1611,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var BASEURL = __WEBPACK_IMPORTED_MODULE_4__environments_environment__["a" /* environment */].BASEURL + "/auth";
+var BASEURL = __WEBPACK_IMPORTED_MODULE_4__environments_environment__["a" /* environment */].BASEURL + '/api/auth';
 var AuthService = (function () {
     function AuthService(http) {
         this.http = http;
@@ -1751,7 +1751,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var BASEURL = __WEBPACK_IMPORTED_MODULE_4__environments_environment__["a" /* environment */].BASEURL;
+var BASEURL = __WEBPACK_IMPORTED_MODULE_4__environments_environment__["a" /* environment */].BASEURL + '/api';
 var SpotService = (function () {
     function SpotService(http) {
         this.http = http;
@@ -1859,7 +1859,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var BASEURL = __WEBPACK_IMPORTED_MODULE_4__environments_environment__["a" /* environment */].BASEURL;
+var BASEURL = __WEBPACK_IMPORTED_MODULE_4__environments_environment__["a" /* environment */].BASEURL + '/api';
 var UserService = (function () {
     function UserService(http) {
         this.http = http;
