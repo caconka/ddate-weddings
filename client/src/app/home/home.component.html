@@ -34,12 +34,23 @@
       <div *ngIf="!filtersHide" class="filters">
         <input type="text" #myInput (keyup)="onKey(myInput.value)">
         <label for="dist">km</label>
-        <!-- <select name="style" id="style">
+        <select name="style">
           <option value="Montaña">Montaña</option>
           <option value="Playa">Playa</option>
           <option value="Ciudad">Ciudad</option>
           <option value="Campo">Campo</option>
-        </select> -->
+        </select>
+        <select name="style" clasS="style">
+          <option value="Finca">Finca</option>
+          <option value="Hotel">Hotel</option>
+          <option value="Restaurante">Restaurante</option>
+          <option value="Convento">Convento</option>
+          <option value="Castillo">Castillo</option>
+          <option value="Casa Rural">Casa Rural</option>
+          <option value="Bodega">Bodega</option>
+          <option value="Palacio">Palacio</option>
+          <option value="Otros">Otros</option>
+        </select>
       </div>
     </div>
   </form>

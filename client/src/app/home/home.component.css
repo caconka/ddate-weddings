@@ -139,3 +139,7 @@ select {
   margin-top: 5px;
   padding: 6.5px 10px;
 }
+
+select.style {
+  margin-left: 8px;
+}
