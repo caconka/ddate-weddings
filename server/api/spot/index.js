@@ -5,7 +5,7 @@ const checkRole = require('../../middleware/check-role');
 const checkIdParams = require('../../middleware/check-id');
 const Controller = require('./spot.controller');
 
-router.post('/signup', Controller.signupPost); 
+router.post('/signup', ensureLoggedIn(), checkRole.isAdmin, Controller.signupPost); 
 router.get('/list', Controller.listGet); 
 router.get('/list-visit', Controller.listVisitGet); 
 router.post('/search', Controller.getListByLocationPost); 

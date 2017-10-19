@@ -44,11 +44,11 @@ export class HomeComponent implements OnInit {
     if(this.user && this.user.role === 'User') 
       this.asignFavorites(this.user._id)
     
-    // this.spotService.list()
-    // .subscribe(list => this.spots = list );
+    this.spotService.list()
+    .subscribe(list => this.spots = list );
     
-    // this.spotService.listMostVisited()
-    // .subscribe(list => this.mostVisited = list );
+    this.spotService.listMostVisited()
+    .subscribe(list => this.mostVisited = list );
   }
 
   private asignFavorites(userId) {

@@ -593,10 +593,10 @@ var HomeComponent = (function () {
         });
         if (this.user && this.user.role === 'User')
             this.asignFavorites(this.user._id);
-        // this.spotService.list()
-        // .subscribe(list => this.spots = list );
-        // this.spotService.listMostVisited()
-        // .subscribe(list => this.mostVisited = list );
+        this.spotService.list()
+            .subscribe(function (list) { return _this.spots = list; });
+        this.spotService.listMostVisited()
+            .subscribe(function (list) { return _this.mostVisited = list; });
     };
     HomeComponent.prototype.asignFavorites = function (userId) {
         var _this = this;
@@ -1767,12 +1767,12 @@ var SpotService = (function () {
     };
     SpotService.prototype.list = function () {
         return this.http.get(BASEURL + "/spot/list", this.options)
-            .map(function (res) { return res.json(); })
+            .map(function (res) { return res; })
             .catch(this.handleError);
     };
     SpotService.prototype.listMostVisited = function () {
         return this.http.get(BASEURL + "/spot/list-visit", this.options)
-            .map(function (res) { return res.json(); })
+            .map(function (res) { return res; })
             .catch(this.handleError);
     };
     SpotService.prototype.getComments = function (id) {

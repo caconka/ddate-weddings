@@ -27,13 +27,13 @@ export class SpotService {
 
   list() {
     return this.http.get(`${BASEURL}/spot/list`, this.options)
-      .map(res => res.json() )
+      .map(res => res)
       .catch(this.handleError);
   }
 
   listMostVisited() {
     return this.http.get(`${BASEURL}/spot/list-visit`, this.options)
-      .map(res => res.json())
+      .map(res => res)
       .catch(this.handleError);
   }
 
