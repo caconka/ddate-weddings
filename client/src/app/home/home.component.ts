@@ -30,25 +30,25 @@ export class HomeComponent implements OnInit {
   }
               
   ngOnInit() {
-    // this.user = this.auth.getUser();
+    this.user = this.auth.getUser();
 
-    // this.auth.getLoginEventEmitter()
-    // .subscribe(user => {  
-    //   if(user !== undefined)
-    //     this.user = user 
+    this.auth.getLoginEventEmitter()
+    .subscribe(user => {  
+      if(user !== undefined)
+        this.user = user 
 
-    //   if(user !== undefined && user.role === 'User')
-    //     this.asignFavorites(user._id)
-    // });
+      if(user !== undefined && user.role === 'User')
+        this.asignFavorites(user._id)
+    });
 
-    // if(this.user && this.user.role === 'User') 
-    //   this.asignFavorites(this.user._id)
+    if(this.user && this.user.role === 'User') 
+      this.asignFavorites(this.user._id)
     
-    this.spotService.list()
-    .subscribe(list => this.spots = list );
+    // this.spotService.list()
+    // .subscribe(list => this.spots = list );
     
-    this.spotService.listMostVisited()
-    .subscribe(list => this.mostVisited = list );
+    // this.spotService.listMostVisited()
+    // .subscribe(list => this.mostVisited = list );
   }
 
   private asignFavorites(userId) {

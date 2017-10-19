@@ -582,21 +582,21 @@ var HomeComponent = (function () {
         config.keyboard = true;
     }
     HomeComponent.prototype.ngOnInit = function () {
-        // this.user = this.auth.getUser();
         var _this = this;
-        // this.auth.getLoginEventEmitter()
-        // .subscribe(user => {  
-        //   if(user !== undefined)
-        //     this.user = user 
-        //   if(user !== undefined && user.role === 'User')
-        //     this.asignFavorites(user._id)
-        // });
-        // if(this.user && this.user.role === 'User') 
-        //   this.asignFavorites(this.user._id)
-        this.spotService.list()
-            .subscribe(function (list) { return _this.spots = list; });
-        this.spotService.listMostVisited()
-            .subscribe(function (list) { return _this.mostVisited = list; });
+        this.user = this.auth.getUser();
+        this.auth.getLoginEventEmitter()
+            .subscribe(function (user) {
+            if (user !== undefined)
+                _this.user = user;
+            if (user !== undefined && user.role === 'User')
+                _this.asignFavorites(user._id);
+        });
+        if (this.user && this.user.role === 'User')
+            this.asignFavorites(this.user._id);
+        // this.spotService.list()
+        // .subscribe(list => this.spots = list );
+        // this.spotService.listMostVisited()
+        // .subscribe(list => this.mostVisited = list );
     };
     HomeComponent.prototype.asignFavorites = function (userId) {
         var _this = this;
