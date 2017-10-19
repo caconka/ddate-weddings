@@ -1767,12 +1767,12 @@ var SpotService = (function () {
     };
     SpotService.prototype.list = function () {
         return this.http.get(BASEURL + "/spot/list", this.options)
-            .map(function (res) { return res; })
+            .map(function (res) { return res.json(); })
             .catch(this.handleError);
     };
     SpotService.prototype.listMostVisited = function () {
         return this.http.get(BASEURL + "/spot/list-visit", this.options)
-            .map(function (res) { return res; })
+            .map(function (res) { return res.json(); })
             .catch(this.handleError);
     };
     SpotService.prototype.getComments = function (id) {
