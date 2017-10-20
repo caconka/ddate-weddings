@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SpotService } from '../services/spot.service';
+import { NgbTabsetConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-spot',
   templateUrl: './spot.component.html',
-  styleUrls: ['./spot.component.css']
+  styleUrls: ['./spot.component.css'],
+  providers: [NgbTabsetConfig]
 })
 export class SpotComponent implements OnInit {
 
@@ -259,7 +261,9 @@ export class SpotComponent implements OnInit {
   ]; 
 
   constructor( private router: Router, private route: ActivatedRoute,
-               private spotService: SpotService) { }
+               private spotService: SpotService, config: NgbTabsetConfig) {
+    config.justify = 'justified';
+  }
 
   ngOnInit() {
     this.route.params
