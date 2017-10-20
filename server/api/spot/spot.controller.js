@@ -103,8 +103,7 @@ module.exports = {
 
       transporter.sendMail(mailOptions).exec()
       .then(info => {
-        console.log('Message sent: ' + info.response);
-        res.status(200).json(alerts);
+        res.status(200).json(info);
       })
       .catch(e => res.status(400).json({ message: 'Something went wrong' }));
     })

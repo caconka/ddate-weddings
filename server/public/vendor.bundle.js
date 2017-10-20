@@ -6151,7 +6151,7 @@ NgbDropdownModule.ctorParameters = function () { return []; };
 
 "use strict";
 /* unused harmony export NgbRootModule */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return NgbModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return NgbModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__accordion_accordion_module__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/accordion/accordion.module.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__alert_alert_module__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/alert/alert.module.js");
@@ -6182,16 +6182,16 @@ NgbDropdownModule.ctorParameters = function () { return []; };
 /* unused harmony reexport NgbCheckBox */
 /* unused harmony reexport NgbRadioGroup */
 /* unused harmony reexport NgbCarouselModule */
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_4__carousel_carousel_module__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_4__carousel_carousel_module__["a"]; });
 /* unused harmony reexport NgbCarousel */
 /* unused harmony reexport NgbSlide */
 /* unused harmony reexport NgbCollapseModule */
 /* unused harmony reexport NgbCollapse */
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_6__datepicker_datepicker_module__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_6__datepicker_datepicker_module__["a"]; });
 /* unused harmony reexport NgbCalendarIslamicCivil */
 /* unused harmony reexport NgbDatepickerModule */
 /* unused harmony reexport NgbDatepickerI18n */
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_6__datepicker_datepicker_module__["b"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_6__datepicker_datepicker_module__["b"]; });
 /* unused harmony reexport NgbDateParserFormatter */
 /* unused harmony reexport NgbDatepicker */
 /* unused harmony reexport NgbInputDatepicker */
@@ -6199,10 +6199,10 @@ NgbDropdownModule.ctorParameters = function () { return []; };
 /* unused harmony reexport NgbDropdownConfig */
 /* unused harmony reexport NgbDropdown */
 /* unused harmony reexport NgbModalModule */
-/* unused harmony reexport NgbModal */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_8__modal_modal_module__["b"]; });
 /* unused harmony reexport NgbActiveModal */
 /* unused harmony reexport NgbModalRef */
-/* unused harmony reexport ModalDismissReasons */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_8__modal_modal_module__["a"]; });
 /* unused harmony reexport NgbPaginationModule */
 /* unused harmony reexport NgbPaginationConfig */
 /* unused harmony reexport NgbPagination */
@@ -6216,7 +6216,7 @@ NgbDropdownModule.ctorParameters = function () { return []; };
 /* unused harmony reexport NgbRatingConfig */
 /* unused harmony reexport NgbRating */
 /* unused harmony reexport NgbTabsetModule */
-/* unused harmony reexport NgbTabsetConfig */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_13__tabset_tabset_module__["a"]; });
 /* unused harmony reexport NgbTabset */
 /* unused harmony reexport NgbTab */
 /* unused harmony reexport NgbTabContent */
@@ -6266,8 +6266,8 @@ NgbDropdownModule.ctorParameters = function () { return []; };
 
 var NGB_MODULES = [
     __WEBPACK_IMPORTED_MODULE_1__accordion_accordion_module__["a" /* NgbAccordionModule */], __WEBPACK_IMPORTED_MODULE_2__alert_alert_module__["a" /* NgbAlertModule */], __WEBPACK_IMPORTED_MODULE_3__buttons_buttons_module__["a" /* NgbButtonsModule */], __WEBPACK_IMPORTED_MODULE_4__carousel_carousel_module__["b" /* NgbCarouselModule */], __WEBPACK_IMPORTED_MODULE_5__collapse_collapse_module__["a" /* NgbCollapseModule */], __WEBPACK_IMPORTED_MODULE_6__datepicker_datepicker_module__["c" /* NgbDatepickerModule */],
-    __WEBPACK_IMPORTED_MODULE_7__dropdown_dropdown_module__["a" /* NgbDropdownModule */], __WEBPACK_IMPORTED_MODULE_8__modal_modal_module__["a" /* NgbModalModule */], __WEBPACK_IMPORTED_MODULE_9__pagination_pagination_module__["a" /* NgbPaginationModule */], __WEBPACK_IMPORTED_MODULE_10__popover_popover_module__["a" /* NgbPopoverModule */], __WEBPACK_IMPORTED_MODULE_11__progressbar_progressbar_module__["a" /* NgbProgressbarModule */], __WEBPACK_IMPORTED_MODULE_12__rating_rating_module__["a" /* NgbRatingModule */],
-    __WEBPACK_IMPORTED_MODULE_13__tabset_tabset_module__["a" /* NgbTabsetModule */], __WEBPACK_IMPORTED_MODULE_14__timepicker_timepicker_module__["a" /* NgbTimepickerModule */], __WEBPACK_IMPORTED_MODULE_15__tooltip_tooltip_module__["a" /* NgbTooltipModule */], __WEBPACK_IMPORTED_MODULE_16__typeahead_typeahead_module__["a" /* NgbTypeaheadModule */]
+    __WEBPACK_IMPORTED_MODULE_7__dropdown_dropdown_module__["a" /* NgbDropdownModule */], __WEBPACK_IMPORTED_MODULE_8__modal_modal_module__["c" /* NgbModalModule */], __WEBPACK_IMPORTED_MODULE_9__pagination_pagination_module__["a" /* NgbPaginationModule */], __WEBPACK_IMPORTED_MODULE_10__popover_popover_module__["a" /* NgbPopoverModule */], __WEBPACK_IMPORTED_MODULE_11__progressbar_progressbar_module__["a" /* NgbProgressbarModule */], __WEBPACK_IMPORTED_MODULE_12__rating_rating_module__["a" /* NgbRatingModule */],
+    __WEBPACK_IMPORTED_MODULE_13__tabset_tabset_module__["b" /* NgbTabsetModule */], __WEBPACK_IMPORTED_MODULE_14__timepicker_timepicker_module__["a" /* NgbTimepickerModule */], __WEBPACK_IMPORTED_MODULE_15__tooltip_tooltip_module__["a" /* NgbTooltipModule */], __WEBPACK_IMPORTED_MODULE_16__typeahead_typeahead_module__["a" /* NgbTypeaheadModule */]
 ];
 var NgbRootModule = (function () {
     function NgbRootModule() {
@@ -6280,8 +6280,8 @@ NgbRootModule.decorators = [
                 imports: [
                     __WEBPACK_IMPORTED_MODULE_2__alert_alert_module__["a" /* NgbAlertModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_3__buttons_buttons_module__["a" /* NgbButtonsModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_5__collapse_collapse_module__["a" /* NgbCollapseModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_11__progressbar_progressbar_module__["a" /* NgbProgressbarModule */].forRoot(),
                     __WEBPACK_IMPORTED_MODULE_15__tooltip_tooltip_module__["a" /* NgbTooltipModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_16__typeahead_typeahead_module__["a" /* NgbTypeaheadModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_1__accordion_accordion_module__["a" /* NgbAccordionModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_4__carousel_carousel_module__["b" /* NgbCarouselModule */].forRoot(),
-                    __WEBPACK_IMPORTED_MODULE_6__datepicker_datepicker_module__["c" /* NgbDatepickerModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_7__dropdown_dropdown_module__["a" /* NgbDropdownModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_8__modal_modal_module__["a" /* NgbModalModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_9__pagination_pagination_module__["a" /* NgbPaginationModule */].forRoot(),
-                    __WEBPACK_IMPORTED_MODULE_10__popover_popover_module__["a" /* NgbPopoverModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_11__progressbar_progressbar_module__["a" /* NgbProgressbarModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_12__rating_rating_module__["a" /* NgbRatingModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_13__tabset_tabset_module__["a" /* NgbTabsetModule */].forRoot(),
+                    __WEBPACK_IMPORTED_MODULE_6__datepicker_datepicker_module__["c" /* NgbDatepickerModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_7__dropdown_dropdown_module__["a" /* NgbDropdownModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_8__modal_modal_module__["c" /* NgbModalModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_9__pagination_pagination_module__["a" /* NgbPaginationModule */].forRoot(),
+                    __WEBPACK_IMPORTED_MODULE_10__popover_popover_module__["a" /* NgbPopoverModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_11__progressbar_progressbar_module__["a" /* NgbProgressbarModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_12__rating_rating_module__["a" /* NgbRatingModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_13__tabset_tabset_module__["b" /* NgbTabsetModule */].forRoot(),
                     __WEBPACK_IMPORTED_MODULE_14__timepicker_timepicker_module__["a" /* NgbTimepickerModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_15__tooltip_tooltip_module__["a" /* NgbTooltipModule */].forRoot()
                 ],
                 exports: NGB_MODULES
@@ -6666,18 +6666,18 @@ NgbModal.ctorParameters = function () { return [
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NgbModalModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return NgbModalModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__modal_backdrop__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/modal/modal-backdrop.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modal_window__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/modal/modal-window.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modal_stack__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/modal/modal-stack.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__modal__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/modal/modal.js");
-/* unused harmony reexport NgbModal */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_4__modal__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__modal_ref__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/modal/modal-ref.js");
 /* unused harmony reexport NgbModalRef */
 /* unused harmony reexport NgbActiveModal */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__modal_dismiss_reasons__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/modal/modal-dismiss-reasons.js");
-/* unused harmony reexport ModalDismissReasons */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_6__modal_dismiss_reasons__["a"]; });
 
 
 
@@ -7722,7 +7722,7 @@ NgbTabset.propDecorators = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NgbTabsetModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return NgbTabsetModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tabset__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/tabset/tabset.js");
@@ -7731,7 +7731,7 @@ NgbTabset.propDecorators = {
 /* unused harmony reexport NgbTab */
 /* unused harmony reexport NgbTabContent */
 /* unused harmony reexport NgbTabTitle */
-/* unused harmony reexport NgbTabsetConfig */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_3__tabset_config__["a"]; });
 
 
 

@@ -164,7 +164,7 @@ AppModule = __decorate([
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */], __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_21__routes__["a" /* routes */]),
-            __WEBPACK_IMPORTED_MODULE_28__ng_bootstrap_ng_bootstrap__["d" /* NgbModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_28__ng_bootstrap_ng_bootstrap__["f" /* NgbModule */].forRoot(),
             __WEBPACK_IMPORTED_MODULE_29__agm_core__["a" /* AgmCoreModule */].forRoot({ apiKey: 'AIzaSyDnT-UNmO3HtkLjtJllS1XgwF44XniS8qA' })
         ],
         providers: [__WEBPACK_IMPORTED_MODULE_23__services_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_22__services_isLoggedIn_service__["a" /* IsLoggedInService */], __WEBPACK_IMPORTED_MODULE_24__services_spot_service__["a" /* SpotService */], __WEBPACK_IMPORTED_MODULE_25__services_user_service__["a" /* UserService */],
@@ -198,7 +198,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/diary/diary.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"events\" class=\"container\">\n  <div class=\"login calendar\">\n    <div class=\"month-year\">\n      <h4 (click)=\"prevMonth()\"><</h4>\n      <h5> {{monthName}} {{year}} </h5>\n      <h4 (click)=\"nextMonth()\">></h4>\n    </div>\n    <div class=\"calendar-body\">\n      <div *ngFor=\"let week of thisMonth\">\n        <div *ngFor=\"let day of week\" class=\"week\">\n          <div *ngIf=\"day.length\" class=\"day-avai day\" (click)=\"showEvent(day)\">{{day}}</div>\n          <div *ngIf=\"!day.length && day === 0\" class=\"day-zero day\">.</div>\n          <div *ngIf=\"!day.length && day !== 0\" class=\"day-not day\" (click)=\"open(day)\"><p>{{day}}</p></div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <div *ngIf=\"modalAdd\" class=\"modal-container\">\n    <div class=\"modal-header\">\n      <h4 class=\"modal-title\">{{eventDay}} {{monthName}} {{year}}</h4>\n      <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"close()\">\n        <span aria-hidden=\"true\">&times;</span>\n      </button>\n    </div>\n    <div class=\"modal-body\">\n      <div class=\"title\">\n        <input type=\"text\" #title placeholder=\"título\">\n        <div class=\"time-picker\">\n          <ngb-timepicker [(ngModel)]=\"time\"></ngb-timepicker>\n        </div>\n      </div>\n      <textarea name=\"content\" id=\"content\" #cntnt cols=\"35\" rows=\"5\" placeholder=\"texto\"></textarea>\n      <button type=\"button\" (click)=\"addEvent(user._id, title.value, cntnt.value)\">Añadir</button>\n    </div>\n  </div>\n\n  <div *ngIf=\"modalShow\" clasS=\"modal-container event-show\">\n    <div class=\"modal-header\">\n      <h4 class=\"modal-title\">{{evntCont.day}} {{monthName}} {{year}}</h4>\n      <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"close()\">\n        <span aria-hidden=\"true\">&times;</span>\n      </button>\n    </div>\n    <div class=\"modal-body\">\n      <div class=\"title\">\n        <h4>{{evntCont.title}}</h4>\n        <p>{{evntCont.time.hour}} : {{evntCont.time.minute}}</p>\n        <p>{{evntCont.content}}</p>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div *ngIf=\"events\" class=\"container\">\n  <div class=\"login calendar\">\n    <div class=\"month-year\">\n      <h4 (click)=\"prevMonth()\"><</h4>\n      <h5> {{monthName}} {{year}} </h5>\n      <h4 (click)=\"nextMonth()\">></h4>\n    </div>\n    <div class=\"calendar-body\">\n      <div *ngFor=\"let week of thisMonth\">\n        <div *ngFor=\"let day of week\" class=\"week\">\n          <div *ngIf=\"day.length\" class=\"day-avai day\" (click)=\"showEvent(day)\">{{day}}</div>\n          <div *ngIf=\"!day.length && day === 0\" class=\"day-zero day\">.</div>\n          <div *ngIf=\"!day.length && day !== 0\" class=\"day-not day\" (click)=\"open(day)\">{{day}}</div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <div *ngIf=\"modalAdd\" class=\"modal-container\">\n    <div class=\"modal-header\">\n      <h4 class=\"modal-title\">{{eventDay}} {{monthName}} {{year}}</h4>\n      <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"close()\">\n        <span aria-hidden=\"true\">&times;</span>\n      </button>\n    </div>\n    <div class=\"modal-body\">\n      <div class=\"title\">\n        <input type=\"text\" #title placeholder=\"título\">\n        <div class=\"time-picker\">\n          <ngb-timepicker [(ngModel)]=\"time\"></ngb-timepicker>\n        </div>\n      </div>\n      <textarea name=\"content\" id=\"content\" #cntnt cols=\"35\" rows=\"5\" placeholder=\"texto\"></textarea>\n      <button type=\"button\" (click)=\"addEvent(user._id, title.value, cntnt.value)\">Añadir</button>\n    </div>\n  </div>\n\n  <div *ngIf=\"modalShow\" clasS=\"modal-container event-show\">\n    <div class=\"modal-header\">\n      <h4 class=\"modal-title\">{{evntCont.day}} {{monthName}} {{year}}</h4>\n      <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"close()\">\n        <span aria-hidden=\"true\">&times;</span>\n      </button>\n    </div>\n    <div class=\"modal-body\">\n      <div class=\"title\">\n        <h4>{{evntCont.title}}</h4>\n        <p>{{evntCont.time.hour}} : {{evntCont.time.minute}}</p>\n        <p>{{evntCont.content}}</p>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -649,9 +649,9 @@ HomeComponent = __decorate([
         selector: 'app-home',
         template: __webpack_require__("../../../../../src/app/home/home.component.html"),
         styles: [__webpack_require__("../../../../../src/app/home/home.component.css")],
-        providers: [__WEBPACK_IMPORTED_MODULE_1__ng_bootstrap_ng_bootstrap__["b" /* NgbCarouselConfig */]]
+        providers: [__WEBPACK_IMPORTED_MODULE_1__ng_bootstrap_ng_bootstrap__["c" /* NgbCarouselConfig */]]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_5__services_user_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__services_user_service__["a" /* UserService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__services_spot_service__["a" /* SpotService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_spot_service__["a" /* SpotService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__ng_bootstrap_ng_bootstrap__["b" /* NgbCarouselConfig */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ng_bootstrap_ng_bootstrap__["b" /* NgbCarouselConfig */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_5__services_user_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__services_user_service__["a" /* UserService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__services_spot_service__["a" /* SpotService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_spot_service__["a" /* SpotService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__ng_bootstrap_ng_bootstrap__["c" /* NgbCarouselConfig */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ng_bootstrap_ng_bootstrap__["c" /* NgbCarouselConfig */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _e || Object])
 ], HomeComponent);
 
 var _a, _b, _c, _d, _e;
@@ -719,7 +719,7 @@ var LoginComponent = (function () {
         var _this = this;
         var _a = this.formInfo, email = _a.email, password = _a.password;
         this.auth.login(email, password)
-            .subscribe(function () { return _this.router.navigate(['/profile']); });
+            .subscribe(function () { return _this.router.navigate(['']); });
     };
     return LoginComponent;
 }());
@@ -1225,9 +1225,9 @@ ProviderSignupComponent = __decorate([
         selector: 'app-provider-signup',
         template: __webpack_require__("../../../../../src/app/provider-signup/provider-signup.component.html"),
         styles: [__webpack_require__("../../../../../src/app/provider-signup/provider-signup.component.css")],
-        providers: [__WEBPACK_IMPORTED_MODULE_5__ng_bootstrap_ng_bootstrap__["c" /* NgbDatepickerConfig */]]
+        providers: [__WEBPACK_IMPORTED_MODULE_5__ng_bootstrap_ng_bootstrap__["d" /* NgbDatepickerConfig */]]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_admin_service__["a" /* AdminService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_admin_service__["a" /* AdminService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__ng_bootstrap_ng_bootstrap__["a" /* NgbCalendar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ng_bootstrap_ng_bootstrap__["a" /* NgbCalendar */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__ng_bootstrap_ng_bootstrap__["c" /* NgbDatepickerConfig */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ng_bootstrap_ng_bootstrap__["c" /* NgbDatepickerConfig */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4__services_spot_service__["a" /* SpotService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_spot_service__["a" /* SpotService */]) === "function" && _f || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_admin_service__["a" /* AdminService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_admin_service__["a" /* AdminService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__ng_bootstrap_ng_bootstrap__["b" /* NgbCalendar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ng_bootstrap_ng_bootstrap__["b" /* NgbCalendar */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__ng_bootstrap_ng_bootstrap__["d" /* NgbDatepickerConfig */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ng_bootstrap_ng_bootstrap__["d" /* NgbDatepickerConfig */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4__services_spot_service__["a" /* SpotService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_spot_service__["a" /* SpotService */]) === "function" && _f || Object])
 ], ProviderSignupComponent);
 
 var _a, _b, _c, _d, _e, _f;
@@ -1821,6 +1821,13 @@ var SpotService = (function () {
             .map(function (res) { return res.json(); })
             .catch(this.handleError);
     };
+    SpotService.prototype.sendEmail = function (spot, user) {
+        var spotId = spot._id;
+        var text = "\n      <p>Hola,</p>\n      <p><b>" + user.name + "</b> solicita informaci\u00F3n sobre " + spot.spotName + ".</p>\n      <p>Sus datos de contacto son:</p>\n      <p>Email: " + user.email + "</p>\n      <p>Tel\u00E9fono: " + user.phone + "</p>\n    ";
+        return this.http.post(BASEURL + "/spot/" + spotId + "/send-email", { text: text }, this.options)
+            .map(function (res) { return res.json(); })
+            .catch(this.handleError);
+    };
     return SpotService;
 }());
 SpotService = __decorate([
@@ -2234,7 +2241,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/spot/comments/comments.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"comments\">\n  <div class=\"num-com\">\n    <span class=\"gray\">{{comments.length}} comentarios</span>\n  </div>\n  <div *ngFor=\"let comment of comments\" class=\"card\">\n    <div class=\"card-body\">\n      <div class=\"title left\">\n        <h4 class=\"card-title\"> {{comment.title}} </h4>\n        <h6 class=\"card-subtitle mb-2 star\">\n          <span *ngFor=\"let c of control\">\n            <i *ngIf=\"c <= comment.rating\" class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i *ngIf=\"c > comment.rating\" class=\"fa fa-star-o\" aria-hidden=\"true\"></i>\n          </span>\n        </h6>\n      </div>\n      <div class=\"title right\">\n        <h5 class=\"card-title\"> {{comment.userId.name}} </h5>\n        <h6 class=\"card-subtitle mb-2 text-muted\"> {{comment.createdAt | date:'MM/dd/yyyy'}} </h6>\n      </div>\n      <p class=\"card-text\"> {{comment.text}} </p>\n    </div>\n  </div>\n        \n\n<hr>\n<div *ngIf=\"spot\" class=\"section\">\n  <div class=\"column\"><h5>Escribir una opinion</h5></div>\n  <div class=\"column right\"><a [routerLink]=\"['/', spot._id, 'comment', 'create']\">Mensaje</a></div>\n</div>"
+module.exports = "<div *ngIf=\"comments\">\n  <div class=\"num-com\">\n    <span class=\"gray\">{{comments.length}} comentarios</span>\n  </div>\n  <div *ngFor=\"let comment of comments\" class=\"card\">\n    <div class=\"card-body\">\n      <div class=\"title left\">\n        <h4 class=\"card-title\"> {{comment.title}} </h4>\n        <h6 class=\"card-subtitle mb-2 star\">\n          <span *ngFor=\"let c of control\">\n            <i *ngIf=\"c <= comment.rating\" class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i *ngIf=\"c > comment.rating\" class=\"fa fa-star-o\" aria-hidden=\"true\"></i>\n          </span>\n        </h6>\n      </div>\n      <div class=\"title right\">\n        <h5 class=\"card-title\"> {{comment.userId.name}} </h5>\n        <h6 class=\"card-subtitle mb-2 text-muted\"> {{comment.createdAt | date:'MM/dd/yyyy'}} </h6>\n      </div>\n      <p class=\"card-text\"> {{comment.text}} </p>\n    </div>\n  </div>\n        \n\n<hr>\n<div *ngIf=\"spot\" class=\"section\">\n  <div class=\"column\"><h5>Escribir una opinion</h5></div>\n  <div class=\"column right\" *ngIf=\"user\"><a [routerLink]=\"['/', spot._id, 'comment', 'create']\">Mensaje</a></div>\n  <div class=\"column right not-user\" *ngIf=\"!user\">Mensaje</div>\n</div>"
 
 /***/ }),
 
@@ -2246,6 +2253,7 @@ module.exports = "<div *ngIf=\"comments\">\n  <div class=\"num-com\">\n    <span
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_spot_service__ = __webpack_require__("../../../../../src/app/services/spot.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2258,15 +2266,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var CommentsComponent = (function () {
-    function CommentsComponent(router, route, spotService) {
+    function CommentsComponent(router, route, spotService, auth) {
         this.router = router;
         this.route = route;
         this.spotService = spotService;
+        this.auth = auth;
         this.control = [1, 2, 3, 4, 5];
     }
     CommentsComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.user = this.auth.getUser();
+        this.auth.getLoginEventEmitter()
+            .subscribe(function (user) {
+            _this.user = user;
+        });
         this.route.params
             .subscribe(function (params) {
             _this.spotService.getComments(params['id'])
@@ -2283,10 +2298,10 @@ CommentsComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/spot/comments/comments.component.html"),
         styles: [__webpack_require__("../../../../../src/app/spot/comments/comments.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_spot_service__["a" /* SpotService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_spot_service__["a" /* SpotService */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_spot_service__["a" /* SpotService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_spot_service__["a" /* SpotService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_auth_service__["a" /* AuthService */]) === "function" && _d || Object])
 ], CommentsComponent);
 
-var _a, _b, _c;
+var _a, _b, _c, _d;
 //# sourceMappingURL=comments.component.js.map
 
 /***/ }),
@@ -2397,7 +2412,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "agm-map {\n  height: 300px;\n}\n\n.fullWidth img {\n  border-radius: 0;\n}\n\n.fullWidth div.carousel-caption {\n  text-align: center;\n}\n\nagm-map {\n  height: 250px;\n}\n\ndiv.icon-container {\n  text-align: center;\n  margin-top: 18px;\n}\n\n.icon-container div.icon {\n  display: inline-block;\n  width: 15%;\n  height: 50px;\n  margin-left: 2px;\n  font-size: .9rem;\n  margin-bottom: 0;\n}\n\nhr {\n  margin-top: .3rem;\n  margin-bottom: 1rem;\n}\n\n.icon i {\n  font-size: 1.8rem;\n  margin: 0;\n  display: block;\n  color: lightgray;\n}\n\n.section a {\n  color: #f37e95;\n}\n\ndiv.rate {\n  margin-top: 20px;\n}\n\ndiv.number {\n  text-align: left;\n  display: inline-block;\n  width: 28%;\n}\n\n.number h1 {\n  font-size: 4rem;\n  color: #f37e95;\n}\n\ndiv.stars {\n  display: inline-block;\n  text-align: right;\n  font-size: .8rem;\n}\n\ndiv.slide {\n  display: inline-block;\n  font-size: .8rem;\n  width: 35%;\n}\n\n.section ul {\n  margin-top: 25px;\n  list-style: none;\n  padding: 0;\n}\n\ndiv.carousel-caption i {\n  color: #ffabbb;\n  font-size: 1.1rem;\n}\n\ndiv.spot-footer {\n  text-align: right;\n}\n\nh6.rating {\n  color: gray;\n}\n", ""]);
+exports.push([module.i, "agm-map {\n  height: 300px;\n}\n\n.fullWidth img {\n  border-radius: 0;\n}\n\n.fullWidth div.carousel-caption {\n  text-align: center;\n}\n\nagm-map {\n  height: 250px;\n}\n\ndiv.icon-container {\n  text-align: center;\n  margin-top: 18px;\n}\n\n.icon-container div.icon {\n  display: inline-block;\n  width: 15%;\n  height: 50px;\n  margin-left: 2px;\n  font-size: .9rem;\n  margin-bottom: 0;\n}\n\nhr {\n  margin-top: .3rem;\n  margin-bottom: 1rem;\n}\n\n.icon i {\n  font-size: 1.8rem;\n  margin: 0;\n  display: block;\n  color: lightgray;\n}\n\n.section a {\n  color: #f37e95;\n}\n\ndiv.rate {\n  margin-top: 20px;\n}\n\ndiv.number {\n  text-align: left;\n  display: inline-block;\n  width: 28%;\n}\n\n.number h1 {\n  font-size: 4rem;\n  color: #f37e95;\n}\n\ndiv.stars {\n  display: inline-block;\n  text-align: right;\n  font-size: .8rem;\n}\n\ndiv.slide {\n  display: inline-block;\n  font-size: .8rem;\n  width: 35%;\n}\n\n.section ul {\n  margin-top: 25px;\n  list-style: none;\n  padding: 0;\n}\n\ndiv.carousel-caption i {\n  color: #ffabbb;\n  font-size: 1.1rem;\n}\n\ndiv.spot-footer {\n  text-align: right;\n}\n\nh6.rating {\n  color: gray;\n}", ""]);
 
 // exports
 
@@ -2410,7 +2425,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/spot/spot.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"spot\" class=\"fullWidth\">\n  <ngb-carousel>\n    <ng-template ngbSlide *ngFor=\"let photo of spot.photos\">\n      <img src=\"{{photo}}\" alt=\"Random first slide\">\n      <div class=\"carousel-caption\">\n        <h5> {{ spot.spotName }} </h5>\n        <span *ngFor=\"let star of rating\">\n          <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n        </span>\n      </div>\n    </ng-template>\n  </ngb-carousel>\n</div>\n\n<div *ngIf=\"spot\" class=\"container\">\n\n  <ngb-tabset>\n    <ngb-tab title=\"Destacados\">\n      <ng-template ngbTabContent>\n        <div class=\"icon-container\">\n          <div class=\"icon\"><i class=\"fa fa-users\" aria-hidden=\"true\"></i>algo</div>\n          <div class=\"icon\"><i class=\"fa fa-btc\" aria-hidden=\"true\"></i>algo</div>\n          <div class=\"icon\"><i class=\"fa fa-tree\" aria-hidden=\"true\"></i>algo</div>\n          <div class=\"icon\"><i class=\"fa fa-bed\" aria-hidden=\"true\"></i>algo</div>\n          <div class=\"icon\"><i class=\"fa fa-user-secret\" aria-hidden=\"true\"></i>algo</div>\n          <div class=\"icon\"><i class=\"fa fa-car\" aria-hidden=\"true\"></i>algo</div>\n        </div>\n        <hr>\n        <div class=\"section\">\n          <div class=\"title\"><h5>Descripción</h5></div>\n          <div class=\"description\"><p>{{spot.description}}</p></div>\n        </div>\n        <hr>\n        <div class=\"section\">\n          <div class=\"column\"><h5>Disponibilidad</h5></div>\n          <div class=\"column right\">\n            <a [routerLink]=\"['/', spot._id, 'calendar']\">Ver calendario</a>\n          </div>\n        </div>\n        <hr>\n        <div class=\"section\">\n          <div class=\"column\"><h5>Precios</h5></div>\n          <div class=\"column right\"><a>Ver detalles</a></div>\n        </div>\n        <hr>\n        <div class=\"section\">\n          <div class=\"column\"><h5>Quiero visitarla</h5></div>\n          <div class=\"column right\"><a>Pedir cita</a></div>\n        </div>\n        <hr>\n      \n        <agm-map [latitude]=\"lat\" [longitude]=\"lng\" [scrollwheel]=\"false\" [zoom]=\"zoom\" \n                 [styles]=\"styles\" scaleControl=\"false\">\n            <agm-marker [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\n        </agm-map>\n      </ng-template>\n    </ngb-tab>\n\n    <ngb-tab title=\"Instalaciones\">\n      <ng-template ngbTabContent>\n        <div class=\"section\">\n          <ul>\n            <li *ngFor=\"let places of spot.features.places\"><h6>{{places}}</h6></li>\n          </ul>\n        </div>\n        <hr>\n        <div class=\"section\">\n          <div class=\"column\"><h5>Condiciones de uso</h5></div>\n          <div class=\"column right\"><a>Saber más</a></div>\n        </div>\n        <hr>\n        <div class=\"section\">\n          <div class=\"column\"><h5>Servicios</h5></div>\n          <div class=\"column right\"><a>Ver detalle</a></div>\n        </div>\n        <hr>\n        <div class=\"section\">\n          <div class=\"column\"><h5>Quiero visitarla</h5></div>\n          <div class=\"column right\"><a>Pedir cita</a></div>\n        </div>\n      </ng-template>\n    </ngb-tab>\n\n    <ngb-tab title=\"Opiniones\">\n      <ng-template ngbTabContent>\n        <div class=\"rate\">\n          <div class=\"number\">\n            <h1 *ngIf=\"ratingGlobal\">{{ratingGlobal}}</h1>\n            <h6 class=\"rating\">Sobre 5</h6>\n          </div>\n          <div class=\"stars\">\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <br>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <br>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <br>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <br>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n          </div>\n          <div class=\"slide\">\n          </div>\n          <hr>\n        </div>\n\n        <app-comments></app-comments>\n      </ng-template>\n    </ngb-tab>\n  </ngb-tabset>\n  <hr>\n\n  <div class=\"spot-footer\">\n    <button [routerLink]=\"['/', spot._id, 'calendar']\">Ver disponibilidad</button>\n  </div>\n  \n</div>"
+module.exports = "<div *ngIf=\"spot\" class=\"fullWidth\">\n  <ngb-carousel>\n    <ng-template ngbSlide *ngFor=\"let photo of spot.photos\">\n      <img src=\"{{photo}}\" alt=\"Random first slide\">\n      <div class=\"carousel-caption\">\n        <h5> {{ spot.spotName }} </h5>\n        <span *ngFor=\"let star of rating\">\n          <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n        </span>\n      </div>\n    </ng-template>\n  </ngb-carousel>\n</div>\n\n<div *ngIf=\"spot\" class=\"container\">\n\n  <ngb-tabset>\n    <ngb-tab title=\"Destacados\">\n      <ng-template ngbTabContent>\n        <div class=\"icon-container\">\n          <div class=\"icon\"><i class=\"fa fa-users\" aria-hidden=\"true\"></i>algo</div>\n          <div class=\"icon\"><i class=\"fa fa-btc\" aria-hidden=\"true\"></i>algo</div>\n          <div class=\"icon\"><i class=\"fa fa-tree\" aria-hidden=\"true\"></i>algo</div>\n          <div class=\"icon\"><i class=\"fa fa-bed\" aria-hidden=\"true\"></i>algo</div>\n          <div class=\"icon\"><i class=\"fa fa-user-secret\" aria-hidden=\"true\"></i>algo</div>\n          <div class=\"icon\"><i class=\"fa fa-car\" aria-hidden=\"true\"></i>algo</div>\n        </div>\n        <hr>\n        <div class=\"section\">\n          <div class=\"title\"><h5>Descripción</h5></div>\n          <div class=\"description\"><p>{{spot.description}}</p></div>\n        </div>\n        <hr>\n        <div class=\"section\">\n          <div class=\"column\"><h5>Disponibilidad</h5></div>\n          <div class=\"column right\">\n            <a [routerLink]=\"['/', spot._id, 'calendar']\">Ver calendario</a>\n          </div>\n        </div>\n        <hr>\n        <div class=\"section\">\n          <div class=\"column\"><h5>Precios</h5></div>\n          <div class=\"column right\"><a>Ver detalles</a></div>\n        </div>\n        <hr>\n        <div class=\"section\">\n          <div class=\"column\"><h5>Quiero visitarla</h5></div>\n          <div class=\"column right\" *ngIf=\"user\"><a (click)=\"open(content, user)\">Pedir cita</a></div>\n          <div class=\"column right not-user\" *ngIf=\"!user\">Pedir cita</div>\n        </div>\n        <hr>\n      \n        <agm-map [latitude]=\"lat\" [longitude]=\"lng\" [scrollwheel]=\"false\" [zoom]=\"zoom\" \n                 [styles]=\"styles\" scaleControl=\"false\">\n            <agm-marker [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\n        </agm-map>\n      </ng-template>\n    </ngb-tab>\n\n    <ngb-tab title=\"Instalaciones\">\n      <ng-template ngbTabContent>\n        <div class=\"section\">\n          <ul>\n            <li *ngFor=\"let places of spot.features.places\"><h6>{{places}}</h6></li>\n          </ul>\n        </div>\n        <hr>\n        <div class=\"section\">\n          <div class=\"column\"><h5>Condiciones de uso</h5></div>\n          <div class=\"column right\"><a>Saber más</a></div>\n        </div>\n        <hr>\n        <div class=\"section\">\n          <div class=\"column\"><h5>Servicios</h5></div>\n          <div class=\"column right\"><a>Ver detalle</a></div>\n        </div>\n        <hr>\n        <div class=\"section\">\n          <div class=\"column\"><h5>Quiero visitarla</h5></div>\n          <div class=\"column right\" *ngIf=\"user\"><a (click)=\"open(content, user.email)\">Pedir cita</a></div>\n          <div class=\"column right not-user\" *ngIf=\"!user\">Pedir cita</div>\n        </div>\n      </ng-template>\n    </ngb-tab>\n\n    <ngb-tab title=\"Opiniones\">\n      <ng-template ngbTabContent>\n        <div class=\"rate\">\n          <div class=\"number\">\n            <h1 *ngIf=\"ratingGlobal\">{{ratingGlobal}}</h1>\n            <h6 class=\"rating\">Sobre 5</h6>\n          </div>\n          <div class=\"stars\">\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <br>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <br>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <br>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n            <br>\n            <i class=\"fa fa-star\" aria-hidden=\"true\"></i>\n          </div>\n          <div class=\"slide\">\n          </div>\n          <hr>\n        </div>\n\n        <app-comments></app-comments>\n      </ng-template>\n    </ngb-tab>\n  </ngb-tabset>\n  <hr>\n\n  <div class=\"spot-footer\">\n    <button [routerLink]=\"['/', spot._id, 'calendar']\">Ver disponibilidad</button>\n  </div>\n\n  <ng-template #content let-c=\"close\" let-d=\"dismiss\">\n      <div class=\"modal-header\">\n        <h4 class=\"modal-title\">Mensaje enviado a {{ spot.spotName }}</h4>\n        <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"d('Cross click')\">\n          <span aria-hidden=\"true\">&times;</span>\n        </button>\n      </div>\n      <div class=\"modal-body\">\n        <p>Le hemos enviado un correo con tus datos de contacto, pronto recibirás noticias.</p>\n      </div>\n    </ng-template>\n  \n</div>"
 
 /***/ }),
 
@@ -2421,7 +2436,9 @@ module.exports = "<div *ngIf=\"spot\" class=\"fullWidth\">\n  <ngb-carousel>\n  
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SpotComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_spot_service__ = __webpack_require__("../../../../../src/app/services/spot.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_spot_service__ = __webpack_require__("../../../../../src/app/services/spot.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2434,11 +2451,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
 var SpotComponent = (function () {
-    function SpotComponent(router, route, spotService) {
+    function SpotComponent(router, route, spotService, config, modalService, auth) {
         this.router = router;
         this.route = route;
         this.spotService = spotService;
+        this.modalService = modalService;
+        this.auth = auth;
         this.rating = [];
         this.zoom = 11;
         this.currentJustify = 'justified';
@@ -2683,9 +2705,15 @@ var SpotComponent = (function () {
                 ]
             }
         ];
+        config.justify = 'justified';
     }
     SpotComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.user = this.auth.getUser();
+        this.auth.getLoginEventEmitter()
+            .subscribe(function (user) {
+            _this.user = user;
+        });
         this.route.params
             .subscribe(function (params) {
             _this.spotService.spot(params['id'])
@@ -2709,18 +2737,40 @@ var SpotComponent = (function () {
             });
         });
     };
+    SpotComponent.prototype.open = function (content, user) {
+        var _this = this;
+        this.spotService.sendEmail(this.spot, user)
+            .subscribe();
+        this.modalService.open(content).result.then(function (result) {
+            _this.closeResult = "Closed with: " + result;
+        }, function (reason) {
+            _this.closeResult = "Dismissed " + _this.getDismissReason(reason);
+        });
+    };
+    SpotComponent.prototype.getDismissReason = function (reason) {
+        if (reason === __WEBPACK_IMPORTED_MODULE_2__ng_bootstrap_ng_bootstrap__["a" /* ModalDismissReasons */].ESC) {
+            return 'by pressing ESC';
+        }
+        else if (reason === __WEBPACK_IMPORTED_MODULE_2__ng_bootstrap_ng_bootstrap__["a" /* ModalDismissReasons */].BACKDROP_CLICK) {
+            return 'by clicking on a backdrop';
+        }
+        else {
+            return "with: " + reason;
+        }
+    };
     return SpotComponent;
 }());
 SpotComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-spot',
         template: __webpack_require__("../../../../../src/app/spot/spot.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/spot/spot.component.css")]
+        styles: [__webpack_require__("../../../../../src/app/spot/spot.component.css")],
+        providers: [__WEBPACK_IMPORTED_MODULE_2__ng_bootstrap_ng_bootstrap__["g" /* NgbTabsetConfig */]]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_spot_service__["a" /* SpotService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_spot_service__["a" /* SpotService */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__services_spot_service__["a" /* SpotService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_spot_service__["a" /* SpotService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__ng_bootstrap_ng_bootstrap__["g" /* NgbTabsetConfig */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ng_bootstrap_ng_bootstrap__["g" /* NgbTabsetConfig */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__ng_bootstrap_ng_bootstrap__["e" /* NgbModal */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ng_bootstrap_ng_bootstrap__["e" /* NgbModal */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_auth_service__["a" /* AuthService */]) === "function" && _f || Object])
 ], SpotComponent);
 
-var _a, _b, _c;
+var _a, _b, _c, _d, _e, _f;
 //# sourceMappingURL=spot.component.js.map
 
 /***/ }),
