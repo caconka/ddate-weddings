@@ -758,7 +758,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/messages/messages.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  messages works!\n</p>\n"
+module.exports = "<p>\n  not yet available :(\n</p>\n"
 
 /***/ }),
 
