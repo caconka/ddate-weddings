@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SpotService } from '../services/spot.service';
 import { NgbTabsetConfig } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { SpotService } from '../services/spot.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-spot',
@@ -11,9 +13,11 @@ import { NgbTabsetConfig } from '@ng-bootstrap/ng-bootstrap';
 })
 export class SpotComponent implements OnInit {
 
+  user: object;
   spot;
   rating: Array<string> = [];
   ratingGlobal;
+  closeResult: string;
   zoom: number = 11;
   lat: number;
   lng: number;
@@ -261,11 +265,18 @@ export class SpotComponent implements OnInit {
   ]; 
 
   constructor( private router: Router, private route: ActivatedRoute,
-               private spotService: SpotService, config: NgbTabsetConfig) {
+               private spotService: SpotService, config: NgbTabsetConfig,
+               private modalService: NgbModal, private auth: AuthService) {
     config.justify = 'justified';
   }
 
   ngOnInit() {
+    this.user = this.auth.getUser();
+    this.auth.getLoginEventEmitter()
+    .subscribe(user => {  
+      this.user = user;
+    });
+
     this.route.params
     .subscribe(params => {
       this.spotService.spot(params['id'])
@@ -291,4 +302,24 @@ export class SpotComponent implements OnInit {
     });
   }
 
+  open(content, user) {
+    this.spotService.sendEmail(this.spot, user)
+    .subscribe();
+    this.modalService.open(content).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
+  }
+  
 }

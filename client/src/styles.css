@@ -278,3 +278,8 @@ div.column.right {
   position: absolute;
   right: 0;
 }
+
+div.not-user {
+  color: gray;
+  text-decoration: line-through;
+}

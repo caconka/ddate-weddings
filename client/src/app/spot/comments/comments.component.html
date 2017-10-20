@@ -25,5 +25,6 @@
 <hr>
 <div *ngIf="spot" class="section">
   <div class="column"><h5>Escribir una opinion</h5></div>
-  <div class="column right"><a [routerLink]="['/', spot._id, 'comment', 'create']">Mensaje</a></div>
+  <div class="column right" *ngIf="user"><a [routerLink]="['/', spot._id, 'comment', 'create']">Mensaje</a></div>
+  <div class="column right not-user" *ngIf="!user">Mensaje</div>
 </div>

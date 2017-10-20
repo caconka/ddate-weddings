@@ -97,8 +97,8 @@ module.exports = {
       const mailOptions = {
         from: process.env.PATH_USER,
         to: process.env.PATH_SEND,
-        subject: spot.spotName,
-        text: req.body.text
+        subject: `Solicitud para ${spot.spotName}`,
+        html: req.body.text
       };
 
       transporter.sendMail(mailOptions).exec()

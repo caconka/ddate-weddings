@@ -45,7 +45,8 @@
         <hr>
         <div class="section">
           <div class="column"><h5>Quiero visitarla</h5></div>
-          <div class="column right"><a>Pedir cita</a></div>
+          <div class="column right" *ngIf="user"><a (click)="open(content, user)">Pedir cita</a></div>
+          <div class="column right not-user" *ngIf="!user">Pedir cita</div>
         </div>
         <hr>
       
@@ -76,7 +77,8 @@
         <hr>
         <div class="section">
           <div class="column"><h5>Quiero visitarla</h5></div>
-          <div class="column right"><a>Pedir cita</a></div>
+          <div class="column right" *ngIf="user"><a (click)="open(content, user.email)">Pedir cita</a></div>
+          <div class="column right not-user" *ngIf="!user">Pedir cita</div>
         </div>
       </ng-template>
     </ngb-tab>
@@ -123,5 +125,17 @@
   <div class="spot-footer">
     <button [routerLink]="['/', spot._id, 'calendar']">Ver disponibilidad</button>
   </div>
+
+  <ng-template #content let-c="close" let-d="dismiss">
+      <div class="modal-header">
+        <h4 class="modal-title">Mensaje enviado a {{ spot.spotName }}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Le hemos enviado un correo con tus datos de contacto, pronto recibirás noticias.</p>
+      </div>
+    </ng-template>
   
 </div>

@@ -90,4 +90,19 @@ export class SpotService {
       .catch(this.handleError);
   }
 
+  sendEmail(spot, user) {
+    const spotId = spot._id;
+    const text = `
+      <p>Hola,</p>
+      <p><b>${user.name}</b> solicita información sobre ${spot.spotName}.</p>
+      <p>Sus datos de contacto son:</p>
+      <p>Email: ${user.email}</p>
+      <p>Teléfono: ${user.phone}</p>
+    `;
+
+    return this.http.post(`${BASEURL}/spot/${spotId}/send-email`, { text }, this.options)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
+
 }

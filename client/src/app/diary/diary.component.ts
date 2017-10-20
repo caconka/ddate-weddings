@@ -20,7 +20,6 @@ export class DiaryComponent implements OnInit {
   months: Array<string> = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
                            'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre',
                            'Diciembre'];
-  closeResult: string;
   eventDay: number;
   time: object = {hour: 13, minute: 30};
   modalAdd: boolean;
