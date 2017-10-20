@@ -1,6 +1,8 @@
 const _ = require('lodash');
 const Spot = require('./spot.model');
 const calculate = require('azimuth');
+const nodemailer = require('nodemailer');
+require('dotenv').config();
 
 module.exports = {
   signupPost: (req, res, next) => {
@@ -79,6 +81,33 @@ module.exports = {
     Spot.findByIdAndRemove(spotId).exec()
     .then(spot => res.status(200).json(spot))
     .catch(e => res.status(400).json({ message: 'Something went wrong' }));
+  },
+
+  sendEmailPost: (req, res, next) => {
+    const spotId = req.params.id;
+    Spot.findById(spotId).populate('userId').exec()
+    .then(spot => {
+      const transporter = nodemailer.createTransport({
+        service: 'Gmail',
+        auth: {
+          user: process.env.PATH_USER,
+          pass: process.env.PATH_PASS
+        }
+      });
+      const mailOptions = {
+        from: process.env.PATH_USER,
+        to: process.env.PATH_SEND,
+        subject: spot.spotName,
+        text: req.body.text
+      };
+
+      transporter.sendMail(mailOptions).exec()
+      .then(info => {
+        console.log('Message sent: ' + info.response);
+        res.status(200).json(alerts);
+      })
+      .catch(e => res.status(400).json({ message: 'Something went wrong' }));
+    })
   }
 
 }

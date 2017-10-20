@@ -10,7 +10,7 @@
         <div *ngFor="let day of week" class="week">
           <div *ngIf="day.length" class="day-avai day" (click)="showEvent(day)">{{day}}</div>
           <div *ngIf="!day.length && day === 0" class="day-zero day">.</div>
-          <div *ngIf="!day.length && day !== 0" class="day-not day" (click)="open(day)"><p>{{day}}</p></div>
+          <div *ngIf="!day.length && day !== 0" class="day-not day" (click)="open(day)">{{day}}</div>
         </div>
       </div>
     </div>

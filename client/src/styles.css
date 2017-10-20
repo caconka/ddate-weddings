@@ -162,8 +162,15 @@ p.small {
 /* Calendar */
 div.day {
   width: 30px;
-  height: 30px;
-  margin: 6px;
+  display: flex;
+  margin: 10px auto;
+  align-items: center;
+  justify-content: space-around;
+}
+
+div.week {
+  display: inline-block;
+  width: 14.1%;
 }
 
 div.calendar {
@@ -188,20 +195,15 @@ div.calendar-body {
 }
 
 div.day-avai {
+  width: 30px;
+  height: 30px;
   color: white;
   background: #ffabbb;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 div.day-not {
   color: lightgray;
-}
-
-div.week {
-  display: inline-block;
 }
 
 div.day-zero {

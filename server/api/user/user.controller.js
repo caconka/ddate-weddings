@@ -33,4 +33,5 @@ module.exports = {
     .then(providers => res.status(200).json(providers))
     .catch(e => res.status(400).json({ message: 'Somethingwent wrong' }));
   }
+
 }
