@@ -49,6 +49,12 @@
           <div class="column right not-user" *ngIf="!user">Pedir cita</div>
         </div>
         <hr>
+        <div class="section">
+          <div class="column"><h5>Contactar</h5></div>
+          <div class="column right" *ngIf="user"><a (click)="createChat(spot.userId, user._id, spot.spotName)">Iniciar chat</a></div>
+          <div class="column right not-user" *ngIf="!user">Iniciar chat</div>
+        </div>
+        <hr>
       
         <agm-map [latitude]="lat" [longitude]="lng" [scrollwheel]="false" [zoom]="zoom" 
                  [styles]="styles" scaleControl="false">
@@ -79,6 +85,13 @@
           <div class="column"><h5>Quiero visitarla</h5></div>
           <div class="column right" *ngIf="user"><a (click)="open(content, user.email)">Pedir cita</a></div>
           <div class="column right not-user" *ngIf="!user">Pedir cita</div>
+        </div>
+        <hr>
+        <div class="section">
+          <div class="column"><h5>Contactar</h5></div>
+          <div class="column right" *ngIf="user"><a (click)="createChat(spot.userId, user._id, spot.spotName)">
+            Iniciar chat</a></div>
+          <div class="column right not-user" *ngIf="!user">Iniciar chat</div>
         </div>
       </ng-template>
     </ngb-tab>

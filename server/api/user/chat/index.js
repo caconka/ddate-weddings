@@ -4,8 +4,8 @@ const { ensureLoggedIn } = require('connect-ensure-login');
 const checkIdParams = require('../../../middleware/check-id');
 const Controller = require('./chat.controller')
 
-router.get('/:userId/chats', checkIdParams, ensureLoggedIn(), Controller.getChatsGet);
-router.get('/:chatId/messages', checkIdParams, ensureLoggedIn(), Controller.getMessagesGet);
-
+router.get('/:id/chats', checkIdParams, ensureLoggedIn(), Controller.getChatsGet);
+router.get('/:id/messages', checkIdParams, ensureLoggedIn(), Controller.getMessagesGet);
+router.get('/:providerId/:userId/:title/create-chat', ensureLoggedIn(), Controller.createChatGet);
 
 module.exports = router;

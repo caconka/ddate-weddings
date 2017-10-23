@@ -56,4 +56,11 @@ export class UserService {
       .map(res => res.json())
       .catch(this.handleError);
   }
+
+  createChat(providerId, userId, title) {
+    return this.http.get(`${BASEURL}/chat/${providerId}/${userId}/${title}/create-chat`, this.options)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
+
 }

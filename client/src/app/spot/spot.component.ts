@@ -4,6 +4,7 @@ import { NgbTabsetConfig } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { SpotService } from '../services/spot.service';
 import { AuthService } from '../services/auth.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-spot',
@@ -266,7 +267,8 @@ export class SpotComponent implements OnInit {
 
   constructor( private router: Router, private route: ActivatedRoute,
                private spotService: SpotService, config: NgbTabsetConfig,
-               private modalService: NgbModal, private auth: AuthService) {
+               private modalService: NgbModal, private auth: AuthService,
+               private userService: UserService ) {
     config.justify = 'justified';
   }
 
@@ -320,6 +322,12 @@ export class SpotComponent implements OnInit {
     } else {
       return  `with: ${reason}`;
     }
+  }
+
+  createChat(providerId, userId, title) {
+    console.log(title)
+    this.userService.createChat(providerId, userId, title)
+    .subscribe();
   }
   
 }
