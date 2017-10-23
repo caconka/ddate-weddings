@@ -5,7 +5,7 @@ module.exports = {
   getChatsGet: (req, res, next) => {
     const userId = req.params.id;
 
-    Chat.find({ userId }).populate('providerId').exec()
+    Chat.find({ userId }).exec()
     .then(chats => res.status(200).json(chats))
     .catch(e => res.status(400).json({ message: 'Something went wrong' }));
   },
@@ -19,16 +19,15 @@ module.exports = {
   },
 
   createChatGet: (req, res, next) => {
-    const providerId = req.params.providerId;
     const userId = req.params.userId;
-    const title = req.params.title;
+    const spotId = req.params.spotId;
 
-    Chat.findOne({ userId, providerId, title }).exec()
+    Chat.findOne({ userId, spotId }).exec()
     .then(chat => {
       if(chat)
         return res.status(400).json({ message: 'The chat already exists' });
       
-      const newChat = new Chat({ providerId, userId, title });
+      const newChat = new Chat({ userId, spotId });
       newChat.save()
       .then(chat => res.status(200).json(chat))
     })

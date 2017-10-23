@@ -51,7 +51,7 @@
         <hr>
         <div class="section">
           <div class="column"><h5>Contactar</h5></div>
-          <div class="column right" *ngIf="user"><a (click)="createChat(spot.userId, user._id, spot.spotName)">Iniciar chat</a></div>
+          <div class="column right" *ngIf="user"><a (click)="createChat(user._id, spot._id)">Iniciar chat</a></div>
           <div class="column right not-user" *ngIf="!user">Iniciar chat</div>
         </div>
         <hr>
@@ -89,8 +89,7 @@
         <hr>
         <div class="section">
           <div class="column"><h5>Contactar</h5></div>
-          <div class="column right" *ngIf="user"><a (click)="createChat(spot.userId, user._id, spot.spotName)">
-            Iniciar chat</a></div>
+          <div class="column right" *ngIf="user"><a (click)="createChat(user._id, spot._id)">Iniciar chat</a></div>
           <div class="column right not-user" *ngIf="!user">Iniciar chat</div>
         </div>
       </ng-template>

@@ -324,9 +324,8 @@ export class SpotComponent implements OnInit {
     }
   }
 
-  createChat(providerId, userId, title) {
-    console.log(title)
-    this.userService.createChat(providerId, userId, title)
+  createChat(userId, spotId) {
+    this.userService.createChat(userId, spotId)
     .subscribe();
   }
   
