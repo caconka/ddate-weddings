@@ -63,4 +63,16 @@ export class UserService {
       .catch(this.handleError);
   }
 
+  getChats(userId) {
+    return this.http.get(`${BASEURL}/chat/${userId}/chats`, this.options)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
+
+  getMessagesChat(chatId) {
+    return this.http.get(`${BASEURL}/chat/${chatId}/messages`, this.options)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
+
 }

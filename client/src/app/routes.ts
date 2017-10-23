@@ -24,7 +24,7 @@ export const routes: Routes = [
     { path: 'profile', component: ProfileComponent, canActivate: [IsLoggedInService] },
     { path: 'profile/edit', component: EditProfileComponent,
       canActivate: [IsLoggedInService] },
-    { path: 'messages', component: MessagesComponent,
+    { path: ':id/messages', component: MessagesComponent,
       canActivate: [IsLoggedInService] },
     { path: ':id/diary', component: DiaryComponent, canActivate: [IsLoggedInService] },
     { path: ':id/view', component: SpotComponent },
