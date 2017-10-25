@@ -75,4 +75,10 @@ export class UserService {
       .catch(this.handleError);
   }
 
+  createMessage(chatId, author, content) {
+    return this.http.post(`${BASEURL}/chat/${chatId}/add-message`, { author, content }, this.options)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
+
 }

@@ -9,7 +9,7 @@
     </div>
   </div>
 
-  <div *ngIf="modalMess">
+  <div *ngIf="modalMess && messages">
     <span aria-hidden="true" id="close" (click)="closeChat()">&times;</span>
     <h5 class="title">Envía tu mensaje</h5>
     <div class="message other"><span>Qué tal?</span></div>

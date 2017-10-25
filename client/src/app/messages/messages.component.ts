@@ -45,4 +45,9 @@ export class MessagesComponent implements OnInit {
     this.modalMess = false;
   }
 
+  createMessage(chatId, author, content) {
+    this.userService.createMessage(chatId, author, content)
+    .subscribe()
+  }
+
 }
