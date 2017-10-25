@@ -3,7 +3,7 @@
     <h5 class="title">Mensajes</h5>
     <div *ngFor="let chat of chats" class="section">
       <div class="column photo"><img [src]="chat.spotId.photos[0]" alt=""></div>
-      <div class="column middle"><b>{{ chat.spotId.spotName }}</b></div>
+      <div class="column middle"><a (click)="openChat(chat._id)"><b>{{ chat.spotId.spotName }}</b></a></div>
       <div class="column right"><a (click)="openChat(chat._id)">Ver</a></div>
       <hr>
     </div>
@@ -12,5 +12,7 @@
   <div *ngIf="modalMess">
     <span aria-hidden="true" id="close" (click)="closeChat()">&times;</span>
     <h5 class="title">Envía tu mensaje</h5>
+    <div class="message other"><span>Qué tal?</span></div>
+    <div class="message me"><span>pues nada aquí</span></div>
   </div>
 </div>

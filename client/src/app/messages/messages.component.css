@@ -23,7 +23,7 @@ div.middle {
   position: absolute;
   top: 0;
   margin-left: 10px;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 div.right {
@@ -36,4 +36,26 @@ span#close {
   top: 60px;
   margin-right: 10px;
   font-size: 2rem;
+}
+
+div.message {
+  padding: 7px 10px;
+  margin-bottom: 5px;
+  max-width: 75%;
+  width: fit-content;
+  text-align: justify;
+}
+
+div.me {
+  margin-left: auto;
+  margin-right: 0;
+  text-align: right;
+  background: #ffc2ce;
+  border-radius: 5px 5px 0 5px;
+}
+
+div.other {
+  text-align: left;
+  background: rgba(211, 211, 211, 0.76);
+  border-radius: 5px 5px 5px 0;
 }
