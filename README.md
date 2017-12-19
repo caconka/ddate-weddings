@@ -1,7 +1,9 @@
 <h1>DDATES</h1>
 
-<img src="https://imgur.com/KjRGaen" height="400" style="display: inline-block;"/>
-<img src="https://imgur.com/p46C4Ww" height="400" style="display: inline-block;"/>
-<img src="https://imgur.com/rro4nvo" height="400" style="display: inline-block;p"/>
+<img src="https://i.imgur.com/KjRGaen.png" height="400" style="display: inline-block;"/>
+<img src="https://i.imgur.com/p46C4Ww.png" height="400" style="display: inline-block;"/>
+<img src="https://i.imgur.com/rro4nvo.png" height="400" style="display: inline-block;"/>
 
-<img src="https://imgur.com/DtCQfnk" height="400" />
+<div style="text-align: center;">
+  <img src="https://i.imgur.com/DtCQfnk.gif" height="400" />
+</div>
