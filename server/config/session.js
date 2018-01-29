@@ -1,4 +1,3 @@
-require('dotenv').config();
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const mongoose = require('mongoose');

@@ -2,7 +2,6 @@ const _ = require('lodash');
 const Spot = require('./spot.model');
 const calculate = require('azimuth');
 const nodemailer = require('nodemailer');
-require('dotenv').config();
 
 module.exports = {
   signupPost: (req, res, next) => {

@@ -7,7 +7,7 @@ const cors = require('cors');
 
 const whitelist = ['http://localhost:4200'];
 const corsOptions = {
-  origin: function(origin, callback) {
+  origin: (origin, callback) => {
       const originIsWhitelisted = whitelist.indexOf(origin) !== -1;
       callback(null, originIsWhitelisted);
   },
